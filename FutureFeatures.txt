@@ -1,4 +1,4 @@
-----Simplest Website----
+----Simplest Website
 
 List of trails
 -location
@@ -36,7 +36,7 @@ View trails
 -images
 -title
 -POIs
--creator name
+-creater name
 
 Categorization 
 -type (dogs, hikes, history)
