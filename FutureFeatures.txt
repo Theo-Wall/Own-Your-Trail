@@ -36,7 +36,7 @@ View trails
 -images
 -title
 -POIs
--creater name
+-creator name
 
 Categorization 
 -type (dogs, hikes, history)
