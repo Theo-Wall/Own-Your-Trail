@@ -13,6 +13,7 @@ Add new trails
 -add images
 -add title
 -add POIs
+-route description (instead of a map initially)
 
 Rating
 -add rating 
