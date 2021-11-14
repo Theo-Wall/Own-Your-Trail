@@ -1,2 +1,61 @@
+----Simplest Website
+
+List of trails
+-location
+-images
+-title
+-photos
+-POIs
+-display rating
+
+Add new trails
+-add location
+-add images
+-add title
+-add POIs
+
+Rating
+-add rating 
+
+----MVP features----
+
+Create a log in
+-user history (completed walks, favorites, saved walks)
+-user data (user name, password, location, avatar)
+
+Add new trails
+-location
+-images
+-title
+-photos
+-POIs
+-user name
+
+View trails
+-location
+-images
+-title
+-POIs
+-creater name
+
+Categorization 
+-type (dogs, hikes, history)
+
+Rating
+-trail feedback
+
+
+----Stretch Features----
+
+Add to existing trails
+-comment on trails
+-add new POIs
+
 Deploy to the net
-create a log in feature
+
+Users can add to other users walks
+
+Categorization
+-difficulty
+-location
+-weather
