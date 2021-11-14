@@ -51,6 +51,7 @@ Add to existing trails
 -comment on trails
 -add new POIs
 -geotagging of images and POI descriptions
+-showing POIs and trail vector on an interactive map
 
 Deploy to the net
 
