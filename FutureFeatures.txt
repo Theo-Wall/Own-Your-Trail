@@ -61,4 +61,4 @@ Users can add to other users walks
 Categorization
 -difficulty
 -location
--weather
+weather
