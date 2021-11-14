@@ -50,6 +50,7 @@ Rating
 Add to existing trails
 -comment on trails
 -add new POIs
+-geotagging of images and POI descriptions
 
 Deploy to the net
 
