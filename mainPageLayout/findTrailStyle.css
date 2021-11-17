@@ -1,0 +1,136 @@
+body {
+  line-height: 1.6;
+
+  display: grid;
+  grid-template: 
+  "header header" 5em
+  "nav nav" 5em
+  "sidebar main " 60vh
+  "weather ." 40vh
+  "footer footer" 3em
+  / 20em minmax(60em, 5fr); 
+
+  grid-column-gap: 1.5em;
+    
+}
+
+header {
+
+  grid-area: header;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  grid-area: nav;
+  background-color: lightcoral;
+  display: grid;
+  grid-template: 
+  "title . link1 link2" 5em
+  / 2fr 1fr 2fr 2fr;
+
+
+}
+
+.nav-title {
+  background-color: lime;
+  grid-area: title;
+  align-items: center;
+  justify-content: left;
+
+}
+
+.nav-button-1 {
+  background-color: magenta;
+  grid-area: link1;
+  padding: 0.5em;
+  align-self: center;
+  justify-self: center;
+  padding: 0.5em;
+  font-size: x-large;
+
+}
+
+.nav-button-2 {
+  background-color: mediumturquoise;
+  grid-area: link2;
+  padding: 0.5em;
+  align-self: center;
+  justify-self: center;
+  padding: 0.5em;
+  font-size: x-large;
+}
+
+.card {
+  display: grid;
+  z-index: 10;
+  grid-template:
+    "img title" 10em
+    "img content" 10em / minmax(15em, 0.4fr) 3fr;
+    /* ". button" 10em / 1fr; */
+  grid-column-gap: 1.5em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  padding: 1.5em;
+  margin-top: 1.5em;
+  
+}
+
+.card-img {
+  grid-area: img;
+  max-width: 100%;
+}
+
+.card-title {
+  grid-area: title;
+  margin: 0;
+  font-weight: 300;
+}
+
+.card-content {
+  grid-area: content;
+
+}
+
+.card-button {
+  grid-area: button;
+}
+
+main {
+  grid-area: main;
+  overflow-y: auto;
+  
+  padding: 1em;
+  overflow-x: visible;
+  height: 100vh;
+  width: fill;
+}
+
+aside {
+
+  grid-area: sidebar;
+  background-color: lightgreen;
+  padding: 2em;
+}
+
+.weather {
+  grid-area: weather;
+  background-color: green;
+}
+
+footer {
+  z-index: 20;
+  grid-area: footer;
+  background-color: grey;
+  justify-content: center;
+  text-align: center;
+  opacity: 100%;
+}
+
