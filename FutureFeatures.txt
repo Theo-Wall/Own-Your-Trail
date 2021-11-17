@@ -1,5 +1,11 @@
 ----Simplest Website----
 
+This will support the adding of new trails to the website by users.
+Trail will display Name, photos of location, a description of the trail,
+and directions to get to the trail. User data will consist of a internal
+user ID and a user Name. Site will consist of a all trails page, a add
+trails page, and a individual trail page.
+
 List of trails
 -location
 -images
