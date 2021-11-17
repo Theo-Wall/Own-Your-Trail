@@ -96,11 +96,6 @@ nav {
 
 .card-content {
   grid-area: content;
-
-}
-
-.card-button {
-  grid-area: button;
 }
 
 main {
@@ -119,6 +114,8 @@ aside {
   background-color: lightgreen;
   padding: 2em;
 }
+
+
 
 .weather {
   grid-area: weather;
