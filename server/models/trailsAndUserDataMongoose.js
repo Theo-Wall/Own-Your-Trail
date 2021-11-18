@@ -13,6 +13,7 @@ const UserData = mongoose.model('UserData', {   "userId": Number,               
 
 
 async function createTrail(trailData) { //write catch block for errors
+    console.log(trailData)
     let newTrail = new Trail(trailData)
     console.log (newTrail)
     let createdTrail = await newTrail.save()

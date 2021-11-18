@@ -3,7 +3,7 @@ const {createTrail,createUser,listTrails,listUsers} = require('../models/trailsA
 const express = require('express')
 const router = express.Router()
 
-const dummyTrail = [{
+const dummyTrail = {
     "userId": 1,
   "trailName": "trail1" ,
   "photos": ["https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw"],
@@ -15,12 +15,12 @@ const dummyTrail = [{
     // photos: ["https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw"],
     // trailDescription: "I walked this trail every day with my grand pappy and so should you.",
     // trailMap: "turn left at cowboy ave and take a right at lasso st"
-  }]
+  }
 
-const dummyUser = [{
+const dummyUser = {
     userId: 1,
     userName: "Theo"
-  }]
+  }
 
 router.get('/createTrail', async (req, res) => {
     let trailInfo = dummyTrail //req.query.trailFormData
