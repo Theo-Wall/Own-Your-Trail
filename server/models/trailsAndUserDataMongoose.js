@@ -1,14 +1,14 @@
 const mongoose = require('./mongooseDb')
 
 const Trail = mongoose.model('Trail', {   "userId": Number,                                 // add in required inputs
-                                            "trailName": {type: String, required: true},
+                                            "trailName": String, //{type: String, required: true},
                                             "photos": [String],
                                             "trailDescription": String,
                                             "trailMap": String
                                         })
                                         
 const UserData = mongoose.model('UserData', {   "userId": Number,                               // add in required inputs
-                                                "userName": {type: String, required: true}
+                                                "userName": String //{type: String, required: true}
                                             })
 
 
