@@ -21,8 +21,6 @@ Add new trails
 -add POIs
 -route description (instead of a map initially)
 
-Rating
--add rating 
 
 ----MVP features----
 
@@ -45,10 +43,12 @@ View trails
 -POIs
 -creator name
 
+
 Categorization 
 -type (dogs, hikes, history)
 
 Rating
+-add rating 
 -trail feedback
 
 
@@ -59,6 +59,7 @@ Add to existing trails
 -add new POIs
 -geotagging of images and POI descriptions
 -showing POIs and trail vector on an interactive map
+-location to store photos - within Mongo or its own database?
 
 Deploy to the net
 
