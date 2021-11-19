@@ -51,15 +51,17 @@ nav {
 
 }
 
-.nav-button-1 {
-  background-color: 116466;
-  grid-area: link1;
-  padding: 0.5em;
-  align-self: center;
-  justify-self: center;
-  padding: 0.5em;
-  font-size: x-large;
-
+button {
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+}
+button:hover{
+	cursor: pointer;
 }
 
 .nav-button-2 {
