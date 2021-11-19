@@ -1,6 +1,6 @@
 body {
   line-height: 1.6;
-
+  background-color: #2c3531;
   display: grid;
   grid-template: 
   "header header" 5em
@@ -17,11 +17,13 @@ body {
 header {
 
   grid-area: header;
-  background-color: lightblue;
+  background-color: #1c3334;
+  color: #f5eec2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 
 
@@ -31,7 +33,7 @@ nav {
   z-index: 100;
 
   grid-area: nav;
-  background-color: lightcoral;
+  background-color: #376e6f;
   display: grid;
   grid-template: 
   "title . link1 link2" 5em
@@ -41,7 +43,7 @@ nav {
 }
 
 .nav-title {
-  background-color: lime;
+  background-color: 116466;
   grid-area: title;
   align-items: center;
   justify-content: left;
@@ -49,7 +51,7 @@ nav {
 }
 
 .nav-button-1 {
-  background-color: magenta;
+  background-color: 116466;
   grid-area: link1;
   padding: 0.5em;
   align-self: center;
@@ -60,7 +62,7 @@ nav {
 }
 
 .nav-button-2 {
-  background-color: mediumturquoise;
+  background-color: d1e8e2;
   grid-area: link2;
   padding: 0.5em;
   align-self: center;
@@ -101,6 +103,8 @@ nav {
 main {
   grid-area: main;
   overflow-y: auto;
+
+  color: aliceblue;
   
   padding: 1em;
   overflow-x: visible;
@@ -111,7 +115,8 @@ main {
 aside {
 
   grid-area: sidebar;
-  background-color: lightgreen;
+  background-color: #2f4454;
+  color: aliceblue;
   padding: 2em;
 }
 
@@ -119,7 +124,8 @@ aside {
 
 .weather {
   grid-area: weather;
-  background-color: green;
+  background-color: #2f4454;
+  color: aliceblue;
 }
 
 footer {
