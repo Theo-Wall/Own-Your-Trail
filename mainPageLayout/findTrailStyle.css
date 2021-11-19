@@ -34,6 +34,7 @@ nav {
 
   grid-area: nav;
   background-color: #376e6f;
+  color: aliceblue;
   display: grid;
   grid-template: 
   "title . link1 link2" 5em
