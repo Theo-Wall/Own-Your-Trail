@@ -1,0 +1,20 @@
+.mainArea {
+    color: black;
+    font-size: small;
+    
+    display: grid;
+    grid-template: 
+    "refinedSearch main" 80vh
+    / 10em auto;
+}
+
+.refinedSearch {
+    grid-area: "refinedSearch";
+    background-color: orange;
+    text-align: center;
+}
+
+.main {
+    grid-area: "main";
+    background-color: thistle;
+}

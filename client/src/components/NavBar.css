@@ -1,0 +1,8 @@
+.navigationBar {
+    background-color: darkslateblue;
+    color: white;
+    text-align: center;
+    font-size: medium;
+    /* margin: 20px; */
+    padding: 1em;
+}
