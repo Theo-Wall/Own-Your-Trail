@@ -2,7 +2,7 @@ import './NavBar.css'
 
 const NavBar = () => {
     return (
-        <div className='navigationBar'>Navigation Bar of Optimum</div>
+        <div className='navigation-bar'>Navigation Bar of Optimum</div>
     )
 }
 

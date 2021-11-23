@@ -1,4 +1,4 @@
-.mainArea {
+.main-area {
     color: black;
     font-size: small;
     
@@ -8,7 +8,7 @@
     / 10em auto;
 }
 
-.refinedSearch {
+.refined-search {
     grid-area: "refinedSearch";
     background-color: orange;
     text-align: center;
