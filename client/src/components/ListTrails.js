@@ -10,26 +10,17 @@ import { useState, useEffect } from 'react'
 // }
 
 const ListTrails = () => {
-    const [trailData, setTrailData] = useState({})
+    const [trailData, setTrailData] = useState([])
     
     useEffect(() => {
         const fetchTrailData = async () => {
           let fetchResult = await fetch('/api/listTrails')
           let fetchedTrails = await fetchResult.json()
-          setTrailData(fetchedTrails[0])  // force trailData to one of the array elements
+          setTrailData(fetchedTrails)  
         }
         fetchTrailData()
       }, [])
     
-    // async function getTrailsDammit () {
-    //     console.log('ListTrails is working so far.')
-    //     let fetchTrailData = await fetch ('/api/listTrails')
-    //     let fetchedTrailData = await fetchTrailData.json()
-    //     console.log(fetchedTrailData)
-    //     return fetchedTrailData
-    // }
-    // setTrailData (getTrailsDammit ())
-    // // let trailData = data[0]
     console.log(trailData)
     return (
         <div className='trails-table'>
