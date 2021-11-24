@@ -1,13 +1,6 @@
 import './ListTrails.css'
 import { useState, useEffect } from 'react'
-
-// const fetchTrailData = {
-//     userId: 1,
-//     trailName: "the trail1" ,
-//     photos: ["https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw"," https://thePhotoDamIt.com"],
-//     trailDescription: "I walked this trail every day with my grand pappy and so should you.",
-//     trailMap: "turn left at cowboy ave and take a right at lasso st"
-// }
+import TrailRow from './TrailRow'
 
 const ListTrails = () => {
     const [trailData, setTrailData] = useState([])
@@ -35,12 +28,23 @@ const ListTrails = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {
+                        trailData.map((trail)=> {
+                            return (
+                                <TrailRow   key={trail._id}
+                                            name={trail.trailName}
+                                            photos={trail.photos}
+                                            description={trail.trailDescription}
+                                            map={trail.trailMap}
+                                /> )
+                        })
+                    }
+                    {/* <tr>
                         <td>{trailData.trailName}</td>
                         <td>{trailData.photos}</td>
                         <td>{trailData.trailDescription}</td>
                         <td>{trailData.trailMap}</td>
-                    </tr>
+                    </tr> */}
                 </tbody>
             </table>
         </div>

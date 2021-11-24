@@ -51,6 +51,13 @@ Rating
 -add rating 
 -trail feedback
 
+Error Handling
+-API & endpoints
+-input validation (photos, other?, usernames)
+-schema required error at database
+
+Navigation Bar Upgrades
+-make navigation buttons change shade when you are in the page they take you to
 
 ----Stretch Features----
 

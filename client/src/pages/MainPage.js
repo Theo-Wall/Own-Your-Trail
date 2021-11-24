@@ -1,7 +1,7 @@
-import './Main.css'
-import ListTrails from './ListTrails'
+import './MainPage.css'
+import ListTrails from '../components/ListTrails'
 
-const Main = () => {
+const MainPage = () => {
     return (
         <div className='main-area'>
             <div className="refined-search">sidebar</div>
@@ -12,4 +12,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default MainPage
