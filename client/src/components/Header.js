@@ -2,7 +2,7 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <div className='titleHeader'>Trail List Header</div>
+        <div className='title-header'>Trail List Header</div>
     )
 }
 

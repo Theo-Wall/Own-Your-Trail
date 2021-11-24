@@ -32,7 +32,7 @@ const ListTrails = () => {
     // // let trailData = data[0]
     console.log(trailData)
     return (
-        <div className='trailsTable'>
+        <div className='trails-table'>
             <h3>Trail Title</h3>
             <table>
                 <thead>
