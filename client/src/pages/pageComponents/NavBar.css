@@ -1,8 +1,13 @@
 .navigation-bar {
-    background-color: darkslateblue;
+    background-color: rgba(211, 112, 0, 0.815);
     color: white;
     text-align: center;
     font-size: medium;
     /* margin: 20px; */
     padding: 1em;
+}
+
+span {
+    margin: 1em;
+    display: inline-block;
 }
