@@ -17,7 +17,7 @@ const CreateTrailPage = () => {
 
         const newTrail = {  userId: user,
                             trailName: title,
-                            photos: photos,
+                            photos: [photos],
                             trailDescription: description,
                             trailMap: location}
 
