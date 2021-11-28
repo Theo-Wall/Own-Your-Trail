@@ -1,7 +1,7 @@
 import './NavBar.css'
 import { Link } from "react-router-dom"
  
-const NavBar = ({toCreateTrail}) => {
+const NavBar = () => {
     return (
         <div className='navigation-bar'>
             <div >Navigation Bar of Optimum</div>

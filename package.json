@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && npm start && cd .."
+    "install": "npm run install-client && npm run install-server",
+    "start": "cd server && npm start && cd ..",
+    "install-client": "cd client && npm install && cd ..",
+    "install-server": "cd server && npm install && cd .."
   },
   "repository": {
     "type": "git",
