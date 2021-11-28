@@ -32,7 +32,6 @@ router.get('/createUser', async (req, res) => {
 })
 
 router.get('/listTrails', async (req, res) => {
-    console.log('we made it into the listTrails API endpoint')
     res.json(await listTrails())
 })
 
