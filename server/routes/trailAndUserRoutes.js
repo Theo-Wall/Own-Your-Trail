@@ -1,4 +1,4 @@
-const {createTrail,createUser,listTrails,listUsers} = require('../models/trailsAndUserDataMongoose')
+const {createTrail,createUser,listTrails,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
 
 const express = require('express')
 const router = express.Router()
@@ -17,7 +17,7 @@ const dummyUser = {
     userName: "Theo"
   }
 
-router.get('/createTrail', async (req, res) => {
+router.get('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
     let trailInfo = dummyTrail //req.query.trailFormData
     newId = await createTrail(trailInfo)
     returnedString = 'go check the database for the new Trail ID: '+newId
@@ -32,8 +32,13 @@ router.get('/createUser', async (req, res) => {
 })
 
 router.get('/listTrails', async (req, res) => {
-    console.log('we made it into the listTrails API endpoint')
     res.json(await listTrails())
+})
+
+router.get('/getTrailInfo/:id', async (req, res) => {
+    let trailId=req.params.id
+    console.log('we made it into the getTrailbyId API endpoint', trailId)
+    res.json(await getTrailById(trailId))
 })
 
 router.get('/listUsers', async (req, res) => {

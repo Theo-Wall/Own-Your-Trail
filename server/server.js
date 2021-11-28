@@ -4,6 +4,7 @@ const trailAndUserRouter = require('./routes/trailAndUserRoutes')
 const app = express()
 const port = 5001
 
+app.use(express.json())
 app.use('/api',trailAndUserRouter)
 app.use('/', express.static('../client/build'))
 

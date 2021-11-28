@@ -23,9 +23,9 @@ async function createUser(userData) { //write catch block for errors
     let createdUser = await newUser.save()
     return createdUser.id
 }
-// async function findRoomById(id) {
-//     return Room.findById(id)
-// }
+async function getTrailById(id) {
+    return Trail.findById(id)
+}
 
 // async function findRoomByName(roomName) {
 //     return Room.findOne({name: roomName})
@@ -44,7 +44,7 @@ async function listUsers() {
 module.exports = {
     createTrail,
     createUser,
-//     findRoomById,
+    getTrailById,
 //     findRoomByName,
     listTrails,
     listUsers
