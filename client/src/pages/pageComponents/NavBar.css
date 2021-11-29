@@ -1,13 +1,37 @@
 .navigation-bar {
-    background-color: rgba(211, 112, 0, 0.815);
-    color: white;
-    text-align: center;
+    background-color: #EFEDE0;
+    color: #555555;
+    text-align: right;
     font-size: medium;
+    font-family: sans-serif;
     /* margin: 20px; */
-    padding: 1em;
+    padding-top: 0.100em;
+}
+
+.app-name {
+    text-align: center;
+    
 }
 
 span {
     margin: 1em;
     display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+.text-link {
+    text-decoration: none;
+    color: #555555;
+    font-family: sans-serif;
+    font-weight: 800;
+
+}
+
+.text-link:hover{
+    color: #8AA899;
+}
+
+button {
+    padding: 8px;
 }
