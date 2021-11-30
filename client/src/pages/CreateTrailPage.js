@@ -15,7 +15,7 @@ const CreateTrailPage = () => {
 
     // initializes variable to capture image url from upload
 
-    let trailImages
+    let imageUrl
 
     // upload image function triggered by upload photos button. creates a FormData object that required image data can be 
     // appended to. Then I used axios to post the data to cloudinary to save the images "https://cloudinary.com"
@@ -56,7 +56,7 @@ const CreateTrailPage = () => {
 
         const newTrail = {  userId: user,
                             trailName: title,
-                            images: ["hi"],
+                            images: [imageUrl],
                             trailDescription: description,
                             trailMap: location,
             }

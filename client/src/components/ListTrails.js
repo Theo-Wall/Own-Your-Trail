@@ -2,7 +2,7 @@ import './ListTrails.css'
 import { useState, useEffect } from 'react'
 import TrailRow from './TrailRow'
 
-const ListTrails = () => {
+const ListTrails = ({setTrailId}) => {
     const [trailData, setTrailData] = useState([])
     
     useEffect(() => {
@@ -31,7 +31,9 @@ const ListTrails = () => {
                     {
                         trailData.map((trail)=> {
                             return (
-                                <TrailRow   key={trail._id}
+                                <TrailRow   setTrailId={setTrailId}
+                                            key={trail._id}
+                                            id={trail._id}
                                             name={trail.trailName}
                                             photos={trail.photos}
                                             description={trail.trailDescription}

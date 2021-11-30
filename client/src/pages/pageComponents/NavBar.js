@@ -1,7 +1,8 @@
 import './NavBar.css'
 import { Link } from "react-router-dom"
  
-const NavBar = () => {
+const NavBar = ({setTrailId}) => {
+
     return (
         <div className='navigation-bar'>
             <div >Navigation Bar of Optimum</div>
@@ -10,7 +11,7 @@ const NavBar = () => {
             <Link to="/createTrailPage" >Create Trail Page</Link>
             </span>
             <span>
-            <Link to="/">Go Home</Link> 
+            <Link to="/" onClick = {() => {setTrailId(undefined)}}>Go Home</Link> 
             </span>
         </div>
     )
