@@ -17,11 +17,11 @@ const dummyUser = {
     userName: "Theo"
   }
 
-router.get('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
-    let trailInfo = dummyTrail //req.query.trailFormData
+router.post('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
+    let trailInfo = req.body
     newId = await createTrail(trailInfo)
     returnedString = 'go check the database for the new Trail ID: '+newId
-    res.send(returnedString)
+    // res.send(returnedString)
 })
 
 router.get('/createUser', async (req, res) => {

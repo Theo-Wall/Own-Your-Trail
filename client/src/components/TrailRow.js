@@ -10,7 +10,6 @@
 const TrailRow = ({ setTrailId, id, name, photos, description, map }) => {
 
     const setId = (id) => {
-        console.log ('button click', id)
         setTrailId(id)
     }
 

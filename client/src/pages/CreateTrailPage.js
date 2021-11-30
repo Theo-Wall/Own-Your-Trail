@@ -16,7 +16,7 @@ const CreateTrailPage = () => {
 
     // initializes variable to capture image url from upload
 
-    let imagePublicId
+    let imageUrl
 
     // upload image function triggered by upload photos button. creates a FormData object that required image data can be 
     // appended to. Then I used axios to post the data to cloudinary to save the images "https://cloudinary.com"
@@ -30,7 +30,7 @@ const CreateTrailPage = () => {
             imageData.append('upload_preset', 'ce4xv6hv')
 
         Axios.post('https://api.cloudinary.com/v1_1/ddcynhc98/image/upload', imageData).then((response) => {
-            imagePublicId = response.data.public_id
+            imageUrl = response.data.secure_url
             console.log(response)
         })
         event.preventDefault()
@@ -47,7 +47,7 @@ const CreateTrailPage = () => {
 
         const newTrail = {  userId: user,
                             trailName: title,
-                            images: [imagePublicId],
+                            images: [imageUrl],
                             trailDescription: description,
                             trailMap: location,
             }
