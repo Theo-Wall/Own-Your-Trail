@@ -1,5 +1,4 @@
 import './CreateTrailPage.css'
-import Axios from 'axios'
 import {useRef} from 'react'
 
 
@@ -21,19 +20,29 @@ const CreateTrailPage = () => {
     // upload image function triggered by upload photos button. creates a FormData object that required image data can be 
     // appended to. Then I used axios to post the data to cloudinary to save the images "https://cloudinary.com"
 
-    const uploadImage = (event) => {
-
+    const uploadImage = async (event) => {
+        event.preventDefault()
         const files = trailPhotos.current.files
 
         const imageData = new FormData()
-            imageData.append('file', files[0])
-            imageData.append('upload_preset', 'ce4xv6hv')
+        imageData.append('image', files[0])
+ 
 
-        Axios.post('https://api.cloudinary.com/v1_1/ddcynhc98/image/upload', imageData).then((response) => {
-            imageUrl = response.data.secure_url
-            console.log(response)
-        })
-        event.preventDefault()
+        imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
+                method: 'POST',
+                body: imageData,
+                headers: {
+                    Accept: 'multipart/form-data', 
+                },
+                credentials: 'include',
+            })
+            .then(res => res.json())
+            .catch(error => {
+                console.error(error)
+            })
+        console.log(imageUrl)
+
+        
     }  
 
     // captures the rest of the input data from the form. also assigns the image url to the new Trail object. We need to
@@ -83,7 +92,7 @@ const CreateTrailPage = () => {
                 </div>
                 <div className="trail-photos">
                     <label htmlFor="photos">Trail photos:</label>
-                    <input ref={trailPhotos} id="photos" type="file" placeholder="Your photo URLs"></input>
+                    <input ref={trailPhotos} id="photos" type="file" placeholder="Your photo URLs" name="image" accept="image/*" multiple={true}></input>
                     <button onClick={(event) => {uploadImage(event)}}>Upload Photos</button>
                 </div>
                 <button onClick = {(event)=>{captureNewTrailData(event)}}>Create Your Trail</button>
