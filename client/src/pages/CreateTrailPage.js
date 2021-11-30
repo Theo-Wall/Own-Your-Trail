@@ -28,7 +28,7 @@ const CreateTrailPage = () => {
         imageData.append('image', files[0])
  
 
-        trailImages = await fetch(`http://localhost:5001/api/addImage`, {
+        imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
                 method: 'POST',
                 body: imageData,
                 headers: {
@@ -40,7 +40,7 @@ const CreateTrailPage = () => {
             .catch(error => {
                 console.error(error)
             })
-        console.log(trailImages)
+        console.log(imageUrl)
 
         
     }  
