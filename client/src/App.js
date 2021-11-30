@@ -1,4 +1,4 @@
-import Header from './pages/pageComponents/Header'
+
 import NavBar from './pages/pageComponents/NavBar'
 import MainPage from './pages/MainPage'
 import CreateTrailPage from './pages/CreateTrailPage'
