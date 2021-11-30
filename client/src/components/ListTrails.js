@@ -35,7 +35,7 @@ const ListTrails = ({setTrailId}) => {
                                             key={trail._id}
                                             id={trail._id}
                                             name={trail.trailName}
-                                            photos={trail.photos}
+                                            photos={trail.photos[0]}
                                             description={trail.trailDescription}
                                             map={trail.trailMap}
                                 /> )
