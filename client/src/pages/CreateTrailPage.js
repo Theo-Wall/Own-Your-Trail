@@ -23,10 +23,12 @@ const CreateTrailPage = () => {
     const uploadImage = async (event) => {
         event.preventDefault()
         const files = trailPhotos.current.files
-
         const imageData = new FormData()
-        imageData.append('image', files[0])
- 
+        // files.map((photo) => {
+        //   imageData.append('image', photo)  
+        // })
+        imageData.append('image', files[0])  
+        console.log(imageData)
 
         imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
                 method: 'POST',
@@ -40,6 +42,7 @@ const CreateTrailPage = () => {
             .catch(error => {
                 console.error(error)
             })
+
         console.log(imageUrl)
 
         

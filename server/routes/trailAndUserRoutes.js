@@ -43,7 +43,7 @@ router.post('/addImage', upload.array('image'), async (req, res) => {
             const urls = []
     
             const files = req.files
-    
+            // res.send(files)
             for (const file of files) {
                 const { path } = file
             
