@@ -1,5 +1,5 @@
 const {createTrail,createUser,listTrails,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
-const cloudinary = require("../utils/cloudinary");
+const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const fs = require('fs')
 const express = require('express')
