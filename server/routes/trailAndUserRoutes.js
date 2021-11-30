@@ -1,7 +1,18 @@
 const {createTrail,createUser,listTrails,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
-
+const cloudinary = require("../utils/cloudinary");
+const upload = require("../utils/multer")
+const fs = require('fs')
 const express = require('express')
 const router = express.Router()
+
+// const storage = multer.memoryStorage({
+//     destination: function (req, files, callback) {
+//         callback(null, "");
+//     },
+// });
+// let multipleUpload = multer({ storage: storage }).array("image")
+
+
 
 const dummyTrail = {
     "userId": 1,
@@ -20,14 +31,47 @@ const dummyUser = {
 router.get('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
     let trailInfo = dummyTrail //req.query.trailFormData
     newId = await createTrail(trailInfo)
-    returnedString = 'go check the database for the new Trail ID: '+newId
+    returnedString = 'go check the database for the new Trail ID: '+ newId
     res.send(returnedString)
 })
+
+router.post('/addImage', upload.array('image'), async (req, res) => {
+    try {
+        const uploader = async (path) => await cloudinary.uploads(path, 'images')
+        
+        if(req.method === 'POST') {
+            const urls = []
+    
+            const files = req.files
+    
+            for (const file of files) {
+                const { path } = file
+            
+                const newPath = await uploader(path)
+            
+                urls.push(newPath)
+            
+                fs.unlinkSync(path)
+            }
+
+            res.send({
+                message: 'Images Uploaded Successfully',
+                data: urls
+            })
+        } else {
+            res.send.json()({
+                err: 'Upload Failed'
+            })
+        }
+    } catch (error) {
+        console.log('rejected in routes', error)
+    }
+    })
 
 router.get('/createUser', async (req, res) => {
     let userInfo = dummyUser //req.query.userFormData
     newId = await createUser(userInfo)
-    returnedString = 'go check the database for the new User ID: '+newId
+    returnedString = 'go check the database for the new User ID: '+ newId
     res.send(returnedString)
 })
 
@@ -36,8 +80,8 @@ router.get('/listTrails', async (req, res) => {
 })
 
 router.get('/getTrailInfo/:id', async (req, res) => {
-    let trailId=req.params.id
-    console.log('we made it into the getTrailbyId API endpoint', trailId)
+    let trailId = req.params.id
+    console.log('we made it into the getTrailById API endpoint', trailId)
     res.json(await getTrailById(trailId))
 })
 
