@@ -7,7 +7,7 @@
 // }
 
 // import { CloudinaryContext, Image } from 'cloudinary-react'
-const TrailRow = ({ setTrailId, id, name, photos, description, map,primaryPhoto }) => {
+const TrailRow = ({ setTrailId, id, name, photos, description, map, primaryPhoto }) => {
 
     const setId = (id) => {
         setTrailId(id)
