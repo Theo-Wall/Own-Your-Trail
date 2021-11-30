@@ -1,5 +1,5 @@
 import './CreateTrailPage.css'
-import {useRef} from 'react'
+import {useRef,useState} from 'react'
 
 
 
@@ -15,9 +15,9 @@ const CreateTrailPage = () => {
 
     // initializes variable to capture image url from upload
 
-    let imageUrl
+    const [ imageUpload, setImageUpload] = useState({})
 
-    // describe this
+    // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
 
     const uploadImage = async (event) => {
         event.preventDefault()
@@ -28,7 +28,9 @@ const CreateTrailPage = () => {
             imageData.append('image', files[i])  
         }        
 
-        imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
+// fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
+
+    let imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
                 method: 'POST',
                 body: imageData,
                 headers: {
@@ -41,8 +43,7 @@ const CreateTrailPage = () => {
                 console.error(error)
             })
 
-        console.log(imageUrl)
-
+        setImageUpload(imageUrl.data)
         
     }  
 
@@ -50,6 +51,8 @@ const CreateTrailPage = () => {
     // work on how to upload multiple photos at once.
 
     const captureNewTrailData = (event) => {
+        event.preventDefault()
+
         const user = userId.current.value
         const title = trailTitle.current.value
         const description = trailDescription.current.value
@@ -57,12 +60,25 @@ const CreateTrailPage = () => {
 
         const newTrail = {  userId: user,
                             trailName: title,
-                            images: [imageUrl],
+                            photos: imageUpload,
                             trailDescription: description,
                             trailMap: location,
+                            primaryPhoto: 0
             }
-            console.log('click', newTrail)
-            event.preventDefault()
+
+        console.log('click', newTrail)
+        
+        fetch(`http://localhost:5001/api/createTrail`, {
+        method: 'POST',
+        body: JSON.stringify(newTrail),
+        headers: {
+            'Content-Type': 'application/json', 
+            },
+        })
+            .catch(error => {
+                console.error(error)
+        })    
+
         }                       
 
     return (

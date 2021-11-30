@@ -1,10 +1,11 @@
 const mongoose = require('./mongooseDb')
 
-const Trail = mongoose.model('Trail', {   "userId": Number,                                 // add in required inputs
-                                            "trailName": {type: String, required: true},
-                                            "photos": [String],
-                                            "trailDescription": String,
-                                            "trailMap": String
+const Trail = mongoose.model('Trail', {     userId: String,                                 // add in required inputs
+                                            trailName: String,
+                                            photos: [{url: String, description: String}],
+                                            trailDescription: String,
+                                            trailMap: String,
+                                            primaryPhoto: Number
                                         })
                                         
 const UserData = mongoose.model('UserData', {   "userId": Number,                               // add in required inputs
@@ -12,9 +13,11 @@ const UserData = mongoose.model('UserData', {   "userId": Number,               
                                             })
 
 
-async function createTrail(trailData) { //write catch block for errors
+async function createTrail(trailData) { 
+    
     let newTrail = new Trail(trailData)
     let createdTrail = await newTrail.save()
+    console.log('TrailData in mongoose:', createdTrail)
     return createdTrail.id
 }
 
