@@ -1,9 +1,12 @@
 import '../ShowTrailDetailPage.css'
 
-let ShowTrailPhoto = ({photo}) => {
+let ShowTrailPhoto = ({photo,photoDescription}) => {
                     return (
                       <a href={photo}>
-                        <img className='photo-thumbnails' src={photo} alt="trail" />
+                        <span>
+                          <img className='photo-thumbnails' src={photo} alt="trail" />
+                          <h5>{photoDescription}</h5>
+                        </span>
                       </a>
                     )
                   }

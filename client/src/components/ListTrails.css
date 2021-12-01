@@ -10,3 +10,11 @@ h3 {
 table {
     margin: auto;
 }
+
+.photo-thumbnails {
+
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 75px; /* Set a small width */
+}
