@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,400&display=swap');
 .navigation-bar {
     background-color: #EFEDE0;
     color: #555555;
     text-align: right;
     font-size: medium;
-    font-family: sans-serif;
+    font-family: ubuntu;
     /* margin: 20px; */
     padding-top: 0.100em;
 }
