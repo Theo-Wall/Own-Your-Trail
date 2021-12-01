@@ -1,5 +1,5 @@
 const {createTrail,createUser,listTrails,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
-const cloudinary = require("../utils/cloudinary");
+const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const fs = require('fs')
 const express = require('express')
@@ -31,8 +31,7 @@ const dummyUser = {
 router.post('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
     let trailInfo = req.body
     newId = await createTrail(trailInfo)
-    returnedString = 'go check the database for the new Trail ID: '+ newId
-    res.send(returnedString)
+    res.send(newId)
 })
 
 router.post('/addImage', upload.array('image'), async (req, res) => {
@@ -43,7 +42,7 @@ router.post('/addImage', upload.array('image'), async (req, res) => {
             const urls = []
     
             const files = req.files
-    
+  
             for (const file of files) {
                 const { path } = file
             

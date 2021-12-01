@@ -14,7 +14,6 @@ const ListTrails = ({setTrailId}) => {
         fetchTrailData()
       }, [])
     
-    console.log(trailData)
     return (
         <div className='trails-table'>
             <h3>Trail Title</h3>
@@ -36,17 +35,12 @@ const ListTrails = ({setTrailId}) => {
                                             id={trail._id}
                                             name={trail.trailName}
                                             photos={trail.photos}
+                                            primaryPhoto={trail.primaryPhoto}
                                             description={trail.trailDescription}
                                             map={trail.trailMap}
                                 /> )
                         })
                     }
-                    {/* <tr>
-                        <td>{trailData.trailName}</td>
-                        <td>{trailData.photos}</td>
-                        <td>{trailData.trailDescription}</td>
-                        <td>{trailData.trailMap}</td>
-                    </tr> */}
                 </tbody>
             </table>
         </div>

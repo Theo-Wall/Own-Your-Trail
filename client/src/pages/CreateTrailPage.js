@@ -1,5 +1,5 @@
 import './CreateTrailPage.css'
-import {useRef} from 'react'
+import {useRef,useState} from 'react'
 
 
 
@@ -12,23 +12,26 @@ const CreateTrailPage = () => {
     const trailDescription = useRef()
     const trailLocation = useRef()
     const trailPhotos = useRef()
+    const photoDescription = useRef()
 
     // initializes variable to capture image url from upload
 
-    let imageUrl
+    const [ imageUpload, setImageUpload ] = useState({})
 
-    // upload image function triggered by upload photos button. creates a FormData object that required image data can be 
-    // appended to. Then I used axios to post the data to cloudinary to save the images "https://cloudinary.com"
+    // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
 
     const uploadImage = async (event) => {
         event.preventDefault()
         const files = trailPhotos.current.files
-
         const imageData = new FormData()
-        imageData.append('image', files[0])
- 
+        
+        for (let i = 0; i < Object.keys(files).length; i++) {
+            imageData.append('image', files[i])  
+        }        
 
-        imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
+// fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
+
+    let imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
                 method: 'POST',
                 body: imageData,
                 headers: {
@@ -40,28 +43,48 @@ const CreateTrailPage = () => {
             .catch(error => {
                 console.error(error)
             })
-        console.log(imageUrl)
 
-        
+        setImageUpload(imageUrl.data)
+        console.log(imageUpload)
     }  
 
     // captures the rest of the input data from the form. also assigns the image url to the new Trail object. We need to
     // work on how to upload multiple photos at once.
 
     const captureNewTrailData = (event) => {
+        event.preventDefault()
+
         const user = userId.current.value
         const title = trailTitle.current.value
         const description = trailDescription.current.value
         const location = trailLocation.current.value
+        const photoFlavour = photoDescription.current.value
+
+        imageUpload.map(image => {
+           return image.description = photoFlavour
+        })
 
         const newTrail = {  userId: user,
                             trailName: title,
-                            images: [imageUrl],
+                            photos: imageUpload,
                             trailDescription: description,
                             trailMap: location,
+                            primaryPhoto: 0
             }
-            console.log('click', newTrail)
-            event.preventDefault()
+
+        console.log('click', newTrail)
+        
+        fetch(`http://localhost:5001/api/createTrail`, {
+        method: 'POST',
+        body: JSON.stringify(newTrail),
+        headers: {
+            'Content-Type': 'application/json', 
+            },
+        })
+            .catch(error => {
+                console.error(error)
+        })    
+
         }                       
 
     return (
@@ -92,8 +115,12 @@ const CreateTrailPage = () => {
                 </div>
                 <div className="trail-photos">
                     <label htmlFor="photos">Trail photos:</label>
-                    <input ref={trailPhotos} id="photos" type="file" placeholder="Your photo URLs" name="image" accept="image/*" multiple={true}></input>
+                    <input ref={trailPhotos} id="photos" type="file" name="image" accept="image/*" multiple={true}></input>
                     <button onClick={(event) => {uploadImage(event)}}>Upload Photos</button>
+                </div>
+                <div className="photo-description">
+                    <label htmlFor="photoDescription">Photo Description</label>
+                    <input ref={photoDescription} id="photoDescription" type="text" placeholder="Describe the photos"></input>
                 </div>
                 <button onClick = {(event)=>{captureNewTrailData(event)}}>Create Your Trail</button>
             </form>
