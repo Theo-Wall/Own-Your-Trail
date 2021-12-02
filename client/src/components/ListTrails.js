@@ -12,7 +12,7 @@ const ListTrails = ({setTrailId}) => {
           setTrailData(fetchedTrails)  
         }
         fetchTrailData()
-      }, [])
+      }, [trailData])
     
     return (
         <div className='trails-table'>

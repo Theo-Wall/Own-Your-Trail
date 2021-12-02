@@ -1,16 +1,28 @@
-.trail-title {
+.body {
+    display: grid;
+    grid-template:
+    "mainLeft mainRight" 15em
+    "photo photo" 30em
+    / 50% 50%
+}
 
+h3 {
+    grid-area: title;
+    text-align: left;
+    padding-left: 10px;
+    /* align-content: top; */
+}
+
+.main-input {
+    grid-area: mainLeft;
+    padding: 25px;
 }
 
 .trail-description {
-    resize: "none";
-    height: "100 px";
-}
+    grid-area: mainRight;
+    align-content: top;
+    
 
-.trail-location {
-
-}
-
-.trail-photos {
-
+    
+    padding: 25px;
 }
