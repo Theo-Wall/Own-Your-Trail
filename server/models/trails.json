@@ -1,28 +1,36 @@
 [{
-  "userId": 1,
+  "userId": "Theo",
   "trailName": "trail1" ,
-  "photos": ["https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw"],
+  "photos": [{"url": "https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw", "description": "down by the valley"}],
   "trailDescription": "I walked this trail every day with my grand pappy and so should you.",
-  "trailMap": "turn left at cowboy ave and take a right at lasso st"
+  "trailMap": "turn left at cowboy ave and take a right at lasso st",
+  "primaryPhoto": 0,
+  "cityQuadrant": "NW"
 },
 {
-  "userId": 2,
+  "userId": "Reza",
   "trailName": "trail2" ,
-  "photos": ["https://www.google.com/maps/d/thumbnail?mid=1EsuMsSVRbaHQIJ9qj9ovhTjcmBM"],
+  "photos": [{"url": "https://www.google.com/maps/d/thumbnail?mid=1EsuMsSVRbaHQIJ9qj9ovhTjcmBM", "description": "yep, that's the tree"}],
   "trailDescription": "My dog loves taking dumps by this fir tree.",
-  "trailMap": "just follow the smell of dog shit"
+  "trailMap": "just follow the smell of dog shit",
+  "primaryPhoto": 0,
+  "cityQuadrant": "NW"
 },
 {
-  "userId": 3,
+  "userId": "Dustin",
   "trailName": "trail3" ,
-  "photos": ["https://image.shutterstock.com/image-vector/urban-vector-city-map-calgary-260nw-1016154418.jpg"],
+  "photos": [{"url": "https://image.shutterstock.com/image-vector/urban-vector-city-map-calgary-260nw-1016154418.jpg", "description": "the pile of spaghetti I slipped on"}],
   "trailDescription": "I used to walk this trail before I fell and broke my hip, now I want all you youngsters to enjoy it.",
-  "trailMap": "right behind Mrs. Frundles house on the end of 6th ave"
+  "trailMap": "right behind Mrs. Frundles house on the end of 6th ave",
+  "primaryPhoto": 1,
+  "cityQuadrant": "SW"
 },
 {
-  "userId": 4,
+  "userId": "Theo",
   "trailName": "trail4" ,
-  "photos": ["https://www.bestcalgaryhomes.com/wp-content/uploads/2021/08/city-centre-district-map.jpg"],
+  "photos": [{"url": "https://www.bestcalgaryhomes.com/wp-content/uploads/2021/08/city-centre-district-map.jpg", "description": "laying on my belly looking through the glass floor"}],
   "trailDescription": "Best view of all of calgary here, cant wait to share it with you.",
-  "trailMap": ""
+  "trailMap": "",
+  "primaryPhoto": 0,
+  "cityQuadrant": "SE"
 }]

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const credentials = './atlasCertificate.pem'  //attach your atlas certificate to the models directory and rename it to atlasCertificate.pem
+const credentials = './models/atlasCertificate.pem'  //attach your atlas certificate to the models directory and rename it to atlasCertificate.pem
 const database='c7Project2Mongoose'
 const uri = 'mongodb+srv://cluster0.vmoqm.mongodb.net/'+database+'?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority'
 
