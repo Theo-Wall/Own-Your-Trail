@@ -1,24 +1,34 @@
 import './CreateTrailPage.css'
-import {useRef,useState} from 'react'
+import { useState,useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import DisplayPhotoUpload from '../components/DisplayPhotoUpload'
 
 
 
 const CreateTrailPage = () => {
 
-    // initializes useRefs for capturing form data
+    let navigate = useNavigate()
 
-    const userId = useRef()
-    const trailTitle = useRef()
-    const trailDescription = useRef()
-    const trailLocation = useRef()
+    // sets page to display photo upload or to add the descriptions of the uploads
+
+    // initializes useState for capturing form data
+
     const trailPhotos = useRef()
-    const photoDescription = useRef()
-
-    // initializes variable to capture image url from upload
+    const [ userId, setUserId ] = useState('')
+    const [ trailTitle, setTrailTitle ] = useState('')
+    const [ trailDescription, setTrailDescription ] = useState('')
+    const [ trailLocation, setTrailLocation ] = useState('')
+    const [ quadrant, setQuadrant ] = useState('')
+    // useState for capturing image upload data
 
     const [ imageUpload, setImageUpload ] = useState({})
 
     // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
+
+    const onInput = (event, setter) => {
+        let newValue = event.target.value
+        setter(newValue)
+    }
 
     const uploadImage = async (event) => {
         event.preventDefault()
@@ -29,9 +39,9 @@ const CreateTrailPage = () => {
             imageData.append('image', files[i])  
         }        
 
-// fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
+    // fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
 
-    let imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
+        let imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
                 method: 'POST',
                 body: imageData,
                 headers: {
@@ -52,78 +62,93 @@ const CreateTrailPage = () => {
     // work on how to upload multiple photos at once.
 
     const captureNewTrailData = (event) => {
-        event.preventDefault()
+        // try{
+            event.preventDefault()
 
-        const user = userId.current.value
-        const title = trailTitle.current.value
-        const description = trailDescription.current.value
-        const location = trailLocation.current.value
-        const photoFlavour = photoDescription.current.value
+            const newTrail = {  userId: userId,
+                                trailName: trailTitle,
+                                photos: imageUpload,
+                                trailDescription: trailDescription,
+                                trailMap: trailLocation,
+                                cityQuadrant: quadrant,
+                                primaryPhoto: 0
+                }
 
-        imageUpload.map(image => {
-           return image.description = photoFlavour
-        })
-
-        const newTrail = {  userId: user,
-                            trailName: title,
-                            photos: imageUpload,
-                            trailDescription: description,
-                            trailMap: location,
-                            primaryPhoto: 0
-            }
-
-        console.log('click', newTrail)
-        
-        fetch(`http://localhost:5001/api/createTrail`, {
-        method: 'POST',
-        body: JSON.stringify(newTrail),
-        headers: {
-            'Content-Type': 'application/json', 
-            },
-        })
-            .catch(error => {
-                console.error(error)
-        })    
-
-        }                       
+            console.log('click', newTrail)
+            
+            fetch(`http://localhost:5001/api/createTrail`, {
+            method: 'POST',
+            body: JSON.stringify(newTrail),
+            headers: {
+                'Content-Type': 'application/json', 
+                },
+            })
+                .catch(error => {
+                    console.error(error)
+            })    
+            navigate("/")
+        // }
+        // catch (error) {
+        //     console.log(error)
+        // }
+    }                       
 
     return (
 
         // Form for inputting trail data and image upload. We need to make this pretty :)
 
-        <div>
+        <div >
             <h3>Create Your Trail</h3>
-            <form>
-                <div className="user-name">
-                    <label htmlFor="userName">User Name:</label>
-                    <input ref={userId} id="userName" type="text" placeholder="Your name"></input>
-                </div>
-                <div className="trail-title">
-                    <label htmlFor="trailTitle">Trail Name:</label>
-                    <input ref={trailTitle} id="trailTitle" type="text" placeholder="Your Trail Title"></input>
+            <form className="body">
+                
+                <div className="main-input">
+                    <h5>Trail Info</h5>
+                    <div className="user-name">
+                        <label htmlFor="userName">User Name:</label>
+                        <input value={userId} onChange={(event) => onInput(event, setUserId)} id="userName" type="text" placeholder="Your name" required></input>
+                    </div>
+                    <div className="trail-title">
+                        <label htmlFor="trailTitle">Trail Name:</label>
+                        <input value={trailTitle} onChange={(event) => onInput(event, setTrailTitle)} id="trailTitle" type="text" placeholder="Your Trail Title" required></input>
+                    </div>
+
+                    <div className="trail-location">
+                        <label htmlFor="location">Trail Map or Location:</label>
+                        <input value={trailLocation} onChange={(event) => onInput(event, setTrailLocation)} id="location" type="text" placeholder="Your Trail's Location" required></input>
+                    </div>
+                    <div>
+                      <span>City Quadrant:</span>
+                      <label htmlFor="NE">North East</label>
+                      <input type="radio" id="NE" name="cityQuadrant" value="NE" onChange={(event) => onInput(event, setQuadrant)}></input> 
+                      <label htmlFor="NW">North West</label>
+                      <input type="radio" id="NW" name="cityQuadrant" value="NW" onChange={(event) => onInput(event, setQuadrant)}></input> 
+                      <label htmlFor="SE">South East</label>
+                      <input type="radio" id="SE" name="cityQuadrant" value="SE" onChange={(event) => onInput(event, setQuadrant)}></input> 
+                      <label htmlFor="SW">South West</label>
+                      <input type="radio" id="SW" name="cityQuadrant" value="SW" onChange={(event) => onInput(event, setQuadrant)}></input> 
+                    </div>
+                    <br/>
+                    <button onClick = {(event)=>{captureNewTrailData(event)}}>Create Your Trail</button>   
                 </div>
                 <div className="trail-description">
-                    <label htmlFor="trailDescription">Trail Description:</label>
-                    <textarea   ref={trailDescription}
+                    <label htmlFor="trailDescription"></label>
+                    <textarea   value={trailDescription}
+                                cols="40" 
+                                rows="8"
+                                onChange={(event) => onInput(event, setTrailDescription)}
                                 id="trailDescription" 
                                 type="text" 
-                                placeholder="Briefly describe your trail"></textarea>
+                                placeholder="Briefly describe your trail"
+                                required
+                                ></textarea>
                 </div>
-                <div className="trail-location">
-                    <label htmlFor="location">Trail Map or Location:</label>
-                    <input ref={trailLocation} id="location" type="text" placeholder="Your Trail's Location"></input>
-                </div>
-                <div className="trail-photos">
-                    <label htmlFor="photos">Trail photos:</label>
-                    <input ref={trailPhotos} id="photos" type="file" name="image" accept="image/*" multiple={true}></input>
-                    <button onClick={(event) => {uploadImage(event)}}>Upload Photos</button>
-                </div>
-                <div className="photo-description">
-                    <label htmlFor="photoDescription">Photo Description</label>
-                    <input ref={photoDescription} id="photoDescription" type="text" placeholder="Describe the photos"></input>
-                </div>
-                <button onClick = {(event)=>{captureNewTrailData(event)}}>Create Your Trail</button>
+            <div>
+                <h5>Trail Photos</h5>
+                <DisplayPhotoUpload onUpload={uploadImage} photos={trailPhotos}/>
+            </div> 
+
             </form>
+
         </div>
     )
 }
