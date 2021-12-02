@@ -11,10 +11,35 @@
 
 .refined-search {
     grid-area: "refinedSearch";
-    background-color: #F2D349;
+    background-color: #e0efe5;
     text-align: center;
+    font-family: ubuntu;
+    margin-right: 1em;
 }
 
 .main {
     grid-area: "main";
+}
+input[type='checkbox'] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.checkbox {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border: 2px #ddd solid;
+    margin-right: 40px;
+}
+
+.checkbox--active {
+    border-color: #555555;
+    background: #5C6E58;
 }

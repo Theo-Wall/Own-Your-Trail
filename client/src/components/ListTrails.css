@@ -18,3 +18,11 @@ table {
     padding: 5px; /* Some padding */
     width: 75px; /* Set a small width */
 }
+
+h3 {
+    display: flex;
+    font-size: 2em;
+    font-family: ubuntu;
+    padding-left:2em ;
+    color: #555555;
+}

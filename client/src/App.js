@@ -3,7 +3,6 @@ import NavBar from './pages/pageComponents/NavBar'
 import MainPage from './pages/MainPage'
 import CreateTrailPage from './pages/CreateTrailPage'
 import ShowTrailDetailPage from './pages/ShowTrailDetailPage'
-
 import { Routes,Route } from "react-router-dom";
 
 
