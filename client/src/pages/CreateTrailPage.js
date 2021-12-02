@@ -30,6 +30,12 @@ const CreateTrailPage = () => {
         setter(newValue)
     }
 
+    // const setId = async (id) => {
+    //     let transferId = await id
+    //     console.log(transferId)
+    //     navigate('/PhotoDetail/'+ transferId)
+    // }
+
     const uploadImage = async (event) => {
         event.preventDefault()
         const files = trailPhotos.current.files
@@ -85,12 +91,11 @@ const CreateTrailPage = () => {
             })
                 .catch(error => {
                     console.error(error)
-            })    
-            navigate("/")
-        // }
-        // catch (error) {
-        //     console.log(error)
-        // }
+            }) 
+
+            navigate('/')
+            // setId(newId)
+
     }                       
 
     return (
