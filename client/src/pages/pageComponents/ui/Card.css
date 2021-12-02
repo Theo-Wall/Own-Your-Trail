@@ -1,0 +1,12 @@
+.card {
+    background-color: #5C6E58;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin: 2em;
+    padding: 1.5em 17em 1.5em 30em;
+  }
+
+  /* .card-row {
+    padding: 2em;
+    margin-right: 3em;
+  } */

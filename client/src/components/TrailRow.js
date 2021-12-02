@@ -11,6 +11,7 @@
 import './ListTrails.css'
 
 import { useNavigate } from 'react-router-dom'
+import Card from '../pages/pageComponents/ui/Card';
 
 const TrailRow = ({id, name, photos, description, map, primaryPhoto }) => {
     const navigate = useNavigate ()
@@ -20,6 +21,7 @@ const TrailRow = ({id, name, photos, description, map, primaryPhoto }) => {
     }
 
     return (
+        <Card>
         <tr>
             <td onClick={() => {setId(id)}}>{name}</td>
             <td>
@@ -28,6 +30,7 @@ const TrailRow = ({id, name, photos, description, map, primaryPhoto }) => {
             <td>{description}</td>
             <td>{map}</td>
         </tr>
+        </Card>
     );
 };
 
