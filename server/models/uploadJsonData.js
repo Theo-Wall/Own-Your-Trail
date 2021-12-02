@@ -3,8 +3,8 @@ const trailsData = require('./trails.json')
 const usersData = require('./users.json')
 
 
-const loadUsers = true // set to true to upload the users.json file to the Atlas database
-const loadTrailsData = true  // set to true to upload the trails.json file to the Atlas database
+const loadUsers = false // set to true to upload the users.json file to the Atlas database
+const loadTrailsData = false  // set to true to upload the trails.json file to the Atlas database
  
 async function uploadTrails (trailsData) {
     trailsData.forEach(async (trail) => {
