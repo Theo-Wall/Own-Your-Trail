@@ -7,19 +7,30 @@
 // }
 
 // import { CloudinaryContext, Image } from 'cloudinary-react'
-const TrailRow = ({ setTrailId, id, name, photos, description, map, primaryPhoto }) => {
 
-    const setId = (id) => {
-        setTrailId(id)
+import './ListTrails.css'
+
+import { useNavigate } from 'react-router-dom'
+import Card from '../pages/pageComponents/ui/Card';
+
+const TrailRow = ({id, name, photos, description, map, primaryPhoto }) => {
+    const navigate = useNavigate ()
+
+    const setId = (id) => {    
+        navigate ('/ShowTrailDetailPage/'+id)
     }
 
     return (
+        <Card>
         <tr>
             <td onClick={() => {setId(id)}}>{name}</td>
-            <td>{photos[primaryPhoto].url}</td>
+            <td>
+                <img className='photo-thumbnails' src={photos[primaryPhoto].url} alt="trail" />
+            </td>
             <td>{description}</td>
             <td>{map}</td>
         </tr>
+        </Card>
     );
 };
 

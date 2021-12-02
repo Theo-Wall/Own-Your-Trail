@@ -1,8 +1,9 @@
 import './ListTrails.css'
 import { useState, useEffect } from 'react'
 import TrailRow from './TrailRow'
+import Card from '../pages/pageComponents/ui/Card'
 
-const ListTrails = ({setTrailId}) => {
+const ListTrails = () => {
     const [trailData, setTrailData] = useState([])
     
     useEffect(() => {
@@ -15,8 +16,9 @@ const ListTrails = ({setTrailId}) => {
       }, [trailData])
     
     return (
-        <div className='trails-table'>
-            <h3>Trail Title</h3>
+        
+        <div className='trails-table' >
+            <h3 className=''>Trail Title</h3>
             <table>
                 <thead>
                     <tr>
@@ -30,8 +32,7 @@ const ListTrails = ({setTrailId}) => {
                     {
                         trailData.map((trail)=> {
                             return (
-                                <TrailRow   setTrailId={setTrailId}
-                                            key={trail._id}
+                                <TrailRow   key={trail._id}
                                             id={trail._id}
                                             name={trail.trailName}
                                             photos={trail.photos}
@@ -44,6 +45,7 @@ const ListTrails = ({setTrailId}) => {
                 </tbody>
             </table>
         </div>
+       
     )
 }
 

@@ -1,8 +1,12 @@
 import './ShowTrailDetailPage.css'
 import ShowTrailPhoto from './pageComponents/ShowTrailPhoto'
 import { useState, useEffect } from 'react'
+import {useParams} from 'react-router-dom'
 
-let ShowTrailDetailPage = ({trailId}) => {
+let ShowTrailDetailPage = () => {
+    let params=useParams()
+    let trailId=params.id
+
     const [trailData, setTrailData] = useState([])
 
     useEffect(() => {
@@ -23,8 +27,9 @@ let ShowTrailDetailPage = ({trailId}) => {
               {
                         trailData.photos && trailData.photos.map((photo)=> {
                             return (
-                              <ShowTrailPhoto   key={photo.index}
-                                                photo={photo} />
+                              <ShowTrailPhoto   key={photo._id}
+                                                photo={photo.url}
+                                                photoDescription={photo.description} />
                             )
                 })
               }
