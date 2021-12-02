@@ -3,6 +3,7 @@ import NavBar from './pages/pageComponents/NavBar'
 import MainPage from './pages/MainPage'
 import CreateTrailPage from './pages/CreateTrailPage'
 import ShowTrailDetailPage from './pages/ShowTrailDetailPage'
+import PhotoDetailPage from './pages/PhotoDetailPage'
 import { Routes,Route } from "react-router-dom";
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/CreateTrailPage" element={<CreateTrailPage />} />
         <Route path="/ShowTrailDetailPage/:id" element={<ShowTrailDetailPage />} />
+        <Route path="/PhotoDetail/:id" element={<PhotoDetailPage />} />
         <Route path="*" element = {<MainPage />} />
       </Routes>
       {/* <Footer /> */}
