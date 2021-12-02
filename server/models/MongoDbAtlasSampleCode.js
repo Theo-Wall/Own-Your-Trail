@@ -1,7 +1,7 @@
 
 const { MongoClient } = require('mongodb');
 
-const credentials = './X509-cert-610308615197644496.pem'
+const credentials = './X509-cert-5583764281019975198.pem'
 const uri = 'mongodb+srv://cluster0.vmoqm.mongodb.net/myFirstDatabase?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority'
 
 const client = new MongoClient(uri, {
