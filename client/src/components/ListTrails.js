@@ -18,6 +18,7 @@ const ListTrails = () => {
     return (
         
         <div className='trails-table' >
+            
             <h3 className=''>Trail Title</h3>
             <table>
                 <thead>
@@ -44,6 +45,7 @@ const ListTrails = () => {
                     }
                 </tbody>
             </table>
+            
         </div>
        
     )
