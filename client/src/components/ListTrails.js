@@ -13,7 +13,7 @@ const ListTrails = () => {
           setTrailData(fetchedTrails)  
         }
         fetchTrailData()
-      }, [])
+      }, [trailData])
     
     return (
         
