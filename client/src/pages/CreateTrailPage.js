@@ -51,7 +51,7 @@ const CreateTrailPage = () => {
     // captures the rest of the input data from the form. also assigns the image url to the new Trail object. We need to
     // work on how to upload multiple photos at once.
 
-    const captureNewTrailData = (event) => {
+    const captureNewTrailData = async (event) => {
         event.preventDefault()
 
         const user = userId.current.value
@@ -74,7 +74,7 @@ const CreateTrailPage = () => {
 
         console.log('click', newTrail)
         
-        fetch(`http://localhost:5001/api/createTrail`, {
+        const res = await fetch(`http://localhost:5001/api/createTrail`, {
         method: 'POST',
         body: JSON.stringify(newTrail),
         headers: {
@@ -84,7 +84,8 @@ const CreateTrailPage = () => {
             .catch(error => {
                 console.error(error)
         })    
-
+        const newId = await res.json()
+        console.log(newId)
         }                       
 
     return (
