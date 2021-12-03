@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,400&display=swap');
+
 .navigation-bar {
     background-color: #EFEDE0;
     color: #555555;
     text-align: right;
     font-size: medium;
-    font-family: sans-serif;
-    /* margin: 20px; */
+    font-family: ubuntu;
+    margin: 0;
     padding-top: 0.100em;
 }
 
@@ -23,7 +25,7 @@ span {
 .text-link {
     text-decoration: none;
     color: #555555;
-    font-family: sans-serif;
+    font-family: ubuntu;
     font-weight: 800;
 
 }

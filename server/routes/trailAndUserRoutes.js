@@ -30,7 +30,7 @@ const dummyUser = {
 
 router.post('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
     let trailInfo = req.body
-    let newId = await createTrail(trailInfo)
+    newId = await createTrail(trailInfo)
     res.json(newId)
 })
 

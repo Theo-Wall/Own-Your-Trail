@@ -2,7 +2,8 @@ import './ListTrails.css'
 import { useState, useEffect } from 'react'
 import TrailRow from './TrailRow'
 
-const ListTrails = ({setTrailId}) => {
+
+const ListTrails = () => {
     const [trailData, setTrailData] = useState([])
     
     useEffect(() => {
@@ -15,34 +16,24 @@ const ListTrails = ({setTrailId}) => {
       }, [])
     
     return (
-        <div className='trails-table'>
-            <h3>Trail Title</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Col 1</th>
-                        <th>Col 2</th>
-                        <th>Col 3</th>
-                        <th>Col 4</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <div>
+            <h3 className='trails-table'>Trail Title</h3>              
+                <ul>
                     {
-                        trailData.map((trail)=> {
-                            return (
-                                <TrailRow   setTrailId={setTrailId}
-                                            key={trail._id}
-                                            id={trail._id}
-                                            name={trail.trailName}
-                                            photos={trail.photos}
-                                            primaryPhoto={trail.primaryPhoto}
-                                            description={trail.trailDescription}
-                                            map={trail.trailMap}
-                                /> )
+                    trailData.map((trail)=> {
+                        return (
+                            <TrailRow   key={trail._id}
+                                        id={trail._id}
+                                        name={trail.trailName}
+                                        photos={trail.photos}
+                                        primaryPhoto={trail.primaryPhoto}
+                                        description={trail.trailDescription}
+                                        map={trail.trailMap}
+                            /> )
                         })
                     }
-                </tbody>
-            </table>
+            </ul>
         </div>
     )
 }

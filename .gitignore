@@ -16,6 +16,7 @@
 *.pid.lock
 *.seed
 *.tgz
+*.pem
 .DS_Store
 .env.*.local
 .env.local
