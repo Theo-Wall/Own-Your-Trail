@@ -22,8 +22,8 @@ const TrailRow = ({id, name, photos, description, map, primaryPhoto }) => {
 
     return (
         <Card>
-        <ul>    
-            <li onClick={() => {setId(id)}}>{name}</li>
+        <ul onClick={() => {setId(id)}}>    
+            <li>{name}</li>
             <li>
                 <img className='photo-thumbnails' src={photos[primaryPhoto].url} alt="trail" />
             </li>
