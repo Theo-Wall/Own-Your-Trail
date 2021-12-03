@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 
-const ImageDescriptionRow = ({url, index, dataInput, imageDescription}) => {
+const ImageDescriptionRow = ({}) => {
 
 
 

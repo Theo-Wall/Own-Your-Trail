@@ -1,19 +1,20 @@
 import './CreateTrailPage.css'
 import { useState,useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import DisplayPhotoUpload from '../components/DisplayPhotoUpload'
 
 
 
 const CreateTrailPage = () => {
 
-    let navigate = useNavigate()
 
     // sets page to display photo upload or to add the descriptions of the uploads
 
     // initializes useState for capturing form data
 
+    // should trail photos be an array?
     const trailPhotos = useRef()
+    const [ photoDescription, setPhotoDescription ] = useState('')
     const [ userId, setUserId ] = useState('')
     const [ trailTitle, setTrailTitle ] = useState('')
     const [ trailDescription, setTrailDescription ] = useState('')
@@ -21,13 +22,14 @@ const CreateTrailPage = () => {
     const [ quadrant, setQuadrant ] = useState('')
     // useState for capturing image upload data
 
-    const [ imageUpload, setImageUpload ] = useState({})
+    const [ imageUpload, setImageUpload ] = useState([])
 
     // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
 
     const onInput = (event, setter) => {
         let newValue = event.target.value
         setter(newValue)
+        console.log(newValue)
     }
 
     // const setId = async (id) => {
@@ -45,7 +47,7 @@ const CreateTrailPage = () => {
             imageData.append('image', files[i])  
         }        
 
-    // fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
+        // fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
 
         let imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
                 method: 'POST',
@@ -59,9 +61,12 @@ const CreateTrailPage = () => {
             .catch(error => {
                 console.error(error)
             })
+        imageUrl.data[0].description = photoDescription
 
-        setImageUpload(imageUrl.data)
-        console.log(imageUpload)
+        let oldPhotoArray = imageUpload
+        let newPhotoArray = [...oldPhotoArray, imageUrl.data[0]]
+        console.log(newPhotoArray)
+        setImageUpload(newPhotoArray) // add description for photo here ****
     }  
 
     // captures the rest of the input data from the form. also assigns the image url to the new Trail object. We need to
@@ -73,7 +78,7 @@ const CreateTrailPage = () => {
 
             const newTrail = {  userId: userId,
                                 trailName: trailTitle,
-                                photos: imageUpload,
+                                photos: imageUpload, //should be array
                                 trailDescription: trailDescription,
                                 trailMap: trailLocation,
                                 cityQuadrant: quadrant,
@@ -82,7 +87,7 @@ const CreateTrailPage = () => {
 
             console.log('click', newTrail)
             
-            const res = await fetch(`http://localhost:5001/api/createTrail`, {
+            await fetch(`http://localhost:5001/api/createTrail`, {
             method: 'POST',
             body: JSON.stringify(newTrail),
             headers: {
@@ -90,9 +95,8 @@ const CreateTrailPage = () => {
                 },
             })
 
-            const newId = await res.json()
-           
-            console.log(newId)
+            // const newId = await res.json()
+            // navigate('/PhotoDetail/' + newId)
 
 
     }                       
@@ -148,7 +152,7 @@ const CreateTrailPage = () => {
                 </div>
             <div>
                 <h5>Trail Photos</h5>
-                <DisplayPhotoUpload onUpload={uploadImage} photos={trailPhotos}/>
+                <DisplayPhotoUpload onUpload={uploadImage} photos={trailPhotos} onDescribe={(event) => onInput(event, setPhotoDescription)}/>
             </div> 
 
             </form>
