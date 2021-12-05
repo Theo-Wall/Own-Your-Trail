@@ -22,7 +22,7 @@ const CreateTrailPage = () => {
     const [ quadrant, setQuadrant ] = useState('')
     // useState for capturing image upload data
 
-    const [ imageUpload, setImageUpload ] = useState([])
+    const [ imagesUpload, setImageUpload ] = useState([])
 
     // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
 
@@ -63,7 +63,7 @@ const CreateTrailPage = () => {
             })
         imageUrl.data[0].description = photoDescription
 
-        let oldPhotoArray = imageUpload
+        let oldPhotoArray = imagesUpload
         let newPhotoArray = [...oldPhotoArray, imageUrl.data[0]]
         console.log(newPhotoArray)
         setImageUpload(newPhotoArray) // add description for photo here ****
@@ -78,7 +78,7 @@ const CreateTrailPage = () => {
 
             const newTrail = {  userId: userId,
                                 trailName: trailTitle,
-                                photos: imageUpload, //should be array
+                                photos: imagesUpload, //should be array
                                 trailDescription: trailDescription,
                                 trailMap: trailLocation,
                                 cityQuadrant: quadrant,
@@ -152,7 +152,7 @@ const CreateTrailPage = () => {
                 </div>
             <div>
                 <h5>Trail Photos</h5>
-                <DisplayPhotoUpload onUpload={uploadImage} photos={trailPhotos} onDescribe={(event) => onInput(event, setPhotoDescription)}/>
+                <DisplayPhotoUpload imageData={imagesUpload} onUpload={uploadImage} photos={trailPhotos} onDescribe={(event) => onInput(event, setPhotoDescription)}/>
             </div> 
 
             </form>
