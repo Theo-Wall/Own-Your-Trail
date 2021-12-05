@@ -9,9 +9,11 @@ const CreateTrailPage = () => {
 
     const navigate = useNavigate()
 
-    // initializes useState for capturing form data
+    // initializes useState for capturing form data and useRef for capturing photo upload data
 
-    const trailPhoto = useRef('')
+    
+    const trailPhoto = useRef('') // useRef captures photo data before upload
+
     const [ photoDescription, setPhotoDescription ] = useState('')
     const [ userId, setUserId ] = useState('')
     const [ trailTitle, setTrailTitle ] = useState('')
@@ -19,16 +21,19 @@ const CreateTrailPage = () => {
     const [ trailLocation, setTrailLocation ] = useState('')
     const [ quadrant, setQuadrant ] = useState('')
     const [ primaryPhoto, setPrimaryPhoto ] = useState(0)
-    // useState for capturing image upload data
+
+    // useState for capturing image upload data after upload
 
     const [ imagesUpload, setImagesUpload ] = useState([])
 
-    // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
+    // captures data from various setters in from the form inputs as they are filled in
 
     const onInput = (event, setter) => {
         let newValue = event.target.value
         setter(newValue)
     }
+
+    // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
 
     const uploadImage = async (event) => {
         event.preventDefault()
@@ -51,11 +56,14 @@ const CreateTrailPage = () => {
             .catch(error => {
                 console.error(error)
             })
+
+        // organizing the data from the cloudinary response, allows for photos/descriptions to be saved one after another
+            
         imageUrl.data[0].description = photoDescription
 
         let oldPhotoArray = imagesUpload
         let newPhotoArray = [...oldPhotoArray, imageUrl.data[0]]
-        console.log(newPhotoArray)
+
         setImagesUpload(newPhotoArray)
         setPhotoDescription('')
         trailPhoto.current.value = ''
@@ -76,8 +84,6 @@ const CreateTrailPage = () => {
                                 cityQuadrant: quadrant,
                                 primaryPhoto: parseInt(primaryPhoto)
                 }
-
-            console.log('click', newTrail)
             
             await fetch(`http://localhost:5001/api/createTrail`, {
             method: 'POST',
@@ -87,7 +93,7 @@ const CreateTrailPage = () => {
                 },
             })
 
-            navigate('/')
+            navigate('/') // navigates back to the main page after the create trail button has been clicked and all data is collected
     }                       
 
     return (
