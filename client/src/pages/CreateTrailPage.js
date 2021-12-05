@@ -1,18 +1,16 @@
 import './CreateTrailPage.css'
 import { useState,useRef } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DisplayPhotoUpload from '../components/DisplayPhotoUpload'
 
 
 
 const CreateTrailPage = () => {
 
-
-    // sets page to display photo upload or to add the descriptions of the uploads
+    const navigate = useNavigate()
 
     // initializes useState for capturing form data
 
-    // should trail photos be an array?
     const trailPhoto = useRef('')
     const [ photoDescription, setPhotoDescription ] = useState('')
     const [ userId, setUserId ] = useState('')
@@ -20,6 +18,7 @@ const CreateTrailPage = () => {
     const [ trailDescription, setTrailDescription ] = useState('')
     const [ trailLocation, setTrailLocation ] = useState('')
     const [ quadrant, setQuadrant ] = useState('')
+    const [ primaryPhoto, setPrimaryPhoto ] = useState(0)
     // useState for capturing image upload data
 
     const [ imagesUpload, setImagesUpload ] = useState([])
@@ -71,11 +70,11 @@ const CreateTrailPage = () => {
 
             const newTrail = {  userId: userId,
                                 trailName: trailTitle,
-                                photos: imagesUpload, //should be array
+                                photos: imagesUpload, 
                                 trailDescription: trailDescription,
                                 trailMap: trailLocation,
                                 cityQuadrant: quadrant,
-                                primaryPhoto: 0
+                                primaryPhoto: parseInt(primaryPhoto)
                 }
 
             console.log('click', newTrail)
@@ -87,6 +86,8 @@ const CreateTrailPage = () => {
                 'Content-Type': 'application/json', 
                 },
             })
+
+            navigate('/')
     }                       
 
     return (
@@ -127,7 +128,7 @@ const CreateTrailPage = () => {
                     <button onClick = {(event)=>{captureNewTrailData(event)}}>Create Your Trail</button>   
                 </div>
                 <div className="trail-description">
-                    
+
                     <label htmlFor="trailDescription"></label>
                     <textarea   value={trailDescription}
                                 cols="40" 
@@ -146,6 +147,7 @@ const CreateTrailPage = () => {
                                     photos={trailPhoto}
                                     onDescribe={(event) => onInput(event, setPhotoDescription)}
                                     defaultDescription={photoDescription}
+                                    onPrimaryPhoto={(event) => onInput(event, setPrimaryPhoto)}
                                     />
             </div> 
 
