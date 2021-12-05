@@ -17,6 +17,7 @@
 *.seed
 *.tgz
 *.pem
+*.cer
 .DS_Store
 .env.*.local
 .env.local
