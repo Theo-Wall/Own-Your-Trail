@@ -13,7 +13,7 @@ const CreateTrailPage = () => {
     // initializes useState for capturing form data
 
     // should trail photos be an array?
-    const trailPhotos = useRef()
+    const trailPhoto = useRef('')
     const [ photoDescription, setPhotoDescription ] = useState('')
     const [ userId, setUserId ] = useState('')
     const [ trailTitle, setTrailTitle ] = useState('')
@@ -22,30 +22,21 @@ const CreateTrailPage = () => {
     const [ quadrant, setQuadrant ] = useState('')
     // useState for capturing image upload data
 
-    const [ imagesUpload, setImageUpload ] = useState([])
+    const [ imagesUpload, setImagesUpload ] = useState([])
 
     // function that uploads the photos to cloudinary server and sets the ImageUpload variable to array of returned urls
 
     const onInput = (event, setter) => {
         let newValue = event.target.value
         setter(newValue)
-        console.log(newValue)
     }
-
-    // const setId = async (id) => {
-    //     let transferId = await id
-    //     console.log(transferId)
-    //     navigate('/PhotoDetail/'+ transferId)
-    // }
 
     const uploadImage = async (event) => {
         event.preventDefault()
-        const files = trailPhotos.current.files
+        const files = trailPhoto.current.files
         const imageData = new FormData()
         
-        for (let i = 0; i < Object.keys(files).length; i++) {
-            imageData.append('image', files[i])  
-        }        
+        imageData.append('image', files[0])    
 
         // fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
 
@@ -66,14 +57,16 @@ const CreateTrailPage = () => {
         let oldPhotoArray = imagesUpload
         let newPhotoArray = [...oldPhotoArray, imageUrl.data[0]]
         console.log(newPhotoArray)
-        setImageUpload(newPhotoArray) // add description for photo here ****
+        setImagesUpload(newPhotoArray)
+        setPhotoDescription('')
+        trailPhoto.current.value = ''
+
     }  
 
     // captures the rest of the input data from the form. also assigns the image url to the new Trail object. We need to
     // work on how to upload multiple photos at once.
 
     const captureNewTrailData = async (event) => {
-        // try{
             event.preventDefault()
 
             const newTrail = {  userId: userId,
@@ -94,11 +87,6 @@ const CreateTrailPage = () => {
                 'Content-Type': 'application/json', 
                 },
             })
-
-            // const newId = await res.json()
-            // navigate('/PhotoDetail/' + newId)
-
-
     }                       
 
     return (
@@ -139,6 +127,7 @@ const CreateTrailPage = () => {
                     <button onClick = {(event)=>{captureNewTrailData(event)}}>Create Your Trail</button>   
                 </div>
                 <div className="trail-description">
+                    
                     <label htmlFor="trailDescription"></label>
                     <textarea   value={trailDescription}
                                 cols="40" 
@@ -152,7 +141,12 @@ const CreateTrailPage = () => {
                 </div>
             <div>
                 <h5>Trail Photos</h5>
-                <DisplayPhotoUpload imageData={imagesUpload} onUpload={uploadImage} photos={trailPhotos} onDescribe={(event) => onInput(event, setPhotoDescription)}/>
+                <DisplayPhotoUpload imageData={imagesUpload}
+                                    onUpload={uploadImage}
+                                    photos={trailPhoto}
+                                    onDescribe={(event) => onInput(event, setPhotoDescription)}
+                                    defaultDescription={photoDescription}
+                                    />
             </div> 
 
             </form>
