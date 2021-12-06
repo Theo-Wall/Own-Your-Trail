@@ -25,11 +25,13 @@ let ShowTrailDetailPage = () => {
             <h3>{trailData.trailName}</h3>
             <div>
               {
-                        trailData.photos && trailData.photos.map((photo)=> {
+                        trailData.photos && trailData.photos.map((photo, index)=> {
                             return (
                               <ShowTrailPhoto   key={photo._id}
                                                 photo={photo.url}
-                                                photoDescription={photo.description} />
+                                                photoDescription={photo.description}
+                                                arrayIndex={index}
+                                                />
                             )
                 })
               }

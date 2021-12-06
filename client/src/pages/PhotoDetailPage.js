@@ -5,7 +5,7 @@ const PhotoDetailPage = () => {
   let params = useParams()
   let trailId = params.id
 
-  const [trailData, setTrailData] = useState([])
+  const [trailData, setTrailData] = useState()
 
   useEffect(() => {
     const fetchTrailData = async () => {
@@ -17,10 +17,24 @@ const PhotoDetailPage = () => {
     fetchTrailData()
     }, [trailId])
 
+    // let imageIdArray = []
+
+    useEffect(() => {
+      console.log(trailData)
+    //  trailData.photos.map(image => {
+    //   return console.log(image._id)
+    //   // imageIdArray.push(image._id)
+    //  })
+    }, [trailData] )
+
+    // console.log(imageIdArray)
 
   return (
     <div>
-      {console.log(trailData)}
+      
+
+
+
 
 
     </div>
