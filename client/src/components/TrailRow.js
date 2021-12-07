@@ -1,37 +1,42 @@
-// const fetchTrailData = {
-//     userId: 1,
-//     trailName: "the trail1" ,
-//     photos: ["https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw"," https://thePhotoDamIt.com"],
-//     trailDescription: "I walked this trail every day with my grand pappy and so should you.",
-//     trailMap: "turn left at cowboy ave and take a right at lasso st"
-// }
+import "./TrailRow.css";
 
-// import { CloudinaryContext, Image } from 'cloudinary-react'
+import { useNavigate } from "react-router-dom";
+import Card from "../pages/pageComponents/ui/Card";
 
-import './ListTrails.css'
+const TrailRow = ({ id, name, photos, description, map, primaryPhoto }) => {
+  const navigate = useNavigate();
 
-import { useNavigate } from 'react-router-dom'
-import Card from '../pages/pageComponents/ui/Card';
+  const setId = (id) => {
+    navigate("/ShowTrailDetailPage/" + id);
+  };
 
-const TrailRow = ({id, name, photos, description, map, primaryPhoto }) => {
-    const navigate = useNavigate ()
+  return (
+    <Card>
+        <div
+          onClick={() => {
+            setId(id);
+          }}
+          className="card-body"
+        >
+          <h4 className="card-title">{name}</h4>
+          <div className="card-photo">
+            <img
+              className="photo-thumbnails"
+              src={photos[primaryPhoto].url}
+              alt="trail"
+            />
+          </div>
+          <div className="card-content">
+            <p>{description}</p>
+            <p>{map}</p>
+          </div>
+        </div>
+      
 
-    const setId = (id) => {    
-        navigate ('/ShowTrailDetailPage/'+id)
-    }
 
-    return (
-        <Card>
-        <ul onClick={() => {setId(id)}}>    
-            <li>{name}</li>
-            <li>
-                <img className='photo-thumbnails' src={photos[primaryPhoto].url} alt="trail" />
-            </li>
-            <li>{description}</li>
-            <li>{map}</li>
-        </ul>    
-        </Card>
-    );
+
+    </Card>
+  );
 };
 
-export default TrailRow
+export default TrailRow;

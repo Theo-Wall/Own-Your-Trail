@@ -1,0 +1,35 @@
+.card-body {
+    display: grid;
+    grid-template: 
+    "image title" 5em
+    "image content" 10em
+    /30% 70%;
+    
+}
+
+.card-photo {
+    grid-area: image;
+    max-width: 100%;
+    border: 2px solid blueviolet;
+
+}
+
+.card-title{
+    grid-area: title;
+    /* margin: 0; */
+    border: 2px solid blue;
+
+}
+
+.card-content {
+    grid-area: content;
+    border: 2px solid blue;
+}
+
+.photo-thumbnails {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 75px;
+ /* Set a small width */
+}

@@ -18,7 +18,9 @@ function App() {
   return (
     <div>
       {/* Header and NavBar should always be outside of the Routes due to the fact that they are always going to be on the page */}
-      <NavBar /> 
+      <div style={{position: "sticky", top: '0'}}>
+       <NavBar />
+      </div>
       {/* This is the old way we used to route our pages */}
       {/* {{createTrailState ? <CreateTrailPage /> : <MainPage /> } {/*<MainPage /> : null}*/}
       

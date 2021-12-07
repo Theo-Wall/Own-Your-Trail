@@ -5,7 +5,7 @@
     
     display: grid;
     grid-template: 
-    "refinedSearch main" 80vh
+    "refinedSearch main" 100%
     / 10em auto;
 }
 
@@ -19,6 +19,7 @@
 
 .main {
     grid-area: "main";
+    /* overflow-y: visible; */
 }
 input[type='checkbox'] {
     clip: rect(0 0 0 0);

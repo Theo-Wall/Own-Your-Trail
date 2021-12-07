@@ -19,7 +19,7 @@ const ListTrails = () => {
         
         <div>
             <h3 className='trails-table'>Trail Title</h3>              
-                <ul>
+                 <div className='scroll-box'>
                     {
                     trailData.map((trail)=> {
                         return (
@@ -33,7 +33,7 @@ const ListTrails = () => {
                             /> )
                         })
                     }
-            </ul>
+                </div>
         </div>
     )
 }
