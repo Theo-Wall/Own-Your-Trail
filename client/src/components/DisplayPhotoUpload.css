@@ -1,11 +1,12 @@
 .upload-input-label {
-  padding-right: 3em;
+  padding: 12px;
+  display: inline-block;
 }
 
 .upload-input {
-  width: 25%;
-  background-color: #EFEDE0;
-  color: black;
+  width: 100%;
+  background-color: #efede0;
+  color: #555555;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -16,4 +17,3 @@
 .upload-input:hover {
   background-color: #cccbbe;
 }
-

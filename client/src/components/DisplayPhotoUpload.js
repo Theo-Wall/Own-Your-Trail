@@ -24,14 +24,16 @@ const DisplayPhotoUpload = ({
           multiple={false}
         ></input>
         <label htmlFor="photoDescription"></label>
-        <input
+        <textarea
           id="photoDescription"
           placeholder="Describe Photo"
-
+          cols="10"
+          rows="4"
+          className="photo-upload-description"
           type="text"
           onChange={onDescribe}
           value={defaultDescription}
-        ></input>
+        ></textarea>
         <button className="upload-input" onClick={onUpload}>
           Upload Photo
         </button>

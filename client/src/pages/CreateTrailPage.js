@@ -136,7 +136,7 @@ const CreateTrailPage = () => {
           </div>
           <div>
             <div className="radio-inputs">
-              <div>City Quadrant:</div>
+              <div className="city-quadrant">City Quadrant:</div>
               <label htmlFor="NE">North East</label>
               <input
               className="radio-button"

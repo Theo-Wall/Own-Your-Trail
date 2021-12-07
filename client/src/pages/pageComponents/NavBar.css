@@ -36,5 +36,12 @@ span {
 }
 
 button {
-    padding: 8px;
+    text-decoration: none;
+    color: #555555;
+    font-family: ubuntu;
+    font-weight: 800;
+}
+
+button:hover {
+     color: #8AA899;
 }

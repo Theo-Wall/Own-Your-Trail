@@ -2,14 +2,14 @@
     display: grid;
     grid-template:
     "mainLeft mainRight" 30em
-    "photo photo" 30em
+    "photoUpload photoDisplay" 30em
     / 50% 50%
 }
 
 h3 {
     grid-area: title;
     text-align: left;
-    padding-left: 10px;
+    padding: 15px;
     margin: 0;
     /* align-content: top; */
 }
@@ -28,7 +28,8 @@ h3 {
 }
 
 .trail-photos {
-    grid-area: photo;
+    grid-area: photoUpload;
+    padding: 15px;
     /* border: 2px solid salmon; */
 }
 
@@ -45,7 +46,7 @@ input[type=text], select {
 .input {
   width: 100%;
   background-color: #EFEDE0;
-  color: black;
+  color: #555555;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -69,7 +70,13 @@ textarea {
 }
 
 .radio-inputs {
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 }
 
+.city-quadrant {
+  padding-bottom: 1em;
+}
 
+.radio-button {
+
+}
