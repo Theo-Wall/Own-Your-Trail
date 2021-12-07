@@ -16,7 +16,7 @@ const NavBar = () => {
         <span>
           {/* <Link></Link> are used to point to the Routes which point to page components  */}
           <Link className="text-link" to="/createTrailPage">
-            Create Trail Page
+            Create Your Trail
           </Link>
         </span>
         <span>
