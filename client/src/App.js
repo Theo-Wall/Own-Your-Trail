@@ -1,5 +1,5 @@
 
-import NavBar from './pages/pageComponents/NavBar'
+import NavBar from './components/NavBar'
 import MainPage from './pages/MainPage'
 import CreateTrailPage from './pages/CreateTrailPage'
 import ShowTrailDetailPage from './pages/ShowTrailDetailPage'
