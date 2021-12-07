@@ -8,7 +8,7 @@ function Checkbox () {
     const [isPark, setPark] = useState(false)
     
     return (
-        <span>
+        <span className="divfix">
             <label>
                 <input 
                     type='checkbox'
