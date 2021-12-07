@@ -1,6 +1,6 @@
 import './MainPage.css'
 import ListTrails from '../components/ListTrails'
-import SideRefinedSearch from './pageComponents/SideRefinedSearch'
+import SideRefinedSearch from '../components/SideRefinedSearch'
 
 
 

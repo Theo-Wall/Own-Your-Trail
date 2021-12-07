@@ -1,4 +1,4 @@
-import '../ShowTrailDetailPage.css'
+import '../pages/ShowTrailDetailPage.css'
 
 let ShowTrailPhoto = ({photo,photoDescription,onPrimaryPhoto,arrayIndex}) => {
                     return (

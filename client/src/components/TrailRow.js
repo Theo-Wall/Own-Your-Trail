@@ -1,7 +1,7 @@
 import "./TrailRow.css";
 
 import { useNavigate } from "react-router-dom";
-import Card from "../pages/pageComponents/ui/Card";
+import Card from "./ui/Card";
 
 const TrailRow = ({ id, name, photos, description, map, primaryPhoto }) => {
   const navigate = useNavigate();

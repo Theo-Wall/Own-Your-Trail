@@ -1,5 +1,5 @@
 import './ShowTrailDetailPage.css'
-import ShowTrailPhoto from './pageComponents/ShowTrailPhoto'
+import ShowTrailPhoto from '../components/ShowTrailPhoto'
 import { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 

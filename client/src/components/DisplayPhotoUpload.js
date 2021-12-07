@@ -1,5 +1,5 @@
 import "./DisplayPhotoUpload.css";
-import ShowTrailPhoto from "../pages/pageComponents/ShowTrailPhoto";
+import ShowTrailPhoto from "../components/ShowTrailPhoto";
 
 const DisplayPhotoUpload = ({
   photos,

@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import '../MainPage.css'
+import '../pages/MainPage'
 
 function Checkbox () {
     const [isCityWalk, setCityWalk] = useState(false)
