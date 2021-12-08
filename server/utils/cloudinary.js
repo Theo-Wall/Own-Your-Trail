@@ -1,9 +1,6 @@
 
 const cloudinary = require('cloudinary')
-
-const dotenv = require('dotenv')
-
-dotenv.config({ path:'./.env' })
+require("dotenv").config("./.env"); 
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
