@@ -1,35 +1,68 @@
+.card-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-directions {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .card-body {
+    display: flex;
     display: grid;
+    flex-direction: column;
     grid-template: 
     "image title" 5em
     "image content" 10em
     /30% 70%;
+    font-family: sans-serif;
+  
+    /* width: 30%; */
     
 }
 
 .card-photo {
     grid-area: image;
     max-width: 100%;
-    border: 2px solid blueviolet;
+    overflow: hidden;
+    /* border: 2px solid blueviolet; */
+
 
 }
 
 .card-title{
     grid-area: title;
-    /* margin: 0; */
-    border: 2px solid blue;
+    padding: 1em;
+    margin: 0;
+    font-size: larger;
+    font-weight: bolder;
+    /* border: 2px solid blue; */
+  
 
 }
 
 .card-content {
     grid-area: content;
-    border: 2px solid blue;
+    overflow: hidden;
+    padding: 1em;
+    height: auto;
+
+
+    
+    /* border: 2px solid blue; */
+     
 }
 
-.photo-thumbnails {
-    border: 1px solid #ddd; /* Gray border */
-    border-radius: 4px;  /* Rounded border */
-    padding: 5px; /* Some padding */
-    width: 75px;
- /* Set a small width */
+.card-photos {
+
+    width: 150px; /* Set a small width */
+    /* border: 1px solid #ddd; */
+     /* Gray border */
+    border-radius: 4px; 
+    object-fit: contain;
+    height: 15em;
+    width: auto;
 }

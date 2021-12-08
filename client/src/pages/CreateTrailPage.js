@@ -10,7 +10,7 @@ const CreateTrailPage = () => {
 
   const trailPhoto = useRef(""); // useRef captures photo data before upload
 
-  const [photoDescription, setPhotoDescription] = useState("");
+  const [photoDescription, setPhotoDescription] = useState(" ");
   const [userId, setUserId] = useState("");
   const [trailTitle, setTrailTitle] = useState("");
   const [trailDescription, setTrailDescription] = useState("");
