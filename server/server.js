@@ -1,9 +1,12 @@
 const express = require('express')
-let cors = require("cors")
+const path = require("path")
 const trailAndUserRouter = require('./routes/trailAndUserRoutes')
 const bodyParser = require('body-parser')
+let cors = require("cors")
+
 const app = express()
-const port = 5001
+const port = process.env.PORT || 5001;
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -15,6 +18,9 @@ app.use(cors({
 }))
 app.use('/api',trailAndUserRouter)
 app.use('/', express.static('../client/build'))
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
