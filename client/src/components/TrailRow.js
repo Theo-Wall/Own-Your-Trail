@@ -3,7 +3,7 @@ import "./TrailRow.css";
 import { useNavigate } from "react-router-dom";
 import Card from "./ui/Card";
 
-const TrailRow = ({ id, name, photos, description, map, primaryPhoto }) => {
+const TrailRow = ({ id, name, photos, description, cityQuadrant, primaryPhoto }) => {
   const navigate = useNavigate();
 
   const setId = (id) => {
@@ -25,10 +25,12 @@ const TrailRow = ({ id, name, photos, description, map, primaryPhoto }) => {
             src={photos[primaryPhoto].url}
             alt="trail"
           />
+          
         </div>
         <div className="card-content">
+          <div className="card-quadrant">City Quadrant: {cityQuadrant}</div>
+          <div className="card-directions">RATING: 4.7</div> {/* Dummy rating for spacing on card */}
           <div className="card-description">{description}</div>
-          <div className="card-directions">{map}</div>
         </div>
       </div>
     </Card>

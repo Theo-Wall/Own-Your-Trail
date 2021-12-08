@@ -30,7 +30,7 @@ const ListTrails = () => {
                                             photos={trail.photos}
                                             primaryPhoto={trail.primaryPhoto}
                                             description={trail.trailDescription}
-                                            map={trail.trailMap}
+                                            cityQuadrant={trail.cityQuadrant}
                                 /> )
                             })
                         }
