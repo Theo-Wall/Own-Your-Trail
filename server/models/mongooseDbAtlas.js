@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const credentials = './models/atlasCertificate.pem'  //attach your atlas certificate to the models directory and rename it to atlasCertificate.pem
+//const credentials = './models/atlasCertificate.pem'  //attach your atlas certificate to the models directory and rename it to atlasCertificate.pem
 // const database='c7Project2Mongoose'
 
 const uri = process.env.MONGO_URI
@@ -9,8 +9,8 @@ const uri = process.env.MONGO_URI
 // const dbUrl = 'mongodb://localhost:27017/c7Project2Mongoose'
 
 mongoose.connect(uri, {
-    sslKey: credentials,
-    sslCert: credentials
+    sslKey: process.env.CREDENTIALS,
+    sslCert: process.env.CREDENTIALS
 })
 
 module.exports = mongoose
