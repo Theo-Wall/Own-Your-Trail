@@ -20,7 +20,8 @@ const NavBar = ({setLoginScreenState}) => {
             Create Your Trail
           </Link>
         </span>
-        <span>
+        
+        <span class="nav-link">
           <button onClick={() => setLoginScreenState(true)}>
             Login
           </button>
