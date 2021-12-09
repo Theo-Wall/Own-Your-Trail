@@ -50,7 +50,7 @@ const CreateTrailPage = () => {
     })
       .then((res) => res.json())
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
 
     // organizing the data from the cloudinary response, allows for photos/descriptions to be saved one after another
