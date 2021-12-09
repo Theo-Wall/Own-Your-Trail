@@ -2,8 +2,10 @@ import "./CreateTrailPage.css";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import DisplayPhotoUpload from "../components/DisplayPhotoUpload";
+import Modal from '../components/modal/Modal'
+import LoginDetails from "../components/LoginDetails";
 
-const CreateTrailPage = () => {
+const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
   const navigate = useNavigate();
 
   // initializes useState for capturing form data and useRef for capturing photo upload data
@@ -207,6 +209,15 @@ const CreateTrailPage = () => {
           />
         </div>
       </form>
+      
+      <Modal
+        title="Login Screen"
+        show={loginScreenState}
+        onClose={()=>setLoginScreenState(false)}
+      >
+        <LoginDetails setLoginScreenState={setLoginScreenState} />
+      </Modal>
+
     </div>
   );
 };

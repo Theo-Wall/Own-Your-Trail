@@ -1,7 +1,7 @@
 import './NavBar.css'
 import { Link } from "react-router-dom"
  
-const NavBar = () => {
+const NavBar = ({setLoginScreenState}) => {
 
     return (
       <div className="navigation-bar">
@@ -20,10 +20,10 @@ const NavBar = () => {
             Create Your Trail
           </Link>
         </span>
-        <span className="nav-link">
-          <Link className="text-link" to="">
+        <span>
+          <button onClick={() => setLoginScreenState(true)}>
             Login
-          </Link>
+          </button>
         </span>
       </span>
       </div>

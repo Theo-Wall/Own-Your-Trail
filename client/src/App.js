@@ -4,12 +4,15 @@ import MainPage from './pages/MainPage'
 import CreateTrailPage from './pages/CreateTrailPage'
 import ShowTrailDetailPage from './pages/ShowTrailDetailPage'
 import PhotoDetailPage from './pages/PhotoDetailPage'
+import UserRegistrationPage from './pages/UserRegistrationPage'
 import { Routes,Route } from "react-router-dom";
+import { useState } from 'react'
 
 
 
 function App() {
-  // const [createTrailState, setCreateTrailState] = useState()
+  const [loginScreenState, setLoginScreenState] = useState(false)
+
   // let createTrailButtonHandler = () => {
     //     setCreateTrailState(true)
     //     console.log('click!',createTrailState)
@@ -17,20 +20,22 @@ function App() {
     
   return (
     <div>
+              <div>{console.log(loginScreenState)}</div>
       {/* Header and NavBar should always be outside of the Routes due to the fact that they are always going to be on the page */}
       <div style={{position: "sticky", top: '0'}}>
-       <NavBar />
+       <NavBar setLoginScreenState={setLoginScreenState}/>
       </div>
       {/* This is the old way we used to route our pages */}
       {/* {{createTrailState ? <CreateTrailPage /> : <MainPage /> } {/*<MainPage /> : null}*/}
       
       {/* Here is where we direct our routes to the pages they want to go. */}
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/CreateTrailPage" element={<CreateTrailPage />} />
-        <Route path="/ShowTrailDetailPage/:id" element={<ShowTrailDetailPage />} />
+        <Route path="/" element={<MainPage loginScreenState={loginScreenState} setLoginScreenState={setLoginScreenState}/>} />
+        <Route path="/CreateTrailPage" element={<CreateTrailPage loginScreenState={loginScreenState} setLoginScreenState={setLoginScreenState}/>} />
+        <Route path="/ShowTrailDetailPage/:id" element={<ShowTrailDetailPage loginScreenState={loginScreenState} setLoginScreenState={setLoginScreenState}/>} />
         <Route path="/PhotoDetail/:id" element={<PhotoDetailPage />} />
-        <Route path="*" element = {<MainPage />} />
+        <Route path="/UserRegistrationPage" element={<UserRegistrationPage loginScreenState={loginScreenState} setLoginScreenState={setLoginScreenState}/>} />
+        <Route path="*" element = {<MainPage loginScreenState={loginScreenState} setLoginScreenState={setLoginScreenState}/>} />
       </Routes>
       {/* <Footer /> */}
     </div>
