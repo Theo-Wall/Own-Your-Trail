@@ -10,10 +10,10 @@ const DisplayPhotoUpload = ({
   onPrimaryPhoto,
 }) => {
   return (
-    <div className="trail-photos">
+    <div>
       <div>
         <label className="upload-input-label" htmlFor="photos">
-          Upload Photos:
+          Upload Photo:
         </label>
         <input
           ref={photos}

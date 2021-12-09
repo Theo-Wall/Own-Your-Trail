@@ -1,9 +1,14 @@
 .body {
     display: grid;
     grid-template:
-    "mainLeft mainRight" 30em
-    "photoUpload photoDisplay" 30em
+    "mainLeft mainRight" 25em
+    "photoUpload mainRight" 12em
+    "photoButton mainRight" 2em
     / 50% 50%
+}
+
+h4 {
+  font-size: larger;
 }
 
 h3 {
@@ -16,20 +21,23 @@ h3 {
 
 .main-input {
     grid-area: mainLeft;
-    padding: 25px;
+    padding: 15px;
     /* border: 2px solid red; */
 }
 
 .trail-description {
-    grid-area: mainRight;
+    grid-area: photoUpload;
     align-content: top;    
-    padding: 25px;
+    padding: 0 25px 0 25px;
     /* border: 2px solid green */
 }
 
 .trail-photos {
-    grid-area: photoUpload;
+    grid-area: mainRight;
     padding: 15px;
+    border: 0;
+    border-left: 1px solid #ccc;
+    margin-bottom: 20px;
     /* border: 2px solid salmon; */
 }
 
@@ -60,7 +68,7 @@ input[type=text], select {
 
 textarea {
   width: 100%;
-  height: 100%;
+  height: 50%;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -69,14 +77,11 @@ textarea {
   resize: none;
 }
 
-.radio-inputs {
-    padding-bottom: 1em;
-}
-
 .city-quadrant {
   padding-bottom: 1em;
 }
 
-.radio-button {
-
+input[type=radio] {
+  margin-right: 3em;
 }
+

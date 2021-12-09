@@ -1,5 +1,5 @@
 .upload-input-label {
-  padding: 12px;
+  padding: 0 12px 12px 12px;
   display: inline-block;
 }
 
@@ -12,6 +12,8 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  
+  
 }
 
 .upload-input:hover {
