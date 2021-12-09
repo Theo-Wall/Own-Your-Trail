@@ -40,7 +40,7 @@ const CreateTrailPage = () => {
 
     // fetch request to addImage endpoint. appended data is sent to the endpoint and image url is returned
 
-    let imageUrl = await fetch(`http://localhost:5001/api/addImage`, {
+    let imageUrl = await fetch(`/api/addImage`, {
       method: "POST",
       body: imageData,
       headers: {
@@ -81,7 +81,7 @@ const CreateTrailPage = () => {
       primaryPhoto: parseInt(primaryPhoto),
     };
 
-    await fetch(`http://localhost:5001/api/createTrail`, {
+    await fetch(`/api/createTrail`, {
       method: "POST",
       body: JSON.stringify(newTrail),
       headers: {
