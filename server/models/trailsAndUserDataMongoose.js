@@ -10,8 +10,10 @@ const Trail = mongoose.model('Trail', {     userId: String,                     
                                             cityQuadrant: String
                                         })
                                         
-const UserData = mongoose.model('UserData', {   "userId": Number,                               // add in required inputs
-                                                "userName": {type: String, required: true}
+const UserData = mongoose.model('UserData', {   "userId": String,                               // add in required inputs
+                                                "userName": {type: String, required: true},
+                                                "userEmail": {type: String, required: true},
+                                                "userPassword": {type: String, required: true}
                                             })
 
 const dummyTrail = { //dummy data to test creatTrail function
@@ -35,15 +37,17 @@ async function createTrail(trailData) {
 async function createUser(userData) { //write catch block for errors
     let newUser = new UserData(userData)
     let createdUser = await newUser.save()
+    createdUser.userId=createdUser.id
+    await newUser.save()
     return createdUser.id
 }
 async function getTrailById(id) {
     return Trail.findById(id)
 }
 
-// async function findRoomByName(roomName) {
-//     return Room.findOne({name: roomName})
-// }
+async function findUserByEmail(email) {
+    return UserData.findOne({userEmail: email})
+}
 
 async function listTrails() {
     let returnedData = await Trail.find({})
@@ -66,7 +70,7 @@ module.exports = {
     createTrail,
     createUser,
     getTrailById,
-//     findRoomByName,
+    findUserByEmail,
     listTrails,
     listUsers
 }

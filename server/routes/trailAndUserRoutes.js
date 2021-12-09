@@ -1,9 +1,13 @@
-const {createTrail,createUser,listTrails,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
+const {createTrail,createUser,listTrails,findUserByEmail,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
 const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const fs = require('fs')
 const express = require('express')
 const router = express.Router()
+
+require ("dotEnv").config()
+const bcrypt = require ("bcryptjs")
+const jwt = require ("jsonwebtoken")
 
 // const storage = multer.memoryStorage({
 //     destination: function (req, files, callback) {
@@ -67,11 +71,59 @@ router.post('/addImage', upload.array('image'), async (req, res) => {
     }
     })
 
-router.get('/createUser', async (req, res) => {
-    let userInfo = dummyUser //req.query.userFormData
-    newId = await createUser(userInfo)
-    returnedString = 'go check the database for the new User ID: '+ newId
-    res.send(returnedString)
+router.post('/createUser', async (req, res) => {
+
+    try {
+        // our register logic starts here
+        const { user_name, email, password } = await req.body
+
+        // validate user input
+        if (!(email && password && user_name)) {
+            res.status(400).send("All inputs are required!")
+        }
+
+        // check if user already exists
+        // Validate if user exists in our database
+        const oldUser = await findUserByEmail(email)
+
+        if (oldUser) {
+            return res.status(409).send("User Already Exists! Please login")
+        }
+
+        // Encrypt user password
+        encryptedPassword = await bcrypt.hash(password, 10)
+
+        // Create user in our database
+        const user = await createUser ({
+            userName: user_name,
+            userEmail: email.toLowerCase(),
+            userPassword: encryptedPassword,
+        })
+
+        // Create token
+        const token = jwt.sign (
+            { user_id: user._id, email },
+            process.env.TOKEN_KEY,
+            {
+                expiresIn: "2h",
+            }
+        )
+
+        // save user token
+        user.token = token
+
+        // return new user
+        res.status(201).json(user)
+    } catch (err) {
+        console.log (err)
+    }
+    // our register logic ends here
+
+
+    // let userInfo = dummyUser //req.query.userFormData
+    // newId = await createUser(userInfo)
+    // returnedString = 'go check the database for the new User ID: '+ newId
+    // res.send(returnedString)
 })
 
 router.get('/listTrails', async (req, res) => {
