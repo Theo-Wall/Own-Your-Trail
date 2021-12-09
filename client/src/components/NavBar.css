@@ -40,6 +40,8 @@ button {
     color: #555555;
     font-family: ubuntu;
     font-weight: 800;
+    border-width: 0px;
+    font-size: medium;
 }
 
 button:hover {
