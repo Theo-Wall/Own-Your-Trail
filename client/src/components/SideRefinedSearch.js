@@ -9,7 +9,8 @@ function Checkbox () {
     
     return (
         <span className="divfix">
-            <label>
+            <div>
+            <label className="checkbox-label">
                 <input 
                     type='checkbox'
                     onChange={() => {
@@ -22,6 +23,8 @@ function Checkbox () {
                 />
                 City Walk
             </label>
+            </div>
+            <div>
             <label>
                 <input 
                     type='checkbox'
@@ -35,6 +38,8 @@ function Checkbox () {
                 />
                 Dog Walk
             </label>
+            </div>
+            <div>
             <label>
                 <input 
                     type='checkbox'
@@ -48,6 +53,7 @@ function Checkbox () {
                 />
                 Park Walk
             </label>
+            </div>
         </span>
         // <span>
         //     <label ht></label>

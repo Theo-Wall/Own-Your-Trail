@@ -16,14 +16,22 @@ h3 {
 }
 
 .scroll-box {
+    /* display: flex; */
     overflow-x: auto;
     height: 80vh;
-    padding: 0 10em
+    padding: 0 10em;
+    
+
 }
 
 .card-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 
-    grid-template-columns: 1fr 1fr 1fr; 
+    /* display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;  */
 
 }

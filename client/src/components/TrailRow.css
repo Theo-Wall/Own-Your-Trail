@@ -17,7 +17,7 @@
     grid-template: 
     "image title" 5em
     "image content" 10em
-    /30% 70%;
+    /10em 10em;
     font-family: sans-serif;
   
     /* width: 30%; */

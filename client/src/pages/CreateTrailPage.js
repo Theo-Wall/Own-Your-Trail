@@ -101,7 +101,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
       <h3>Create Your Trail</h3>
       <form className="body">
         <div className="main-input">
-          <h5>Trail Info</h5>
+          <h4>Trail Info</h4>
           <div className="user-name">
             <label htmlFor="userName">User Name:</label>
             <input
@@ -138,66 +138,67 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
           </div>
           <div>
             <div className="radio-inputs">
-              <div className="city-quadrant">City Quadrant:</div>
-              <label htmlFor="NE">North East</label>
-              <input
-              className="radio-button"
-                type="radio"
-                id="NE"
-                name="cityQuadrant"
-                value="NE"
-                onChange={(event) => onInput(event, setQuadrant)}
-              ></input>
-              <label htmlFor="NW">North West</label>
-              <input
-                type="radio"
-                id="NW"
-                name="cityQuadrant"
-                value="NW"
-                onChange={(event) => onInput(event, setQuadrant)}
-              ></input>
-              <label htmlFor="SE">South East</label>
-              <input
-                type="radio"
-                id="SE"
-                name="cityQuadrant"
-                value="SE"
-                onChange={(event) => onInput(event, setQuadrant)}
-              ></input>
-              <label htmlFor="SW">South West</label>
-              <input
-                type="radio"
-                id="SW"
-                name="cityQuadrant"
-                value="SW"
-                onChange={(event) => onInput(event, setQuadrant)}
-              ></input>
+              <div>
+                <div className="city-quadrant">City Quadrant:</div>
+                <label htmlFor="NE">North East</label>
+                <input
+                  className="radio-button"
+                  type="radio"
+                  id="NE"
+                  name="cityQuadrant"
+                  value="NE"
+                  onChange={(event) => onInput(event, setQuadrant)}
+                ></input>
+                <label htmlFor="NW">North West</label>
+                <input
+                  type="radio"
+                  id="NW"
+                  name="cityQuadrant"
+                  value="NW"
+                  onChange={(event) => onInput(event, setQuadrant)}
+                ></input>
+           
+                <label htmlFor="SE">South East</label>
+                <input
+                  type="radio"
+                  id="SE"
+                  name="cityQuadrant"
+                  value="SE"
+                  onChange={(event) => onInput(event, setQuadrant)}
+                ></input>
+                <label htmlFor="SW">South West</label>
+                <input
+                  type="radio"
+                  id="SW"
+                  name="cityQuadrant"
+                  value="SW"
+                  onChange={(event) => onInput(event, setQuadrant)}
+                ></input>
+              </div>
             </div>
-            <button
-              onClick={(event) => {
-                captureNewTrailData(event);
-              }}
-              className="input"
-            >
-              Create Your Trail
-            </button>
           </div>
         </div>
         <div className="trail-description">
           <label htmlFor="trailDescription"></label>
           <textarea
             value={trailDescription}
-            cols="40"
-            rows="8"
             onChange={(event) => onInput(event, setTrailDescription)}
             id="trailDescription"
             type="text"
             placeholder="Briefly describe your trail"
             required
           ></textarea>
+          <button
+            onClick={(event) => {
+              captureNewTrailData(event);
+            }}
+            className="input"
+          >
+            Create Your Trail
+          </button>
         </div>
         <div className="trail-photos">
-          <h5>Trail Photos</h5>
+          <h4>Trail Photos</h4>
           <DisplayPhotoUpload
             imageData={imagesUpload}
             onUpload={uploadImage}

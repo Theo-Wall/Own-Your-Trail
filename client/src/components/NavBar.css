@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,400&display=swap');
 
 .navigation-bar {
+    display: grid;
+    grid-template: 
+    "left right" 5em
+    / 1fr 1fr;
     background-color: #EFEDE0;
     color: #555555;
     text-align: right;
@@ -8,15 +12,31 @@
     font-family: ubuntu;
     margin: 0;
     padding-top: 0.100em;
+    border-bottom: 1px solid #55555550;
+
+    
     
 }
 
 .app-name {
-    text-align: center;
-    
+    grid-area: left;
+    display: inline;
+    text-align: left;
+    padding-left: 2em;
 }
 
-span {
+.links {
+    display: flex;
+    grid-area: right;
+    align-items: flex-end;
+    justify-content: right;
+    /* align-content: inherit; */
+    
+
+}
+
+.nav-link {
+
     margin: 1em;
     display: inline-block;
     text-decoration: none;
@@ -28,6 +48,7 @@ span {
     color: #555555;
     font-family: ubuntu;
     font-weight: 800;
+   
 
 }
 

@@ -45,8 +45,10 @@ input[type='checkbox'] {
     width: 20px;
     background: #fff;
     border: 2px #ddd solid;
-    margin-right: 40px;
+    margin-top: 20px;
 }
+
+
 
 .checkbox--active {
     border-color: #555555;
