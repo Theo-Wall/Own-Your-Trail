@@ -9,6 +9,8 @@ require ("dotEnv").config()
 const bcrypt = require ("bcryptjs")
 const jwt = require ("jsonwebtoken")
 
+const verifyToken = require("../models/auth")
+
 // const storage = multer.memoryStorage({
 //     destination: function (req, files, callback) {
 //         callback(null, "");
@@ -31,6 +33,11 @@ const dummyUser = {
     userId: 1,
     userName: "Theo"
   }
+
+router.post ('/tokenTestingRoute', verifyToken, (req,res) => {
+    console.log ("Your token is still active!")
+    res.send("token is valid")
+})
 
 router.post('/createTrail', async (req, res) => { //per Tony's Nov 24 video should be a post not a get
     let trailInfo = req.body
@@ -102,11 +109,9 @@ router.post('/createUser', async (req, res) => {
 
         // Create token
         const token = jwt.sign (
-            { user_id: user._id, email },
+            { user_id: user.userId, email },
             process.env.TOKEN_KEY,
-            {
-                expiresIn: "2h",
-            }
+            {expiresIn: "2h",}
         )
         
         // save user token and remove password and email info from user
@@ -120,13 +125,46 @@ router.post('/createUser', async (req, res) => {
     } catch (err) {
         console.log (err)
     }
+
+})
+
+router.post ('/login', async (req,res) => {
+
+    // our login logic starts here
+    try {
+        // Get user input
+        const {email, password} = req.body
+
+        // Validate user input
+        if (!(email && password)) {
+            res.status(400).send("All inputs are required!")
+        }
+
+        // Validate if user exists in our database
+        const user = await findUserByEmail(email)
+
+        if (user && (await bcrypt.compare (password, user.userPassword))) {
+            // Create token
+            const token = jwt.sign (
+                {user_id: user.userId, email},
+                process.env.TOKEN_KEY,
+                {expiresIn: "2m"}
+            )
+            
+            // save user token and remove password and email info from user
+            user.userToken = token
+            user.userEmail=''
+            user.userPassword=''
+            
+            // user
+            res.status(200).json(user)
+        }
+        res.status(400).send("Invalid Credentials!")
+    } catch (err) {
+        console.log(err)
+    }
     // our register logic ends here
 
-
-    // let userInfo = dummyUser //req.query.userFormData
-    // newId = await createUser(userInfo)
-    // returnedString = 'go check the database for the new User ID: '+ newId
-    // res.send(returnedString)
 })
 
 router.get('/listTrails', async (req, res) => {
