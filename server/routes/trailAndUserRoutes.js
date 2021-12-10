@@ -108,10 +108,13 @@ router.post('/createUser', async (req, res) => {
                 expiresIn: "2h",
             }
         )
+        
+        // save user token and remove password and email info from user
 
-        // save user token
-        user.token = token
-
+        user.userToken=token
+        user.userEmail=''
+        user.userPassword=''
+    
         // return new user
         res.status(201).json(user)
     } catch (err) {

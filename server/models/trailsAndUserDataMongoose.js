@@ -13,7 +13,8 @@ const Trail = mongoose.model('Trail', {     userId: String,                     
 const UserData = mongoose.model('UserData', {   "userId": String,                               // add in required inputs
                                                 "userName": {type: String, required: true},
                                                 "userEmail": {type: String, required: true},
-                                                "userPassword": {type: String, required: true}
+                                                "userPassword": {type: String, required: true},
+                                                "userToken": String
                                             })
 
 const dummyTrail = { //dummy data to test creatTrail function
@@ -38,8 +39,8 @@ async function createUser(userData) { //write catch block for errors
     let newUser = new UserData(userData)
     let createdUser = await newUser.save()
     createdUser.userId=createdUser.id
-    await newUser.save()
-    return createdUser.id
+    await createdUser.save()
+    return (createdUser)
 }
 async function getTrailById(id) {
     return Trail.findById(id)
