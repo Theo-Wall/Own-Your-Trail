@@ -27,6 +27,11 @@
     background-color: #fff;
     transition: all 0.3s ease-in-out;
     transform: translateY(-200px);
+    border-radius: 10px;
+    border: 2px solid #efede0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin: 0.5em;
+    padding: 0; 
   }
   
   .modal.enter-done .modal-content {
@@ -40,6 +45,16 @@
   .modal-header,
   .modal-footer {
     padding: 10px;
+    text-align: center;
+  }
+
+  .modal-header {
+    font-size: large;
+    font-family: ubuntu;
+  }
+
+  .modal-footer {
+    font-family: sans-serif;
   }
   
   .modal-title {
@@ -47,7 +62,24 @@
   }
   
   .modal-body {
+    font-family: sans-serif;
     padding: 10px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+  }
+
+  .modal-button {
+    background-color: #e7e7e7;
+    color: black;
+    font-size: 16px;
+    margin: 10px 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid black;
+    transition-duration: 0.4s
+  }
+
+  .modal-button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
   }

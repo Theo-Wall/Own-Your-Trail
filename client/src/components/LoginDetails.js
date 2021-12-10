@@ -10,9 +10,20 @@ const LoginDetails = ({setLoginScreenState}) => {
       setter(newValue);
     };
 
-    const onSubmit = () => {
-      console.log("made it into the onSubmit function");
-      console.log("User Data", userEmail, userPassword)
+    const onSubmit = async () => {
+      const userLoginDetails = {email: userEmail, password: userPassword}
+
+      const fetchedResult = await fetch('/api/login', {
+        method: "POST",
+        body: JSON.stringify(userLoginDetails),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const userTokenAndId = await fetchedResult.json()
+
+      console.log("User Data returned from endpoint",userTokenAndId)
       setLoginScreenState(false);
     };  
 
@@ -29,17 +40,20 @@ const LoginDetails = ({setLoginScreenState}) => {
             ></input>
             <label htmlFor="userName">Password:</label>
             <input
+              className="user-name"
               value={userPassword}
               onChange={(event) => onInput(event, setUserPassword)}
               id="userName"
-              type="text"
+              type="password"
               placeholder="Your password"
               required
             ></input>
-            <Link to="/userRegistrationPage">I need to register for a user account</Link>
-            <div>
-              <button onClick = {() => setLoginScreenState(false)} className='button'>Close</button>
-              <button onClick = {onSubmit} className='button'>Submit</button>
+            <div className = "modal-footer">
+              <Link to="/userRegistrationPage">I need to register for a user account</Link>
+              <div>
+                <button className = "modal-button" onClick = {() => setLoginScreenState(false)} >Close</button>
+                <button className = "modal-button" onClick = {onSubmit} >Login</button>
+              </div>
             </div>
         </div>
     )
