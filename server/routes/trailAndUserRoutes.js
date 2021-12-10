@@ -5,7 +5,7 @@ const fs = require('fs')
 const express = require('express')
 const router = express.Router()
 
-require ("dotEnv").config("../.env")
+require ("dotenv").config()
 const bcrypt = require ("bcryptjs")
 const jwt = require ("jsonwebtoken")
 
