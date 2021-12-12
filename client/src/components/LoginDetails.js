@@ -57,7 +57,6 @@ const LoginDetails = ({setLoginScreenState, setToken, setIsLoggedIn}) => {
       setToken(userTokenAndId.userToken)
       setIsLoggedIn(true)
       setLoginScreenState(false);
-      console.log("made it past the setters, shouldn't have")
     };  
 
     return(
