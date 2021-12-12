@@ -1,7 +1,28 @@
 import './NavBar.css'
 import { Link } from "react-router-dom"
  
-const NavBar = ({setLoginScreenState}) => {
+const NavBar = ({setLoginScreenState, isLoggedIn, setIsLoggedIn, setToken}) => {
+
+  const logoutSetters = () => {
+    setIsLoggedIn(false)
+    setToken(null)
+  }
+  
+  const Login = () => {
+    return (
+      <button onClick={() => setLoginScreenState(true)}>
+        Login
+      </button>
+    )
+  }
+
+  const Logout = () => {
+    return (
+      <button onClick={() => logoutSetters()}>
+        Logout
+      </button>
+    )
+  }
 
     return (
       <div className="navigation-bar">
@@ -22,9 +43,7 @@ const NavBar = ({setLoginScreenState}) => {
         </span>
         
         <span className="nav-link">
-          <button onClick={() => setLoginScreenState(true)}>
-            Login
-          </button>
+          {(isLoggedIn ? Logout() : Login())}
         </span>
       </span>
       </div>

@@ -6,7 +6,7 @@ import ListQuadrants from "../components/ListQuadrants"
 import BackgroundCard from "../components/ui/BackgroundCard"
 import { useNavigate } from "react-router-dom"
 
-const MainPage = ({ loginScreenState, setLoginScreenState }) => {
+const MainPage = ({ loginScreenState, setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn }) => {
 
   const navigate = useNavigate()
 
@@ -50,7 +50,11 @@ const MainPage = ({ loginScreenState, setLoginScreenState }) => {
         show={loginScreenState}
         onClose={() => setLoginScreenState(false)}
       >
-        <LoginDetails setLoginScreenState={setLoginScreenState} />
+        <LoginDetails 
+          setLoginScreenState={setLoginScreenState}
+          setToken={setToken}
+          setIsLoggedIn={setIsLoggedIn}
+        />
       </Modal>
     </div>
   );

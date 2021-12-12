@@ -62,3 +62,10 @@ input[type='checkbox'] {
     border-color: #555555;
     background: #5C6E58;
 }
+
+.token-style {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 300;
+}
