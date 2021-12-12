@@ -1,23 +1,54 @@
 import "./MainPage.css";
-import ListTrails from "../components/ListTrails";
-import SideRefinedSearch from "../components/SideRefinedSearch";
+// import SideRefinedSearch from "../components/SideRefinedSearch";
 import Modal from "../components/modal/Modal";
 import LoginDetails from "../components/LoginDetails";
+import ListQuadrants from "../components/ListQuadrants"
+import BackgroundCard from "../components/ui/BackgroundCard"
+import { useNavigate } from "react-router-dom"
 
 const MainPage = ({ loginScreenState, setLoginScreenState }) => {
+
+  const navigate = useNavigate()
+
+  const selectAllHandler = () => {
+    let quadrant = "ListAllTrails"
+    navigate('/ListTrailsPage/' + quadrant)
+  }
+  const selectNEHandler = () => {
+    let quadrant = "NE";
+    navigate("/ListTrailsPage/" + quadrant);
+  }
+  const selectNWHandler = () => {
+    let quadrant = "NW";
+    navigate("/ListTrailsPage/" + quadrant);
+  }
+  const selectSEHandler = () => {
+    let quadrant = "SE";
+    navigate("/ListTrailsPage/" + quadrant);
+  }
+  const selectSWHandler = () => {
+    let quadrant = "SW";
+    navigate("/ListTrailsPage/" + quadrant);
+  }
+
     console.log ('main page', loginScreenState)
   return (
     <div className="main-area">
-      <div className="refined-search">
-        <SideRefinedSearch />
-      </div>
       <div className="main">
-        <ListTrails />
+        <BackgroundCard>
+            <ListQuadrants
+              displayAllTrails={selectAllHandler}
+              displayNEQuadrant={selectNEHandler}
+              displayNWQuadrant={selectNWHandler}
+              displaySEQuadrant={selectSEHandler}
+              displaySWQuadrant={selectSWHandler}
+            />
+        </BackgroundCard>
       </div>
       <Modal
         title="Login Screen"
         show={loginScreenState}
-        onClose={()=>setLoginScreenState(false)}
+        onClose={() => setLoginScreenState(false)}
       >
         <LoginDetails setLoginScreenState={setLoginScreenState} />
       </Modal>

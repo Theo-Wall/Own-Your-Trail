@@ -1,0 +1,8 @@
+.card-body-quadrant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  height: 15em;
+  
+}
