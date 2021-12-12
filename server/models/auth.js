@@ -16,7 +16,7 @@ const verifyToken = (req, res, next) => {
         req.user.email=""   // remove email from returned info, will need to look user up by userId
         console.log(req.user)
     } catch (err) {
-        return res.status(401).send("Invalid token!")
+        return res.status(401).send({message: "Invalid token!"})
     }
     return next()
 }
