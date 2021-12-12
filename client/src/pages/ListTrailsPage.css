@@ -17,9 +17,10 @@ h3 {
 
 .scroll-box {
     /* display: flex; */
-    overflow-x: auto;
-    height: 80vh;
-    padding: 0 10em;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 1em;
+    /* max-width: 40em; */
     
 
 }

@@ -59,12 +59,15 @@
 button {
     text-decoration: none;
     color: #555555;
+    background-color: #EFEDE0;
     font-family: ubuntu;
     font-weight: 800;
     border-width: 0px;
     font-size: medium;
+
 }
 
 button:hover {
      color: #8AA899;
+     cursor: pointer;
 }

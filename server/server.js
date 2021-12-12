@@ -19,9 +19,9 @@ app.use(cors({
 }))
 app.use('/api',trailAndUserRouter)
 app.use('/', express.static('../client/build'))
-app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-})
+// app.use("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// })
 
 app.listen(port, () => {
   console.log(`Example app listening at port:${port}`)

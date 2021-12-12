@@ -46,6 +46,17 @@ async function getTrailById(id) {
     return Trail.findById(id)
 }
 
+async function getTrailByFind(quad) {
+    if (quad === "ListAllTrails") {
+        return Trail.find({});
+    }
+    else {
+        return Trail.find({ cityQuadrant: quad });
+    }
+    
+
+}
+
 async function findUserByEmail(email) {
     return UserData.findOne({userEmail: email})
 }
@@ -73,5 +84,6 @@ module.exports = {
     getTrailById,
     findUserByEmail,
     listTrails,
-    listUsers
+    listUsers,
+    getTrailByFind,
 }

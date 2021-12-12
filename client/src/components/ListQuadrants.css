@@ -1,0 +1,30 @@
+.card-body-quadrant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  height: 15em;
+  grid-area: image;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  z-index: 100;
+  position: relative;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  max-width: 90em;
+  /* border: 2px solid  */
+}
+
+.title-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: ubuntu;
+  font-size: 60px;
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+  z-index: 100;
+}
+

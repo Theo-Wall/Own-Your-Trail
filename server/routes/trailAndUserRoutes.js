@@ -1,4 +1,4 @@
-const {createTrail,createUser,listTrails,findUserByEmail,listUsers,getTrailById} = require('../models/trailsAndUserDataMongoose')
+const {createTrail,createUser,listTrails,findUserByEmail,listUsers,getTrailById, getTrailByFind} = require('../models/trailsAndUserDataMongoose')
 const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const fs = require('fs')
@@ -175,6 +175,12 @@ router.get('/getTrailInfo/:id', async (req, res) => {
     let trailId = req.params.id
     console.log('we made it into the getTrailById API endpoint', trailId)
     res.json(await getTrailById(trailId))
+})
+
+router.get('/listTrailsByQuadrant/:quadrant', async (req, res) => {
+    let trailQuadrant = req.params.quadrant
+    console.log('Searching by key', trailQuadrant)
+    res.json(await getTrailByFind(trailQuadrant))
 })
 
 router.get('/listUsers', async (req, res) => {

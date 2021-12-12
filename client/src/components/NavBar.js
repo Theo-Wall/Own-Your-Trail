@@ -21,7 +21,7 @@ const NavBar = ({setLoginScreenState}) => {
           </Link>
         </span>
         
-        <span class="nav-link">
+        <span className="nav-link">
           <button onClick={() => setLoginScreenState(true)}>
             Login
           </button>
