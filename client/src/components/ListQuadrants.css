@@ -8,7 +8,7 @@
   max-width: 100%;
   overflow: hidden;
   border-radius: 6px;
-  z-index: 10;
+  z-index: 100;
   position: relative;
   text-align: center;
   color: white;
@@ -25,8 +25,6 @@
   font-family: ubuntu;
   font-size: 60px;
   text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+  z-index: 100;
 }
 
-.quadrant-photo {
-
-}

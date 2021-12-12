@@ -39,7 +39,10 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
             <Card>
               <div className="card-body-quadrant" onClick={displaySEQuadrant}>
                 <div className="title-text">South East Calgary</div>
-                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.thousandwonders.net%2FPrince%2527s.Island.Park.original.25354.jpg&f=1&nofb=1" />
+                <img
+                  className="quadrant-photo"
+                  src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.thousandwonders.net%2FPrince%2527s.Island.Park.original.25354.jpg&f=1&nofb=1"
+                />
               </div>
             </Card>
             <Card>
