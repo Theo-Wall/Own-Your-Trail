@@ -11,27 +11,44 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
           <div className="scroll-box">
             <Card>
               <div className="card-body-quadrant" onClick={displayAllTrails}>
-                <p>All Trails</p>
+                <div className="title-text">All Trails</div>
+                <img
+                  className="quadrant-photo"
+                  src="https://static.rootsrated.com/image/upload/s--thbn1KXv--/t_rr_large_natural/ubzptrkkch7a6yfyozmj.jpg"
+                />
               </div>
             </Card>
             <Card>
               <div className="card-body-quadrant" onClick={displayNEQuadrant}>
-                <p>North East Calgary</p>
+                <div className="title-text">North East Calgary</div>
+                <img
+                  className="quadrant-photo"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FSM4OauXruks%2Fmaxresdefault.jpg&f=1&nofb=1"
+                />
               </div>
             </Card>
             <Card>
               <div className="card-body-quadrant" onClick={displayNWQuadrant}>
-                <p>North West Calgary</p>
+                <div className="title-text">North West Calgary</div>
+                <img
+                  className="quadrant-photo"
+                  src="http://paulsaulnier.com/wp-content/uploads/2010/10/IMG_5903.jpg"
+                />
               </div>
             </Card>
             <Card>
               <div className="card-body-quadrant" onClick={displaySEQuadrant}>
-                <p>South East Calgary</p>
+                <div className="title-text">South East Calgary</div>
+                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.thousandwonders.net%2FPrince%2527s.Island.Park.original.25354.jpg&f=1&nofb=1" />
               </div>
             </Card>
             <Card>
               <div className="card-body-quadrant" onClick={displaySWQuadrant}>
-                <p>South West Calgary</p>
+                <div className="title-text">South West Calgary</div>
+                <img
+                  className="quadrant-photo"
+                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcalgarystairs.com%2Fwp-content%2Fuploads%2F2019%2F07%2FCalgary-Stairs-altadore-park-stairs-3-19072019.png&f=1&nofb=1"
+                />
               </div>
             </Card>
           </div>
