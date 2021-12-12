@@ -35,6 +35,10 @@
     grid-area: "main";
     align-items: center;
     padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    /* overflow: scroll; */
     /* overflow-y: visible; */
 }
 input[type='checkbox'] {
