@@ -50,6 +50,7 @@ const RegistrationDetails = ({setRegistrationScreenState, setToken, setIsLoggedI
       console.log("User Data returned from endpoint",userTokenAndId)
       
       if (!userTokenAndId.userToken) {
+        console.log(userTokenAndId.message)
         setWrongRegistrationDetails(true)
         setRegistrationMessage(userTokenAndId.message)
         return
