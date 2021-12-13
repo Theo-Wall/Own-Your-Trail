@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ListTrails from '../components/ListTrails'
 import BackgroundCard from '../components/ui/BackgroundCard'
+import AuthVerify from '../components/Login/AuthVerify'
 
 import LoginScreen from "../components/Login/LoginScreen"
 
-const ListTrailsPage = ({ displayTrails, loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn }) => {
+const ListTrailsPage = ({ displayTrails, loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
 
     let params = useParams()
     displayTrails = params.quadrant
@@ -40,8 +41,16 @@ const ListTrailsPage = ({ displayTrails, loginScreenState, setLoginScreenState, 
           setRegistrationScreenState={setRegistrationScreenState}
           setToken={setToken}
           setIsLoggedIn={setIsLoggedIn}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
         />
-
+        <AuthVerify 
+          token={token}
+          setToken={setToken}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          setUserInfo={setUserInfo}
+        />
       </div>
     );
 }

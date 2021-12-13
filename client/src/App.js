@@ -9,12 +9,12 @@ import { useState } from 'react'
 import ListTrailsPage from './pages/ListTrailsPage'
 
 
-
 function App() {
   const [loginScreenState, setLoginScreenState] = useState(false)
   const [registrationScreenState, setRegistrationScreenState] = useState(false)
   const [token,setToken] = useState (null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userInfo, setUserInfo] = useState ({})
 
   // let createTrailButtonHandler = () => {
     //     setCreateTrailState(true)
@@ -32,6 +32,8 @@ function App() {
           setToken={setToken}
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
+          userInfo={userInfo}
+          setUserInfo={setUserInfo}
         />
       </div>
       {/* This is the old way we used to route our pages */}
@@ -51,6 +53,8 @@ function App() {
               setToken={setToken}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
             />
           }
         />
@@ -66,6 +70,8 @@ function App() {
               setToken={setToken}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
             />
           }
         />
@@ -81,6 +87,8 @@ function App() {
               setToken={setToken}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
             />
           }
         />
@@ -96,6 +104,8 @@ function App() {
               setToken={setToken}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
             />
           }
         />
@@ -126,6 +136,8 @@ function App() {
               setToken={setToken}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
             />
           }
         />

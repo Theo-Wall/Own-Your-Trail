@@ -3,8 +3,9 @@ import ShowTrailPhoto from "../components/ShowTrailPhoto";
 import LoginScreen from "../components/Login/LoginScreen";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import AuthVerify from '../components/Login/AuthVerify'
 
-let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn  }) => {
+let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
   let params = useParams();
   let trailId = params.id;
 
@@ -45,6 +46,15 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
         setRegistrationScreenState={setRegistrationScreenState}
         setToken={setToken}
         setIsLoggedIn={setIsLoggedIn}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      />
+      <AuthVerify 
+        token={token}
+        setToken={setToken}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setUserInfo={setUserInfo}
       />
     </div>
   );

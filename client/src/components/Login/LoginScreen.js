@@ -2,7 +2,7 @@ import LoginDetails from './LoginDetails'
 import RegistrationDetails from './RegistrationDetails'
 import Modal from '../modal/Modal'
 
-const LoginScreen = ({loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn}) => {
+const LoginScreen = ({loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn, userInfo, setUserInfo}) => {
     return (
         <Modal
             title={loginScreenState ? "Login Screen" : "Registration Screen"}
@@ -14,11 +14,13 @@ const LoginScreen = ({loginScreenState, setLoginScreenState, registrationScreenS
             setRegistrationScreenState={setRegistrationScreenState}
             setToken={setToken}
             setIsLoggedIn={setIsLoggedIn}
+            setUserInfo={setUserInfo}
         />}
         {registrationScreenState && <RegistrationDetails
             setRegistrationScreenState={setRegistrationScreenState}
             setToken={setToken}
             setIsLoggedIn={setIsLoggedIn}
+            setUserInfo={setUserInfo}
         />}
       </Modal>
     )

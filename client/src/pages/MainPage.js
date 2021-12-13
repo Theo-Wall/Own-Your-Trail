@@ -4,8 +4,9 @@ import ListQuadrants from "../components/ListQuadrants"
 import BackgroundCard from "../components/ui/BackgroundCard"
 import { useNavigate } from "react-router-dom"
 import LoginScreen from "../components/Login/LoginScreen";
+import AuthVerify from '../components/Login/AuthVerify'
 
-const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn }) => {
+const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
 
   const navigate = useNavigate()
 
@@ -51,6 +52,15 @@ const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenSta
         setRegistrationScreenState={setRegistrationScreenState}
         setToken={setToken}
         setIsLoggedIn={setIsLoggedIn}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      />
+      <AuthVerify 
+        token={token}
+        setToken={setToken}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setUserInfo={setUserInfo}
       />
     </div>
   );

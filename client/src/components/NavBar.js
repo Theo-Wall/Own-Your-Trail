@@ -1,11 +1,13 @@
 import './NavBar.css'
 import { Link } from "react-router-dom"
+
  
-const NavBar = ({setLoginScreenState, isLoggedIn, setIsLoggedIn, setToken}) => {
+const NavBar = ({setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo}) => {
 
   const logoutSetters = () => {
     setIsLoggedIn(false)
     setToken(null)
+    setUserInfo({})
   }
   
   const Login = () => {
@@ -18,9 +20,15 @@ const NavBar = ({setLoginScreenState, isLoggedIn, setIsLoggedIn, setToken}) => {
 
   const Logout = () => {
     return (
-      <button onClick={() => logoutSetters()}>
-        Logout
-      </button>
+      <span>
+        <span>
+          Welcome Back {userInfo.userName}
+        </span>
+        <button onClick={() => logoutSetters()}>
+          ( Logout )
+        </button>
+
+      </span>
     )
   }
 
@@ -30,22 +38,23 @@ const NavBar = ({setLoginScreenState, isLoggedIn, setIsLoggedIn, setToken}) => {
           <h1>Own Your Trail</h1>
         </span>
         <span className="links">
-        <span className="nav-link">
-          <Link className="text-link" to="/">
-            Go Home
-          </Link>
-        </span>
-        <span className="nav-link">
-          {/* <Link></Link> are used to point to the Routes which point to page components  */}
-          <Link className="text-link" to="/createTrailPage">
-            Create Your Trail
-          </Link>
-        </span>
+          <span className="nav-link">
+            <Link className="text-link" to="/">
+              Go Home
+            </Link>
+          </span>
+          <span className="nav-link">
+            {isLoggedIn &&
+              <Link className="text-link" to="/createTrailPage">
+                Create Your Trail
+              </Link>
+            }
+          </span>
         
-        <span className="nav-link">
-          {(isLoggedIn ? Logout() : Login())}
+          <span className="nav-link">
+            {(isLoggedIn ? Logout() : Login())}
+          </span>
         </span>
-      </span>
       </div>
     );
 }

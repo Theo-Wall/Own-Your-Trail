@@ -1,7 +1,7 @@
 import './LoginDetails.css'
 import { useState } from "react";
 
-const LoginDetails = ({loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn}) => {
+const LoginDetails = ({setLoginScreenState, setRegistrationScreenState, setToken, setIsLoggedIn, setUserInfo}) => {
     const [userEmail, setUserEmail] = useState("")
     const [userPassword, setUserPassword] = useState("")
     const [wrongCredentials, setWrongCredentials] = useState(false)
@@ -60,6 +60,7 @@ const LoginDetails = ({loginScreenState, setLoginScreenState, registrationScreen
         return
       }
       setToken(userTokenAndId.userToken)
+      setUserInfo({userId: userTokenAndId.userId, userName: userTokenAndId.userName})
       setIsLoggedIn(true)
       setLoginScreenState(false);
     };  

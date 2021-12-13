@@ -3,8 +3,9 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import DisplayPhotoUpload from "../components/DisplayPhotoUpload";
 import LoginScreen from "../components/Login/LoginScreen";
+import AuthVerify from "../components/Login/AuthVerify"
 
-const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn }) => {
+const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
   const navigate = useNavigate();
 
   // initializes useState for capturing form data and useRef for capturing photo upload data
@@ -216,8 +217,16 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
         setRegistrationScreenState={setRegistrationScreenState}
         setToken={setToken}
         setIsLoggedIn={setIsLoggedIn}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
       />
-
+      <AuthVerify 
+        token={token}
+        setToken={setToken}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setUserInfo={setUserInfo}
+      />
     </div>
   );
 };

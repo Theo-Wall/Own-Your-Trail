@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const RegistrationDetails = ({setRegistrationScreenState, setToken, setIsLoggedIn}) => {
+const RegistrationDetails = ({setRegistrationScreenState, setToken, setIsLoggedIn, setUserInfo}) => {
     const [userName, setUserName] = useState("")
     const [userEmail, setUserEmail] = useState("")
     const [userPassword, setUserPassword] = useState("")
@@ -55,6 +55,7 @@ const RegistrationDetails = ({setRegistrationScreenState, setToken, setIsLoggedI
         return
       }
       setToken(userTokenAndId.userToken)
+      setUserInfo({userId: userTokenAndId.userId, userName: userTokenAndId.userName})
       setIsLoggedIn(true)
       setRegistrationScreenState(false);
     };  
