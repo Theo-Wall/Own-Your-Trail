@@ -19,8 +19,8 @@ h3 {
     /* display: flex; */
     overflow-x: hidden;
     height: 100%;
-    padding: 7em 1em 1em 1em;
-    /* max-width: 40em; */
+    padding: 1em;
+    max-width: 40em;
     
 
 }

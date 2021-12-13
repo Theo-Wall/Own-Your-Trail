@@ -1,11 +1,11 @@
 import "./ShowTrailDetailPage.css";
 import ShowTrailPhoto from "../components/ShowTrailPhoto";
-import Modal from '../components/modal/Modal'
-import LoginDetails from "../components/LoginDetails";
+import LoginScreen from "../components/Login/LoginScreen";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import AuthVerify from '../components/Login/AuthVerify'
 
-let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState }) => {
+let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
   let params = useParams();
   let trailId = params.id;
 
@@ -39,9 +39,23 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState }) => {
       <div>{trailData.trailDescription}</div>
       <div>{trailData.trailMap}</div>
 
-      <Modal title="Login Screen" show={loginScreenState } onClose={()=>setLoginScreenState(false)}>
-        <LoginDetails setLoginScreenState={setLoginScreenState} />
-      </Modal>
+      <LoginScreen
+        loginScreenState={loginScreenState}
+        setLoginScreenState={setLoginScreenState}
+        registrationScreenState={registrationScreenState}
+        setRegistrationScreenState={setRegistrationScreenState}
+        setToken={setToken}
+        setIsLoggedIn={setIsLoggedIn}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      />
+      <AuthVerify 
+        token={token}
+        setToken={setToken}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setUserInfo={setUserInfo}
+      />
     </div>
   );
 };

@@ -13,7 +13,7 @@
   text-align: center;
   color: white;
   overflow: hidden;
-  max-width: 90em;
+  max-width: 50em;
   /* border: 2px solid  */
 }
 
@@ -23,7 +23,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: ubuntu;
-  font-size: 60px;
+  font-size: 40px;
   text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
   z-index: 100;
 }
