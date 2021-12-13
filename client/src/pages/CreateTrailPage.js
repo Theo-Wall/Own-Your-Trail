@@ -74,7 +74,8 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
     event.preventDefault();
 
     const newTrail = {
-      userId: userId,
+      userId: userInfo.userId,
+      userName: userInfo.userName,
       trailName: trailTitle,
       photos: imagesUpload,
       trailDescription: trailDescription,
@@ -83,16 +84,25 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       primaryPhoto: parseInt(primaryPhoto),
     };
 
-    await fetch('/api/createTrail', {
-      method: "POST",
-      body: JSON.stringify(newTrail),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch('/api/createTrail', {
+        method: "POST",
+        body: JSON.stringify(newTrail),
+        headers: {
+          "x-access-token": token,
+          "Content-Type": "application/json",
+        },
+      });
 
-    navigate("/"); // navigates back to the main page after the create trail button has been clicked and all data is collected
-  };
+      const createTrailResponse = await response.json()
+      console.log ("this is the response:", createTrailResponse)
+      if (!createTrailResponse.message) {
+        navigate("/"); // navigates back to the main page after the create trail button has been clicked and all data is collected
+        return
+      }
+
+      setLoginScreenState(true)
+
+};
 
   return (
     // Form for inputting trail data and image upload. We need to make this pretty :)
@@ -102,17 +112,6 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       <form className="body">
         <div className="main-input">
           <h4>Trail Info</h4>
-          <div className="user-name">
-            <label htmlFor="userName">User Name:</label>
-            <input
-              value={userId}
-              onChange={(event) => onInput(event, setUserId)}
-              id="userName"
-              type="text"
-              placeholder="Your name"
-              required
-            ></input>
-          </div>
           <div className="trail-title">
             <label htmlFor="trailTitle">Trail Name:</label>
             <input
