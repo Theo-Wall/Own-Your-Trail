@@ -1,0 +1,9 @@
+.scroll-box-listTrails {
+    display: flex;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 1em;
+    max-width: 100%;
+    
+  
+  }

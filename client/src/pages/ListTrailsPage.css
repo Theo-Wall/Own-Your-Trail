@@ -15,15 +15,7 @@ h3 {
     color: #555555;
 }
 
-.scroll-box {
-    /* display: flex; */
-    overflow-x: hidden;
-    height: 100%;
-    padding: 1em;
-    max-width: 40em;
-    
 
-}
 
 .card-grid {
     display: flex;

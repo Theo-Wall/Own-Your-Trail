@@ -8,7 +8,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
     <div>
       <div>
         <div>
-          <div className="scroll-box">
+          <div className="scroll-box-quadrants">
             <Card>
               <div className="card-body-quadrant" onClick={displayAllTrails}>
                 <div className="title-text">All Trails</div>
