@@ -3,7 +3,6 @@ import "./MainPage.css";
 import Modal from "../components/modal/Modal";
 import LoginDetails from "../components/LoginDetails";
 import ListQuadrants from "../components/ListQuadrants"
-import BackgroundCard from "../components/ui/BackgroundCard"
 import { useNavigate } from "react-router-dom"
 
 const MainPage = ({ loginScreenState, setLoginScreenState }) => {
@@ -35,7 +34,6 @@ const MainPage = ({ loginScreenState, setLoginScreenState }) => {
   return (
     <div className="main-area">
       <div className="main">
-        <BackgroundCard>
             <ListQuadrants
               displayAllTrails={selectAllHandler}
               displayNEQuadrant={selectNEHandler}
@@ -43,7 +41,6 @@ const MainPage = ({ loginScreenState, setLoginScreenState }) => {
               displaySEQuadrant={selectSEHandler}
               displaySWQuadrant={selectSWHandler}
             />
-        </BackgroundCard>
       </div>
       <Modal
         title="Login Screen"

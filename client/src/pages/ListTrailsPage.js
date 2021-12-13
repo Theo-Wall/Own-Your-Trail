@@ -2,7 +2,6 @@ import './ListTrailsPage.css'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ListTrails from '../components/ListTrails'
-import BackgroundCard from '../components/ui/BackgroundCard'
 
 import Modal from '../components/modal/Modal'
 import LoginDetails from "../components/LoginDetails"
@@ -29,9 +28,7 @@ const ListTrailsPage = ({displayTrails, loginScreenState, setLoginScreenState}) 
     return (
       <div className="main-area">
         <div classname="main">
-          <BackgroundCard>
             {trailData && <ListTrails trailList={trailData} />}
-          </BackgroundCard>
         </div>
 
         <Modal

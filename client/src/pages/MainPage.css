@@ -32,6 +32,9 @@
 }
 
 .main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     grid-area: "main";
     align-items: center;
     padding: 0;
