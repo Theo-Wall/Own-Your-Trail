@@ -2,7 +2,6 @@ import './ListTrailsPage.css'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ListTrails from '../components/ListTrails'
-import BackgroundCard from '../components/ui/BackgroundCard'
 import AuthVerify from '../components/Login/AuthVerify'
 
 import LoginScreen from "../components/Login/LoginScreen"
