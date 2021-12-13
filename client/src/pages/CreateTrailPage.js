@@ -2,10 +2,10 @@ import "./CreateTrailPage.css";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import DisplayPhotoUpload from "../components/DisplayPhotoUpload";
-import Modal from '../components/modal/Modal'
-import LoginDetails from "../components/LoginDetails";
+import LoginScreen from "../components/Login/LoginScreen";
+import AuthVerify from "../components/Login/AuthVerify"
 
-const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
+const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
   const navigate = useNavigate();
 
   // initializes useState for capturing form data and useRef for capturing photo upload data
@@ -74,7 +74,8 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
     event.preventDefault();
 
     const newTrail = {
-      userId: userId,
+      userId: userInfo.userId,
+      userName: userInfo.userName,
       trailName: trailTitle,
       photos: imagesUpload,
       trailDescription: trailDescription,
@@ -83,16 +84,25 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
       primaryPhoto: parseInt(primaryPhoto),
     };
 
-    await fetch('/api/createTrail', {
-      method: "POST",
-      body: JSON.stringify(newTrail),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch('/api/createTrail', {
+        method: "POST",
+        body: JSON.stringify(newTrail),
+        headers: {
+          "x-access-token": token,
+          "Content-Type": "application/json",
+        },
+      });
 
-    navigate("/"); // navigates back to the main page after the create trail button has been clicked and all data is collected
-  };
+      const createTrailResponse = await response.json()
+      console.log ("this is the response:", createTrailResponse)
+      if (!createTrailResponse.message) {
+        navigate("/"); // navigates back to the main page after the create trail button has been clicked and all data is collected
+        return
+      }
+
+      setLoginScreenState(true)
+
+};
 
   return (
     // Form for inputting trail data and image upload. We need to make this pretty :)
@@ -102,17 +112,6 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
       <form className="body">
         <div className="main-input">
           <h4>Trail Info</h4>
-          <div className="user-name">
-            <label htmlFor="userName">User Name:</label>
-            <input
-              value={userId}
-              onChange={(event) => onInput(event, setUserId)}
-              id="userName"
-              type="text"
-              placeholder="Your name"
-              required
-            ></input>
-          </div>
           <div className="trail-title">
             <label htmlFor="trailTitle">Trail Name:</label>
             <input
@@ -210,14 +209,23 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
         </div>
       </form>
       
-      <Modal
-        title="Login Screen"
-        show={loginScreenState}
-        onClose={()=>setLoginScreenState(false)}
-      >
-        <LoginDetails setLoginScreenState={setLoginScreenState} />
-      </Modal>
-
+      <LoginScreen
+        loginScreenState={loginScreenState}
+        setLoginScreenState={setLoginScreenState}
+        registrationScreenState={registrationScreenState}
+        setRegistrationScreenState={setRegistrationScreenState}
+        setToken={setToken}
+        setIsLoggedIn={setIsLoggedIn}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      />
+      <AuthVerify 
+        token={token}
+        setToken={setToken}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setUserInfo={setUserInfo}
+      />
     </div>
   );
 };

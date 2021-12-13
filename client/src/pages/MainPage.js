@@ -1,11 +1,11 @@
 import "./MainPage.css";
 // import SideRefinedSearch from "../components/SideRefinedSearch";
-import Modal from "../components/modal/Modal";
-import LoginDetails from "../components/LoginDetails";
 import ListQuadrants from "../components/ListQuadrants"
 import { useNavigate } from "react-router-dom"
+import LoginScreen from "../components/Login/LoginScreen";
+import AuthVerify from '../components/Login/AuthVerify'
 
-const MainPage = ({ loginScreenState, setLoginScreenState }) => {
+const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
 
   const navigate = useNavigate()
 
@@ -42,13 +42,23 @@ const MainPage = ({ loginScreenState, setLoginScreenState }) => {
               displaySWQuadrant={selectSWHandler}
             />
       </div>
-      <Modal
-        title="Login Screen"
-        show={loginScreenState}
-        onClose={() => setLoginScreenState(false)}
-      >
-        <LoginDetails setLoginScreenState={setLoginScreenState} />
-      </Modal>
+      <LoginScreen
+        loginScreenState={loginScreenState}
+        setLoginScreenState={setLoginScreenState}
+        registrationScreenState={registrationScreenState}
+        setRegistrationScreenState={setRegistrationScreenState}
+        setToken={setToken}
+        setIsLoggedIn={setIsLoggedIn}
+        userInfo={userInfo}
+        setUserInfo={setUserInfo}
+      />
+      <AuthVerify 
+        token={token}
+        setToken={setToken}
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        setUserInfo={setUserInfo}
+      />
     </div>
   );
 };

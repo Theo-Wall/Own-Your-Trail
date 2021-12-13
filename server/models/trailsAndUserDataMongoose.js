@@ -1,7 +1,8 @@
 const mongoose = require('./mongooseDb')  // mongooseDb is for access to the localhost database
 //const mongoose = require('./mongooseDbAtlas.js')  // mongooseDbAtlas.js is for access to the Atlas database
 
-const Trail = mongoose.model('Trail', {     userId: String,                                 // add in required inputs
+const Trail = mongoose.model('Trail', {     userId: String,
+                                            userName: String,                              // add in required inputs
                                             trailName: String,
                                             photos: [{url: String, description: String}],
                                             trailDescription: String,
