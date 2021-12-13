@@ -1,12 +1,11 @@
 import "./MainPage.css";
 // import SideRefinedSearch from "../components/SideRefinedSearch";
-import Modal from "../components/modal/Modal";
-import LoginDetails from "../components/LoginDetails";
 import ListQuadrants from "../components/ListQuadrants"
 import BackgroundCard from "../components/ui/BackgroundCard"
 import { useNavigate } from "react-router-dom"
+import LoginScreen from "../components/Login/LoginScreen";
 
-const MainPage = ({ loginScreenState, setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn }) => {
+const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn }) => {
 
   const navigate = useNavigate()
 
@@ -45,17 +44,14 @@ const MainPage = ({ loginScreenState, setLoginScreenState, token, setToken, isLo
             />
         </BackgroundCard>
       </div>
-      <Modal
-        title="Login Screen"
-        show={loginScreenState}
-        onClose={() => setLoginScreenState(false)}
-      >
-        <LoginDetails 
-          setLoginScreenState={setLoginScreenState}
-          setToken={setToken}
-          setIsLoggedIn={setIsLoggedIn}
-        />
-      </Modal>
+      <LoginScreen
+        loginScreenState={loginScreenState}
+        setLoginScreenState={setLoginScreenState}
+        registrationScreenState={registrationScreenState}
+        setRegistrationScreenState={setRegistrationScreenState}
+        setToken={setToken}
+        setIsLoggedIn={setIsLoggedIn}
+      />
     </div>
   );
 };

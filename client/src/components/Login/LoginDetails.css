@@ -1,0 +1,15 @@
+.user-name {
+   z-index: 1;
+}
+
+.registration-button {
+   font-family: sans-serif;
+   font-size: medium;
+   background-color: rgb(256,256,256);
+   color: red;
+   text-decoration: underline;
+}
+
+.registration-button:hover {
+   color: black;
+}

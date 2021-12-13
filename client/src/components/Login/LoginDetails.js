@@ -1,12 +1,17 @@
 import './LoginDetails.css'
-import { Link } from "react-router-dom"
 import { useState } from "react";
 
-const LoginDetails = ({setLoginScreenState, setToken, setIsLoggedIn}) => {
+const LoginDetails = ({loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn}) => {
     const [userEmail, setUserEmail] = useState("")
     const [userPassword, setUserPassword] = useState("")
     const [wrongCredentials, setWrongCredentials] = useState(false)
     const [authenticationMessage, setAuthenticationMessage] = useState("")
+
+    const onRegistrationButton = () => {
+      setRegistrationScreenState(true)
+      setLoginScreenState(false)
+      return
+    }
 
     const onInput = (event, setter) => {
       let newValue = event.target.value;
@@ -16,7 +21,7 @@ const LoginDetails = ({setLoginScreenState, setToken, setIsLoggedIn}) => {
     const LoginButtons = () => {
       return (
         <div>
-          <Link to="/userRegistrationPage">I need to register for a user account</Link>
+          <button className = "registration-button" onClick = {onRegistrationButton}>I need to register for a user account</button>
             <div>
               <button className = "modal-button" onClick = {() => setLoginScreenState(false)} >Close</button>
               <button className = "modal-button" onClick = {onSubmit} >Login</button>

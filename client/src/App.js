@@ -3,7 +3,7 @@ import NavBar from './components/NavBar'
 import MainPage from './pages/MainPage'
 import CreateTrailPage from './pages/CreateTrailPage'
 import ShowTrailDetailPage from './pages/ShowTrailDetailPage'
-import UserRegistrationPage from './pages/UserRegistrationPage'
+// import UserRegistrationPage from './pages/UserRegistrationPage'
 import { Routes,Route } from "react-router-dom";
 import { useState } from 'react'
 import ListTrailsPage from './pages/ListTrailsPage'
@@ -12,6 +12,7 @@ import ListTrailsPage from './pages/ListTrailsPage'
 
 function App() {
   const [loginScreenState, setLoginScreenState] = useState(false)
+  const [registrationScreenState, setRegistrationScreenState] = useState(false)
   const [token,setToken] = useState (null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -44,6 +45,8 @@ function App() {
             <MainPage
               loginScreenState={loginScreenState}
               setLoginScreenState={setLoginScreenState}
+              registrationScreenState={registrationScreenState}
+              setRegistrationScreenState={setRegistrationScreenState}
               token={token}
               setToken={setToken}
               isLoggedIn={isLoggedIn}
@@ -57,6 +60,8 @@ function App() {
             <CreateTrailPage
               loginScreenState={loginScreenState}
               setLoginScreenState={setLoginScreenState}
+              registrationScreenState={registrationScreenState}
+              setRegistrationScreenState={setRegistrationScreenState}             
               token={token}
               setToken={setToken}
               isLoggedIn={isLoggedIn}
@@ -70,6 +75,8 @@ function App() {
             <ShowTrailDetailPage
               loginScreenState={loginScreenState}
               setLoginScreenState={setLoginScreenState}
+              registrationScreenState={registrationScreenState}
+              setRegistrationScreenState={setRegistrationScreenState}
               token={token}
               setToken={setToken}
               isLoggedIn={isLoggedIn}
@@ -83,6 +90,8 @@ function App() {
             <ListTrailsPage
               loginScreenState={loginScreenState}
               setLoginScreenState={setLoginScreenState}
+              registrationScreenState={registrationScreenState}
+              setRegistrationScreenState={setRegistrationScreenState}
               token={token}
               setToken={setToken}
               isLoggedIn={isLoggedIn}
@@ -90,25 +99,29 @@ function App() {
             />
           }
         />
-        <Route
+        {/* <Route
           path="/UserRegistrationPage"
           element={
             <UserRegistrationPage
               loginScreenState={loginScreenState}
               setLoginScreenState={setLoginScreenState}
+              registrationScreenState={registrationScreenState}
+              setRegistrationScreenState={setRegistrationScreenState}
               token={token}
               setToken={setToken}
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
             />
           }
-        />
+        /> */}
         <Route
           path="*"
           element={
             <MainPage
               loginScreenState={loginScreenState}
               setLoginScreenState={setLoginScreenState}
+              registrationScreenState={registrationScreenState}
+              setRegistrationScreenState={setRegistrationScreenState}
               token={token}
               setToken={setToken}
               isLoggedIn={isLoggedIn}

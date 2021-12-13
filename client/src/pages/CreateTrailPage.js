@@ -2,10 +2,9 @@ import "./CreateTrailPage.css";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import DisplayPhotoUpload from "../components/DisplayPhotoUpload";
-import Modal from '../components/modal/Modal'
-import LoginDetails from "../components/LoginDetails";
+import LoginScreen from "../components/Login/LoginScreen";
 
-const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
+const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, setToken, setIsLoggedIn }) => {
   const navigate = useNavigate();
 
   // initializes useState for capturing form data and useRef for capturing photo upload data
@@ -210,13 +209,14 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState }) => {
         </div>
       </form>
       
-      <Modal
-        title="Login Screen"
-        show={loginScreenState}
-        onClose={()=>setLoginScreenState(false)}
-      >
-        <LoginDetails setLoginScreenState={setLoginScreenState} />
-      </Modal>
+      <LoginScreen
+        loginScreenState={loginScreenState}
+        setLoginScreenState={setLoginScreenState}
+        registrationScreenState={registrationScreenState}
+        setRegistrationScreenState={setRegistrationScreenState}
+        setToken={setToken}
+        setIsLoggedIn={setIsLoggedIn}
+      />
 
     </div>
   );

@@ -86,7 +86,7 @@ router.post('/createUser', async (req, res) => {
 
         // validate user input
         if (!(email && password && user_name)) {
-            res.status(400).send({message: "All inputs are required!"})
+            res.status(400).send({message: "All inputs are required!", userToken=null})
         }
 
         // check if user already exists
@@ -94,7 +94,7 @@ router.post('/createUser', async (req, res) => {
         const oldUser = await findUserByEmail(email)
 
         if (oldUser) {
-            return res.status(409).send({message: "User Already Exists! Please login"})
+            return res.status(409).send({message: "User Already Exists! Please login", userToken=null})
         }
 
         // Encrypt user password
