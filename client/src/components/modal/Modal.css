@@ -70,7 +70,7 @@
   }
 
   .modal-button {
-    background-color: #e7e7e7;
+    background-color:#EFEDE0;
     color: black;
     font-size: 16px;
     margin: 10px 20px;
@@ -81,6 +81,6 @@
   }
 
   .modal-button:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #cccbbe; /* Green */
     color: white;
   }
