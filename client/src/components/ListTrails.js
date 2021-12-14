@@ -1,10 +1,11 @@
 import TrailRow from '../components/TrailRow'
+import './ListTrails.css'
 
 const ListTrails = (trailList) => {
   console.log(trailList.trailList)
   return (
     <div className="trails-table">
-      <div className="scroll-box">
+      <div className="scroll-box-listTrails">
         <div className="card-grid">
           {trailList.trailList.map((trail) => {
             return (

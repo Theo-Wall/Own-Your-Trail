@@ -28,3 +28,12 @@
   z-index: 100;
 }
 
+.scroll-box-quadrants {
+  /* display: flex; */
+  overflow-x: hidden;
+  height: 100%;
+  padding: 1em;
+  max-width: 40em;
+  
+
+}

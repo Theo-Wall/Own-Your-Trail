@@ -148,7 +148,7 @@ router.post ('/login', async (req,res) => {
             const token = jwt.sign (
                 {user_id: user.userId, email},
                 process.env.TOKEN_KEY,
-                {expiresIn: "2m"}
+                {expiresIn: "2h"}
             )
             
             // save user token and remove password and email info from user
