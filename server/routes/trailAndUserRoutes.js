@@ -11,29 +11,6 @@ const jwt = require ("jsonwebtoken")
 
 const verifyToken = require("../models/auth")
 
-// const storage = multer.memoryStorage({
-//     destination: function (req, files, callback) {
-//         callback(null, "");
-//     },
-// });
-// let multipleUpload = multer({ storage: storage }).array("image")
-
-
-
-const dummyTrail = {
-    "userId": 1,
-  "trailName": "trail1" ,
-  "photos": ["https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw"],
-  "trailDescription": "I walked this trail every day with my grand pappy and so should you.",
-  "trailMap": "turn left at cowboy ave and take a right at lasso st"
-
-  }
-
-const dummyUser = {
-    userId: 1,
-    userName: "Theo"
-  }
-
 router.post ('/tokenTestingRoute', verifyToken, (req,res) => {
     console.log ("Your token is still active!")
     res.send("token is valid")
@@ -177,7 +154,7 @@ router.get('/getTrailInfo/:id', async (req, res) => {
     res.json(await getTrailById(trailId))
 })
 
-router.get('/listTrailsByQuadrant/:quadrant', async (req, res) => {
+router.get('/listTrailsByFind/:quadrant', async (req, res) => {
     let trailQuadrant = req.params.quadrant
     console.log('Searching by key', trailQuadrant)
     res.json(await getTrailByFind(trailQuadrant))

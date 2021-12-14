@@ -9,38 +9,20 @@ const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenSta
 
   const navigate = useNavigate()
 
-  const selectAllHandler = () => {
-    let quadrant = "ListAllTrails"
-    navigate('/ListTrailsPage/' + quadrant)
+  const selectHandler = (key) => {
+    navigate('/ListTrailsPage/' + key)
   }
-  const selectNEHandler = () => {
-    let quadrant = "NE";
-    navigate("/ListTrailsPage/" + quadrant);
-  }
-  const selectNWHandler = () => {
-    let quadrant = "NW";
-    navigate("/ListTrailsPage/" + quadrant);
-  }
-  const selectSEHandler = () => {
-    let quadrant = "SE";
-    navigate("/ListTrailsPage/" + quadrant);
-  }
-  const selectSWHandler = () => {
-    let quadrant = "SW";
-    navigate("/ListTrailsPage/" + quadrant);
-  }
-
     console.log ('main page', loginScreenState)
   return (
     <div className="main-area">
       <div className="main">
-            <ListQuadrants
-              displayAllTrails={selectAllHandler}
-              displayNEQuadrant={selectNEHandler}
-              displayNWQuadrant={selectNWHandler}
-              displaySEQuadrant={selectSEHandler}
-              displaySWQuadrant={selectSWHandler}
-            />
+        <ListQuadrants
+          displayAllTrails={() => selectHandler("ListAllTrails")}
+          displayNEQuadrant={() => selectHandler("NE")}
+          displayNWQuadrant={() => selectHandler("NW")}
+          displaySEQuadrant={() => selectHandler("SE")}
+          displaySWQuadrant={() => selectHandler("SW")}
+        />
       </div>
       <LoginScreen
         loginScreenState={loginScreenState}
@@ -52,7 +34,7 @@ const MainPage = ({ loginScreenState, setLoginScreenState, registrationScreenSta
         userInfo={userInfo}
         setUserInfo={setUserInfo}
       />
-      <AuthVerify 
+      <AuthVerify
         token={token}
         setToken={setToken}
         isLoggedIn={isLoggedIn}
