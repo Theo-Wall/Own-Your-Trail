@@ -55,6 +55,11 @@ const NavBar = ({setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn
                 Create Your Trail
               </Link>
             }
+            {!isLoggedIn &&
+              <span className="text-link-disabled" to="/createTrailPage">
+                Create Your Trail
+              </span>
+            }
           </span>
         
           <span className="nav-link">

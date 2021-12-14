@@ -55,6 +55,15 @@
 
 }
 
+.text-link-disabled {
+    text-decoration: none;
+    color: #8AA899;
+    font-family: ubuntu;
+    font-weight: 800;
+   
+
+}
+
 .text-link:hover{
     color: #8AA899;
 }
