@@ -20,16 +20,6 @@ const UserData = mongoose.model('UserData', {   "userId": String,               
                                                 "userToken": String
                                             })
 
-const dummyTrail = { //dummy data to test creatTrail function
-    "userId": "Theo",
-    "trailName": "trail1" ,
-    "photos": [{"url": "https://www.google.com/maps/d/thumbnail?mid=1f0DqYdEHXIWs25ACkMNiMZ-Wkpw", "description": "down by the river"}],
-    "trailDescription": "I walked this trail every day with my grand pappy and so should you.",
-    "trailMap": "turn left at cowboy ave and take a right at lasso st",
-    "primaryPhoto": 0,
-    "cityQuadrant": "NW"
-  }
-
 async function createTrail(trailData) { 
     
     let newTrail = new Trail(trailData)
@@ -49,12 +39,13 @@ async function getTrailById(id) {
     return Trail.findById(id)
 }
 
-async function getTrailByFind(quad) {
-    if (quad === "ListAllTrails") {
+async function getTrailByFind(key) {
+    if (key === "ListAllTrails") {
+        
         return Trail.find({});
     }
     else {
-        return Trail.find({ cityQuadrant: quad });
+        return Trail.find({cityQuadrant: key});
     }
     
 

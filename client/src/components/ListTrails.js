@@ -17,6 +17,7 @@ const ListTrails = (trailList) => {
                 primaryPhoto={trail.primaryPhoto}
                 description={trail.trailDescription}
                 cityQuadrant={trail.cityQuadrant}
+                trailRating={trail.trailRating}
               />
             );
           })}
