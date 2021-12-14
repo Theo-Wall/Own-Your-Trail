@@ -47,12 +47,16 @@ async function getTrailByFind(key) {
     else {
         return Trail.find({cityQuadrant: key});
     }
-    
-
 }
 
 async function findUserByEmail(email) {
     return UserData.findOne({userEmail: email})
+}
+
+async function update(id, updatedTrail) {
+    return Trail.findByIdAndUpdate(id, updatedTrail, {
+        returnDocument: 'after',
+    })
 }
 
 async function listTrails() {
@@ -80,4 +84,5 @@ module.exports = {
     listTrails,
     listUsers,
     getTrailByFind,
+    update,
 }

@@ -1,4 +1,4 @@
-const {createTrail,createUser,listTrails,findUserByEmail,listUsers,getTrailById, getTrailByFind} = require('../models/trailsAndUserDataMongoose')
+const {createTrail,createUser,listTrails,findUserByEmail,listUsers,getTrailById, getTrailByFind, update} = require('../models/trailsAndUserDataMongoose')
 const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const fs = require('fs')
@@ -20,6 +20,15 @@ router.post('/createTrail', verifyToken, async (req, res) => { //per Tony's Nov 
     let trailInfo = req.body
     newId = await createTrail(trailInfo)
     res.json(newId)
+})
+
+router.post('/updateTrail/:id', async (req, res) => {
+    let id = req.params.id
+    let updatedTrail = req.body
+    console.log('updating trail', id, 'with', updatedTrail )
+    let newTrail = await update(id, updatedTrail)
+    console.log('trail updated to', newTrail)
+    res.send(newTrail)
 })
 
 router.post('/addImage', upload.array('image'), async (req, res) => {
