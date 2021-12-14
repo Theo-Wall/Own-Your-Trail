@@ -42,7 +42,8 @@
     margin: 1em;
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: #555555;
+;
 }
 
 .text-link {
