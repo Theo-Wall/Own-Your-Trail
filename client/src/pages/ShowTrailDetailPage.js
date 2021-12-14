@@ -11,6 +11,8 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
   let trailId = params.id;
 
   const [trailData, setTrailData] = useState([]);
+  const [ isUserTrail, setIsUserTrail ] = useState(false);
+
   
   useEffect(() => {
     const fetchTrailData = async () => {
@@ -19,8 +21,16 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
       setTrailData(fetchedTrail);
     };
     fetchTrailData();
-  }, [trailId]);
 
+    if (trailData?.userId === userInfo.userId) {
+      console.log("its true")
+      setIsUserTrail(true)
+    }
+
+
+  }, [trailId, userInfo.userId, trailData.userId]);
+  
+  
 
   const handleRating = async (rate) => {
     let newNumberOfRatings = trailData.numberOfTrailRatings + 1
@@ -47,7 +57,7 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
     <div className="centered">
       <h3 className="site-title">{trailData.trailName}</h3>
       <span>
-        {isLoggedIn ? (
+        {isLoggedIn && !isUserTrail ? (
           <Rating
             onClick={handleRating}
             size={20}
@@ -61,7 +71,6 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
           />
         ) : (
           <Rating
-          
             size={20}
             ratingValue={trailData.trailRating * 20}
             label
@@ -75,6 +84,11 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
         <span>
           {trailData.trailRating} ({trailData.numberOfTrailRatings})
         </span>
+          {isUserTrail && isLoggedIn ? (
+            <div>This is your trail</div>
+          ) : (
+            <div>This trail was created by: {trailData.userName}</div>
+          )}
       </span>
       <div className="card">
         {trailData.photos &&
