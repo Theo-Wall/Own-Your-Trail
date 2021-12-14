@@ -137,7 +137,7 @@ router.post ('/login', async (req,res) => {
 
         // Validate user input
         if (!(email && password)) {
-            res.status(400).send({message: "All inputs are required!", userToken: null})
+           return res.status(400).send({message: "All inputs are required!", userToken: null})
         }
 
         // Validate if user exists in our database
@@ -157,7 +157,7 @@ router.post ('/login', async (req,res) => {
             user.userPassword=''
             
             // user
-            res.status(200).json(user)
+            return res.status(200).json(user)
         }
         res.status(401).send({message: "Invalid Credentials!", userToken: null})
     } catch (err) {
