@@ -27,7 +27,7 @@ const ListTrailsPage = ({ displayTrails, loginScreenState, setLoginScreenState, 
       console.log(trailData)
     return (
       <div className="main-area">
-        <div classname="main">
+        <div className="main">
             {trailData && <ListTrails trailList={trailData} />}
         </div>
 
