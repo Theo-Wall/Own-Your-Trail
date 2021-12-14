@@ -4,7 +4,7 @@
     display: grid;
     grid-template: 
     "left right" 5em
-    / 1fr 1fr;
+    / 1fr 2fr;
     background-color: #EFEDE0;
     color: #555555;
     text-align: right;
@@ -27,6 +27,10 @@
     padding-left: 2em;
 }
 
+.app-name:hover {
+    color: #8AA899;
+}
+
 .links {
     display: flex;
     grid-area: right;
@@ -42,7 +46,8 @@
     margin: 1em;
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: #555555;
+;
 }
 
 .text-link {
@@ -54,11 +59,20 @@
 
 }
 
+.text-link-disabled {
+    text-decoration: none;
+    color: #8AA899;
+    font-family: ubuntu;
+    font-weight: 800;
+   
+
+}
+
 .text-link:hover{
     color: #8AA899;
 }
 
-button {
+.navigation-button {
     text-decoration: none;
     color: #555555;
     background-color: #EFEDE0;
@@ -69,7 +83,7 @@ button {
 
 }
 
-button:hover {
+.navigation-button:hover {
      color: #8AA899;
      cursor: pointer;
 }

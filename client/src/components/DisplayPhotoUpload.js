@@ -8,6 +8,8 @@ const DisplayPhotoUpload = ({
   onDescribe,
   defaultDescription,
   onPrimaryPhoto,
+  uploadButtonDisable,
+  setUploadButtonDisable,
 }) => {
   return (
     <div>
@@ -22,6 +24,7 @@ const DisplayPhotoUpload = ({
           name="image"
           accept="image/*"
           multiple={false}
+          onInput={setUploadButtonDisable}
         ></input>
         <label htmlFor="photoDescription"></label>
         <textarea
@@ -34,9 +37,21 @@ const DisplayPhotoUpload = ({
           onChange={onDescribe}
           value={defaultDescription}
         ></textarea>
-        <button className="upload-input" onClick={onUpload}>
-          Upload Photo
-        </button>
+        {uploadButtonDisable ? (
+          <button
+            className="upload-input-disabled"
+            disabled={uploadButtonDisable}
+          >
+            Upload Photo
+          </button>
+        ) : (
+          <button
+            className="upload-input"
+            onClick={onUpload}
+          >
+            Upload Photo
+          </button>
+        )}
       </div>
       {imageData.map((image, index) => {
         return (

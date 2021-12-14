@@ -13,13 +13,13 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
   const trailPhoto = useRef(""); // useRef captures photo data before upload
 
   const [photoDescription, setPhotoDescription] = useState(" ");
-  const [userId, setUserId] = useState("");
   const [trailTitle, setTrailTitle] = useState("");
   const [trailDescription, setTrailDescription] = useState("");
   const [trailLocation, setTrailLocation] = useState("");
   const [quadrant, setQuadrant] = useState("");
   const [primaryPhoto, setPrimaryPhoto] = useState(0);
-
+  const [ uploadButtonDisable, setUploadButtonDisable] = useState(true)
+  const [ createButtonDisable, setCreateButtonDisable] = useState(true)
   // useState for capturing image upload data after upload
 
   const [imagesUpload, setImagesUpload] = useState([]);
@@ -56,6 +56,8 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       });
 
     // organizing the data from the cloudinary response, allows for photos/descriptions to be saved one after another
+    // console.log(imageUrl)
+    // console.log(imageUrl.data[0].url)
 
     imageUrl.data[0].description = photoDescription;
 
@@ -64,7 +66,10 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
 
     setImagesUpload(newPhotoArray);
     setPhotoDescription("");
+  
+    setCreateButtonDisable(false)
     trailPhoto.current.value = "";
+
   };
 
   // captures the rest of the input data from the form. also assigns the image url to the new Trail object. We need to
@@ -82,6 +87,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       trailMap: trailLocation,
       cityQuadrant: quadrant,
       primaryPhoto: parseInt(primaryPhoto),
+      trailRating: 0,
     };
 
     const response = await fetch('/api/createTrail', {
@@ -156,7 +162,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
                   value="NW"
                   onChange={(event) => onInput(event, setQuadrant)}
                 ></input>
-           
+
                 <label htmlFor="SE">South East</label>
                 <input
                   type="radio"
@@ -187,18 +193,32 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
             placeholder="Briefly describe your trail"
             required
           ></textarea>
-          <button
-            onClick={(event) => {
-              captureNewTrailData(event);
-            }}
-            className="input"
-          >
-            Create Your Trail
-          </button>
+          {createButtonDisable ? (
+            <button
+              onClick={(event) => {
+                captureNewTrailData(event);
+              }}
+              disabled={createButtonDisable}
+              className="input-disabled"
+            >
+              Create Your Trail
+            </button>
+          ) : (
+            <button
+              onClick={(event) => {
+                captureNewTrailData(event);
+              }}
+              className="input"
+            >
+              Create Your Trail
+            </button>
+          )}
         </div>
         <div className="trail-photos">
           <h4>Trail Photos</h4>
           <DisplayPhotoUpload
+            setUploadButtonDisable={() => {setUploadButtonDisable(false)}}
+            uploadButtonDisable={uploadButtonDisable}
             imageData={imagesUpload}
             onUpload={uploadImage}
             photos={trailPhoto}
@@ -208,7 +228,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
           />
         </div>
       </form>
-      
+
       <LoginScreen
         loginScreenState={loginScreenState}
         setLoginScreenState={setLoginScreenState}
@@ -219,7 +239,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
         userInfo={userInfo}
         setUserInfo={setUserInfo}
       />
-      <AuthVerify 
+      <AuthVerify
         token={token}
         setToken={setToken}
         isLoggedIn={isLoggedIn}

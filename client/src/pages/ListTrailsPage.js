@@ -6,28 +6,28 @@ import AuthVerify from '../components/Login/AuthVerify'
 
 import LoginScreen from "../components/Login/LoginScreen"
 
-const ListTrailsPage = ({ displayTrails, loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
+const ListTrailsPage = ({loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
 
     let params = useParams()
-    displayTrails = params.quadrant
-
+    console.log(params.quadrant)
+    let searchKey = params.quadrant
     const [trailData, setTrailData] = useState()
 
     
     useEffect(() => {
         const fetchTrailData = async () => {
-          let fetchResult = await fetch('/api/listTrailsByQuadrant/' + displayTrails)
+          let fetchResult = await fetch('/api/listTrailsByFind/' + searchKey)
           let fetchedTrails = await fetchResult.json()
           setTrailData(fetchedTrails)  
         }
         fetchTrailData()
-      }, [displayTrails])
+      }, [searchKey])
     
       
       console.log(trailData)
     return (
       <div className="main-area">
-        <div classname="main">
+        <div className="main">
             {trailData && <ListTrails trailList={trailData} />}
         </div>
 

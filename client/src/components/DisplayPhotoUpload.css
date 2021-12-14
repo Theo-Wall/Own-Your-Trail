@@ -5,15 +5,25 @@
 
 .upload-input {
   width: 100%;
-  background-color: #efede0;
+  background-color: #EFEDE0;
   color: #555555;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  
-  
+  font-family: ubuntu;
+}
+
+.upload-input-disabled {
+  width: 100%;
+  background-color: #cccbbe;
+  color: #555555;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  font-family: ubuntu;
 }
 
 .upload-input:hover {

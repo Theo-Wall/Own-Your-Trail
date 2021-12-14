@@ -76,12 +76,12 @@ const LoginDetails = ({setLoginScreenState, setRegistrationScreenState, setToken
               placeholder="Your email"
               required
             ></input>
-            <label htmlFor="userName">Password:</label>
+            <label htmlFor="userPassword">Password:</label>
             <input
               className="user-name"
               value={userPassword}
               onChange={(event) => onInput(event, setUserPassword)}
-              id="userName"
+              id="userPassword"
               type="password"
               placeholder="Your password"
               required
