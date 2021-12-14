@@ -18,24 +18,24 @@ const NavBar = ({setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn
   
   const Login = () => {
     return (
-      <button onClick={() => setLoginScreenState(true)}>
+      <button
+        onClick={() => setLoginScreenState(true)}
+        className="navigation-button"
+      >
         Login
       </button>
-    )
+    );
   }
 
   const Logout = () => {
     return (
       <span>
-        <span>
-          Welcome Back {userInfo.userName}
-        </span>
-        <button onClick={() => logoutSetters()}>
+        <span>Welcome Back {userInfo.userName}</span>
+        <button onClick={() => logoutSetters()} className="navigation-button">
           ( Logout )
         </button>
-
       </span>
-    )
+    );
   }
 
     return (

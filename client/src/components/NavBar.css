@@ -59,7 +59,7 @@
     color: #8AA899;
 }
 
-button {
+.navigation-button {
     text-decoration: none;
     color: #555555;
     background-color: #EFEDE0;
@@ -70,7 +70,7 @@ button {
 
 }
 
-button:hover {
+.navigation-button:hover {
      color: #8AA899;
      cursor: pointer;
 }
