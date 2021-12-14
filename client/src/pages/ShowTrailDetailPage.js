@@ -44,8 +44,8 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
       setTrailData(fetchedUpdatedTrail)
   }
   return (
-    <div>
-      <h3>{trailData.trailName}</h3>
+    <div className="centered">
+      <h3 className="site-title">{trailData.trailName}</h3>
       <span>
         {isLoggedIn ? (
           <Rating
@@ -76,7 +76,7 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
           {trailData.trailRating} ({trailData.numberOfTrailRatings})
         </span>
       </span>
-      <div>
+      <div className="card">
         {trailData.photos &&
           trailData.photos.map((photo, index) => {
             return (
@@ -88,9 +88,9 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
               />
             );
           })}
+        <div className="description">{trailData.trailDescription}</div>
+        <div className="map">{trailData.trailMap}</div>
       </div>
-      <div>{trailData.trailDescription}</div>
-      <div>{trailData.trailMap}</div>
 
       <LoginScreen
         loginScreenState={loginScreenState}
