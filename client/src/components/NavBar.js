@@ -1,8 +1,14 @@
 import './NavBar.css'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
  
 const NavBar = ({setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo}) => {
+
+  const navigate = useNavigate()
+
+  const navigateHome = () => {
+    navigate("/");
+  }
 
   const logoutSetters = () => {
     setIsLoggedIn(false)
@@ -35,7 +41,7 @@ const NavBar = ({setLoginScreenState, token, setToken, isLoggedIn, setIsLoggedIn
     return (
       <div className="navigation-bar">
         <span className="app-name">
-          <h1>Own Your Trail</h1>
+          <h1 onClick={navigateHome}>Own Your Trail</h1>
         </span>
         <span className="links">
           <span className="nav-link">
