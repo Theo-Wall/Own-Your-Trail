@@ -36,7 +36,7 @@
     justify-content: center;
     flex-wrap: wrap;
     grid-area: "main";
-    align-items: center;
+    align-items: start;
     padding: 0;
     height: 100%;
     width: 100%;
