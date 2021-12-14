@@ -9,8 +9,8 @@ const Trail = mongoose.model('Trail', {     userId: String,
                                             trailMap: String,
                                             primaryPhoto: Number,
                                             cityQuadrant: String,
-                                            trailRating: number,
-                                            numberOfTrailRatings: number,
+                                            trailRating: Number,
+                                            numberOfTrailRatings: Number,
                                         })
                                         
 const UserData = mongoose.model('UserData', {   "userId": String,                               // add in required inputs
