@@ -13,7 +13,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
   const trailPhoto = useRef(""); // useRef captures photo data before upload
 
   const [photoDescription, setPhotoDescription] = useState(" ");
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
   const [trailTitle, setTrailTitle] = useState("");
   const [trailDescription, setTrailDescription] = useState("");
   const [trailLocation, setTrailLocation] = useState("");
@@ -56,6 +56,8 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       });
 
     // organizing the data from the cloudinary response, allows for photos/descriptions to be saved one after another
+    // console.log(imageUrl)
+    // console.log(imageUrl.data[0].url)
 
     imageUrl.data[0].description = photoDescription;
 

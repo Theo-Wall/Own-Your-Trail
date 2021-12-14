@@ -2,10 +2,10 @@ import '../pages/ShowTrailDetailPage.css'
 
 let ShowTrailPhoto = ({photo,photoDescription,onPrimaryPhoto,arrayIndex}) => {
                     return (
-                      <a href={photo}>
+                      <a href={photo} style={{textDecoration: "none"}}>
                         <span>
                           <img className='photo-thumbnails' src={photo} alt="trail" />
-
+                        </span>
                           {onPrimaryPhoto && 
                           <div>
                             <label htmlFor="primePhotoPicker">
@@ -14,10 +14,10 @@ let ShowTrailPhoto = ({photo,photoDescription,onPrimaryPhoto,arrayIndex}) => {
                             </label>
                           </div>
                           }
-
+                        <span>
                           <h5>{photoDescription}</h5>
-                          
-                        </span>
+                        </span>  
+                        
                       </a>
                     )
                   }
