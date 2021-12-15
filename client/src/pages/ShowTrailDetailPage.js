@@ -50,8 +50,10 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
 
     let newRatedByArray = [...trailData.ratedBy, userInfo.userId]
     console.log(newRatedByArray)
+    let response
 
-      const response = await fetch('/api/updateTrail/' + trailId, {
+    if (token) {
+      response = await fetch('/api/updateTrail/' + trailId, {
         method: "POST",
         body: JSON.stringify({
           "trailRating": newTrailRating.toFixed(1),
@@ -62,9 +64,9 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
           "x-access-token": token,
           "Content-Type": "application/json",
         },
-    
-        
       })
+    } 
+
       let fetchedUpdatedTrail = await response.json()
       setTrailData(fetchedUpdatedTrail)
       setHasNotRated(false)

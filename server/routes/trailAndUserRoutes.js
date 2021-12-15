@@ -22,7 +22,7 @@ router.post('/createTrail', verifyToken, async (req, res) => { //per Tony's Nov 
     res.json(newId)
 })
 
-router.post('/updateTrail/:id', async (req, res) => {
+router.post('/updateTrail/:id', verifyToken, async (req, res) => {
     let id = req.params.id
     let updatedTrail = req.body
     console.log('updating trail', id, 'with', updatedTrail )
