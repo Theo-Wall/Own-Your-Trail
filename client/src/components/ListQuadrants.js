@@ -1,5 +1,10 @@
 import "./ListQuadrants.css"
 import Card from './ui/Card'
+import allTrailsPhoto from '../websitephotos/mainPageAllTrails.jpeg'
+import neQuadrantPhoto from '../websitephotos/mainPageNEQuadrant.jpeg'
+import nwQuadrantPhoto from '../websitephotos/mainPageNWQuadrant.jpeg'
+import seQuadrantPhoto from '../websitephotos/mainPageSEQuadrant.jpeg'
+import swQuadrantPhoto from '../websitephotos/mainPageSWQuadrant.png'
 
 const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, displaySEQuadrant, displaySWQuadrant}) => {
 
@@ -15,7 +20,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
                 <img
                   alt="Quadrant"
                   className="quadrant-photo"
-                  src="https://static.rootsrated.com/image/upload/s--thbn1KXv--/t_rr_large_natural/ubzptrkkch7a6yfyozmj.jpg"
+                  src={allTrailsPhoto}
                 />
               </div>
             </Card>
@@ -25,7 +30,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
                 <img
                   alt="Quadrant"
                   className="quadrant-photo"
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FSM4OauXruks%2Fmaxresdefault.jpg&f=1&nofb=1"
+                  src={neQuadrantPhoto}
                 />
               </div>
             </Card>
@@ -35,7 +40,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
                 <img
                   alt="Quadrant"
                   className="quadrant-photo"
-                  src="http://paulsaulnier.com/wp-content/uploads/2010/10/IMG_5903.jpg"
+                  src={nwQuadrantPhoto}
                 />
               </div>
             </Card>
@@ -45,7 +50,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
                 <img
                   alt="Quadrant"
                   className="quadrant-photo"
-                  src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.thousandwonders.net%2FPrince%2527s.Island.Park.original.25354.jpg&f=1&nofb=1"
+                  src={seQuadrantPhoto}
                 />
               </div>
             </Card>
@@ -55,7 +60,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
                 <img
                   alt="Quadrant"
                   className="quadrant-photo"
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcalgarystairs.com%2Fwp-content%2Fuploads%2F2019%2F07%2FCalgary-Stairs-altadore-park-stairs-3-19072019.png&f=1&nofb=1"
+                  src={swQuadrantPhoto}
                 />
               </div>
             </Card>
