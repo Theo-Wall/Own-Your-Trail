@@ -1,58 +1,41 @@
-.photo-thumbnails {
 
-    border: 1px solid #ddd; /* Gray border */
-    border-radius: 4px;  /* Rounded border */
-    padding: 5px; /* Some padding */
-    width: 150px; /* Set a small width */
-}
-
-.photo-thumbnails:hover {
-    box-shadow:  0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
 
 body {
   font-family: sans-serif;
   font-size: 16px;
   border: 0;
-
 }
 
 
 .centered {
   margin: 0 auto;
   padding: 0 1em;
+  display: grid;
+  grid-template: 
+    "title" 8em 
+    "photos" 30em
+    "description" 15em
+    / 100%
 }
+
 
 .photo {
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-area: photos;
 }
 
-/* .site-title {
-  margin: 0 0 1em;
-  padding: 1em 0;
-  font-size: 2em;
-  font-weight: 300;
-  text-align: center;
-  color: rgba(0, 140, 186, 0.5);
-} */
+.site-title {
 
-/* .card {
-	background: #efede0;
-	margin-bottom: 2em;
-  padding-bottom: 5em;	
-    display: flex;
-    flex: 0 1 calc(33% - 0.5em);
-    margin-top: -1em;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    display: grid;
-  grid-template-rows: 10em 50vh auto 10em;
-  grid-template-columns: 1fr 5fr 2fr 1fr;
-  grid-template-areas: 
-    box-shadow: 0 5px 0px rgba(0, 0, 0, 0);
-} */
+}
+
+
+
+.trail-content {
+  grid-area: description;
+  border: 2px solid green;
+}
 
 /* .description {
   position: absolute;
