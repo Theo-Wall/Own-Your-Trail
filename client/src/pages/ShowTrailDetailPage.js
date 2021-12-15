@@ -44,11 +44,11 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
   
 
   const handleRating = async (rate) => {
-    let newNumberOfRatings = trailData.numberOfTrailRatings + 1
-    let newTrailRating = ((trailData.trailRating * trailData.numberOfTrailRatings + ((rate / 20)-1)) / newNumberOfRatings)
+    let newNumberOfRatings = await trailData.numberOfTrailRatings + 1
+    let newTrailRating = await ((trailData.trailRating * trailData.numberOfTrailRatings + ((rate / 20)-1)) / newNumberOfRatings)
     console.log(newTrailRating, (rate/20))
 
-    let newRatedByArray = [...trailData.ratedBy, userInfo.userId]
+    let newRatedByArray = await [...trailData.ratedBy, userInfo.userId]
     console.log(newRatedByArray)
     let response
 
@@ -68,7 +68,7 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
     } 
 
       let fetchedUpdatedTrail = await response.json()
-      setTrailData(fetchedUpdatedTrail)
+      setTrailData(await fetchedUpdatedTrail)
       setHasNotRated(false)
   }
   return (
