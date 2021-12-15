@@ -127,7 +127,7 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
             );
           })}
       </div>
-          <div className='trail-content'>
+        <div className='trail-content'>
             <h5 className='trail-detail'>Trail Description:</h5>
             <div className="description">{trailData.trailDescription}</div>
             <h5 className='trail-direction'>Directions To Trail:</h5>
