@@ -15,7 +15,7 @@ const ListQuadrants = ({displayAllTrails, displayNEQuadrant, displayNWQuadrant, 
                 <img
                   alt="Quadrant"
                   className="quadrant-photo"
-                  src="https://static.rootsrated.com/image/upload/s--thbn1KXv--/t_rr_large_natural/ubzptrkkch7a6yfyozmj.jpg"
+                  src="../websitephotos/mainPageAllTrails.jpeg"
                 />
               </div>
             </Card>
