@@ -13,17 +13,20 @@
 body {
   font-family: sans-serif;
   font-size: 16px;
-  grid-template-rows: 10em 50vh auto 10em;
-  grid-template-columns: 1fr 5fr 2fr 1fr;
-  grid-template-areas: "header header header header"
-  ". main sidebar ."
-  "footer footer footer footer"
+  border: 0;
+
 }
-  
+
 
 .centered {
   margin: 0 auto;
   padding: 0 1em;
+}
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .site-title {
@@ -48,6 +51,7 @@ body {
   grid-template-rows: 10em 50vh auto 10em;
   grid-template-columns: 1fr 5fr 2fr 1fr;
   grid-template-areas: 
+    box-shadow: 0 5px 0px rgba(0, 0, 0, 0);
 } */
 
 /* .description {

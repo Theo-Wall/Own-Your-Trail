@@ -21,9 +21,9 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
   }, [trailId]);
 
   return (
-    <div className="centered">
-        <h3 className="site-title">{trailData.trailName}</h3>
-        <div className="card">
+    <div className="centered" >
+        <h3>{trailData.trailName}</h3>
+        <div className="photo">
           {trailData.photos &&
             trailData.photos.map((photo, index) => {
               return (
@@ -35,10 +35,10 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
                 />
               );
             })}
-        <div className="description">{trailData.trailDescription}</div>
-        <div className="map">{trailData.trailMap}</div>
+        
       </div>
-
+          <div>{trailData.trailDescription}</div>
+          <div>{trailData.trailMap}</div>
       <LoginScreen
         loginScreenState={loginScreenState}
         setLoginScreenState={setLoginScreenState}
