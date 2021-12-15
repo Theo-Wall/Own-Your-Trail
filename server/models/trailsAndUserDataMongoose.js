@@ -11,6 +11,7 @@ const Trail = mongoose.model('Trail', {     userId: String,
                                             cityQuadrant: String,
                                             trailRating: Number,
                                             numberOfTrailRatings: Number,
+                                            ratedBy: [String],
                                         })
                                         
 const UserData = mongoose.model('UserData', {   "userId": String,                               // add in required inputs
@@ -47,12 +48,16 @@ async function getTrailByFind(key) {
     else {
         return Trail.find({cityQuadrant: key});
     }
-    
-
 }
 
 async function findUserByEmail(email) {
     return UserData.findOne({userEmail: email})
+}
+
+async function update(id, updatedTrail) {
+    return Trail.findByIdAndUpdate(id, updatedTrail, {
+        returnDocument: 'after',
+    })
 }
 
 async function listTrails() {
@@ -80,4 +85,5 @@ module.exports = {
     listTrails,
     listUsers,
     getTrailByFind,
+    update,
 }
