@@ -10,23 +10,33 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
   let params = useParams();
   let trailId = params.id;
 
-  const [trailData, setTrailData] = useState([]);
+  const [ trailData, setTrailData ] = useState([]);
   const [ isUserTrail, setIsUserTrail ] = useState(false);
-
+  const [ hasNotRated, setHasNotRated ] = useState(true)
   
   useEffect(() => {
     const fetchTrailData = async () => {
       let fetchResult = await fetch("/api/getTrailInfo/" + trailId);
       let fetchedTrail = await fetchResult.json();
       setTrailData(fetchedTrail);
+
+
+      let ratedCheck = await fetchedTrail.ratedBy.includes(userInfo.userId)
+
+      console.log("rated check", ratedCheck)
+
+      if (ratedCheck) {
+        console.log("inside ratedBy")
+        setHasNotRated(false)
+      }
+      if (fetchedTrail.userId === userInfo.userId) {
+        console.log("its true");
+        setIsUserTrail(true);
+      }
     };
     fetchTrailData();
 
-    if (trailData?.userId === userInfo.userId) {
-      console.log("its true")
-      setIsUserTrail(true)
-    }
-
+ 
 
   }, [trailId, userInfo.userId, trailData.userId]);
   
@@ -37,11 +47,15 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
     let newTrailRating = ((trailData.trailRating * trailData.numberOfTrailRatings + ((rate / 20)-1)) / newNumberOfRatings)
     console.log(newTrailRating, (rate/20))
 
+    let newRatedByArray = [...trailData.ratedBy, userInfo.userId]
+    console.log(newRatedByArray)
+
       const response = await fetch('/api/updateTrail/' + trailId, {
         method: "POST",
         body: JSON.stringify({
           "trailRating": newTrailRating.toFixed(1),
-          "numberOfTrailRatings": newNumberOfRatings
+          "numberOfTrailRatings": newNumberOfRatings,
+          "ratedBy": newRatedByArray,
         }),
         headers: {
           "x-access-token": token,
@@ -52,12 +66,13 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
       })
       let fetchedUpdatedTrail = await response.json()
       setTrailData(fetchedUpdatedTrail)
+      setHasNotRated(false)
   }
   return (
     <div className="centered">
       <h3 className="site-title">{trailData.trailName}</h3>
       <span>
-        {isLoggedIn && !isUserTrail ? (
+        {isLoggedIn && !isUserTrail && hasNotRated ? (
           <Rating
             onClick={handleRating}
             size={20}
