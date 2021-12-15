@@ -73,39 +73,40 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
     <div className="centered">
      <div className="site-title">
         <h3>{trailData.trailName}</h3>
-      
-        {isLoggedIn && !isUserTrail && hasNotRated ? (
-          <Rating
-          onClick={handleRating}
-          size={20}
-          ratingValue={trailData.trailRating * 20}
-          label
-          transition
-          readonly={false}
-          fillColor="orange"
-          emptyColor="gray"
-          className="foo"
-          />
-        ) : (
-          <Rating
-          size={20}
-          ratingValue={trailData.trailRating * 20}
-          label
-          transition
-          readonly={true}
-          fillColor="orange"
-          emptyColor="gray"
-          className="foo"
-          />
-        )}
-          <span>
-            {trailData.trailRating} ({trailData.numberOfTrailRatings})
-          </span>
-           {isUserTrail && isLoggedIn ? (
-            <div>This is your trail</div>
-          ) : (
-            <div>This trail was created by: {trailData.userName}</div>
-          )}
+          <div className='trail-ratings'>
+            {isLoggedIn && !isUserTrail && hasNotRated ? (
+              <Rating
+              onClick={handleRating}
+              size={20}
+              ratingValue={trailData.trailRating * 20}
+              label
+              transition
+              readonly={false}
+              fillColor="orange"
+              emptyColor="gray"
+              className="foo"
+              />
+            ) : (
+              <Rating
+              size={20}
+              ratingValue={trailData.trailRating * 20}
+              label
+              transition
+              readonly={true}
+              fillColor="orange"
+              emptyColor="gray"
+              className="foo"
+              />
+            )}
+              <span>
+                {trailData.trailRating} ({trailData.numberOfTrailRatings})
+              </span>
+              {isUserTrail && isLoggedIn ? (
+                <div>This is your trail</div>
+              ) : (
+                <div>This trail was created by: {trailData.userName}</div>
+              )}
+          </div>
         </div>
        
       
@@ -125,7 +126,9 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
           })}
       </div>
           <div className='trail-content'>
+            <h5 className='trail-detail'>Trail Description:</h5>
             <div className="description">{trailData.trailDescription}</div>
+            <h5 className='trail-direction'>Directions To Trail:</h5>
             <div className="map">{trailData.trailMap}</div>
         </div>
 
