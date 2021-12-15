@@ -88,6 +88,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       cityQuadrant: quadrant,
       primaryPhoto: parseInt(primaryPhoto),
       trailRating: 0,
+      numberOfTrailRatings: 0,
     };
 
     const response = await fetch('/api/createTrail', {
