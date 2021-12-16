@@ -1,9 +1,9 @@
 .body {
     display: grid;
     grid-template:
-    "mainLeft mainRight" 20em
-    "photoUpload mainRight" 12em
-    "photoButton mainRight" auto
+    "mainLeft photoUpload" 20em
+    "trailDesc photoUpload" 12em
+    "photoButton photoUpload" auto
     / 50% 50%
 }
 
@@ -22,20 +22,18 @@ h3 {
 .main-input {
     grid-area: mainLeft;
     padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    /* border: 2px solid red; */
+
 }
 
 .trail-description {
-    grid-area: photoUpload;
+    grid-area: trailDesc;
     align-content: top;    
     padding: 0 25px 0 25px;
     /* border: 2px solid green */
 }
 
 .trail-photos {
-    grid-area: mainRight;
+    grid-area: photoUpload;
     padding: 15px;
     border: 0;
     border-left: 1px solid #ccc;
