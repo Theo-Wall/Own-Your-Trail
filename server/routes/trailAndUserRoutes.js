@@ -77,7 +77,7 @@ router.post('/createUser', async (req, res) => {
 
         // check if user already exists
         // Validate if user exists in our database
-        const oldUser = await findUserByEmail(email)
+        const oldUser = await findUserByEmail(email.toLowerCase())
 
         if (oldUser) {
             return res.status(409).send({message: "User Already Exists! Please login", userToken:null})
@@ -127,7 +127,7 @@ router.post ('/login', async (req,res) => {
         }
 
         // Validate if user exists in our database
-        const user = await findUserByEmail(email)
+        const user = await findUserByEmail(email.toLowerCase())
 
         if (user && (await bcrypt.compare (password, user.userPassword))) {
             // Create token
