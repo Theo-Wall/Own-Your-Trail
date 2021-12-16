@@ -29,3 +29,8 @@
 .upload-input:hover {
   background-color: #cccbbe;
 }
+
+.photo-preview {
+  display: flex;
+  flex-wrap: wrap;
+}

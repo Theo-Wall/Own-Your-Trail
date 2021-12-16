@@ -54,6 +54,7 @@ const DisplayPhotoUpload = ({
           </button>
         )}
       </div>
+      <div className="photo-preview">
       {imageData.map((image, index) => {
         return (
           <CreateCard>
@@ -67,6 +68,7 @@ const DisplayPhotoUpload = ({
           </CreateCard>
         );
       })}
+      </div>
     </div>
   );
 };

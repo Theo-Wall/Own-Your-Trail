@@ -35,3 +35,13 @@
     
     overflow: scroll;
 }
+
+.prime-photo-text {
+    font-size: small;
+}
+
+.a-text {
+    text-decoration: none;
+    color: black;
+}
+
