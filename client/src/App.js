@@ -24,7 +24,7 @@ function App() {
   return (
     <div>
       {/* Header and NavBar should always be outside of the Routes due to the fact that they are always going to be on the page */}
-      <div style={{ position: "sticky", top: "0" }}>
+      <div style={{ position: "sticky", top: "0", zIndex: 5000 }}>
         <NavBar
           setLoginScreenState={setLoginScreenState}
           token={token}
