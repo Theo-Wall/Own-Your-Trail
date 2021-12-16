@@ -13,7 +13,7 @@
     border: 1px solid #ddd; /* Gray border */
     border-radius: 4px;  /* Rounded border */
     padding: 5px; /* Some padding */
-    max-width: 300px; /* Set a small width */
+    max-width: 150px; /* Set a small width */
     
 }
 
@@ -45,4 +45,3 @@
     text-decoration: none;
     color: black;
 }
-

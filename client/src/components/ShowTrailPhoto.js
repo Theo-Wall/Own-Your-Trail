@@ -5,13 +5,13 @@ let ShowTrailPhoto = ({photo,photoDescription,onPrimaryPhoto,arrayIndex}) => {
                     return (
                       <div className="show-trail-photo">
                         <a href={photo} className="a-text">
-                          <span className="trail-photo">
+                          <div className="trail-photo">
                             <img
                               className="photo-thumbnails"
                               src={photo}
                               alt="trail"
                             />
-                          </span>
+                          </div>
                           {onPrimaryPhoto && (
                             <div>
                               <label

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Rating } from "react-simple-star-rating"
 import AuthVerify from '../components/Login/AuthVerify'
-import Card from '../components/ui/Card'
+import DetailCard from '../components/ui/DetailCard'
 
 let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registrationScreenState, setRegistrationScreenState, token, setToken, isLoggedIn, setIsLoggedIn, userInfo, setUserInfo }) => {
   let params = useParams();
@@ -116,14 +116,14 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
         {trailData.photos &&
           trailData.photos.map((photo, index) => {
             return (
-              <Card>
+              <DetailCard>
                 <ShowTrailPhoto 
                   key={photo._id}
                   photo={photo.url}
                   photoDescription={photo.description}
                   arrayIndex={index}
                 />
-              </Card>
+              </DetailCard>
             );
           })}
       </div>
