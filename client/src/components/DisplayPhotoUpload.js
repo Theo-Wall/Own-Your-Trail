@@ -1,5 +1,6 @@
 import "./DisplayPhotoUpload.css";
 import ShowTrailPhoto from "../components/ShowTrailPhoto";
+import CreateCard from "./ui/CreateCard";
 
 const DisplayPhotoUpload = ({
   photos,
@@ -55,13 +56,15 @@ const DisplayPhotoUpload = ({
       </div>
       {imageData.map((image, index) => {
         return (
-          <ShowTrailPhoto
-            key={image.id}
-            photo={image.url}
-            photoDescription={image.description}
-            onPrimaryPhoto={onPrimaryPhoto}
-            arrayIndex={index}
-          />
+          <CreateCard>
+            <ShowTrailPhoto
+              key={image.id}
+              photo={image.url}
+              photoDescription={image.description}
+              onPrimaryPhoto={onPrimaryPhoto}
+              arrayIndex={index}
+            />
+          </CreateCard>
         );
       })}
     </div>

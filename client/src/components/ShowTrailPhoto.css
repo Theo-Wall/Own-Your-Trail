@@ -2,8 +2,8 @@
     /* grid-template: ; */
     display: grid;
     grid-template: 
-    "card-photo" 10em
-    "card-description" 15em
+    "card-photo" auto
+    "card-description" auto
     / 10.3em;
 
 }
@@ -21,9 +21,17 @@
 }
 
 .trail-photo{
-    grid-area: card-photo
+    grid-area: card-photo;
+    overflow: hidden;
 }
 
 .photo-description{
-    grid-area: card-description
+    grid-area: card-description;
+    /* overflow: scroll; */
+}
+
+.card-text {
+    margin: 4px;
+    
+    overflow: scroll;
 }

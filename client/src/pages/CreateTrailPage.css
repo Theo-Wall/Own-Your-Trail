@@ -3,7 +3,7 @@
     grid-template:
     "mainLeft mainRight" 20em
     "photoUpload mainRight" 12em
-    "photoButton mainRight" 2em
+    "photoButton mainRight" auto
     / 50% 50%
 }
 
@@ -22,6 +22,8 @@ h3 {
 .main-input {
     grid-area: mainLeft;
     padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
     /* border: 2px solid red; */
 }
 

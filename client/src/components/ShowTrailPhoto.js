@@ -17,7 +17,7 @@ let ShowTrailPhoto = ({photo,photoDescription,onPrimaryPhoto,arrayIndex}) => {
                             </div>
                             }
                           <span className='photo-description'>
-                            <h5>{photoDescription}</h5>
+                            <h5 className='card-text'>{photoDescription}</h5>
                           </span>  
                         </a>
                       </div>
