@@ -10,7 +10,7 @@ let ShowCreateTrailPhoto = ({
     <div className="show-trail-photo">
       <a href={photo} className="a-text">
         <div className="trail-photo">
-          <img className="photo-thumbnails" src={photo} alt="trail" />
+          <img className="create-photo-thumbnails" src={photo} alt="trail" />
         </div>
         {onPrimaryPhoto && (
           <div>

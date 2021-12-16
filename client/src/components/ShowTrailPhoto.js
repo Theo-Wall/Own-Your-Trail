@@ -7,7 +7,7 @@ let ShowTrailPhoto = ({photo,photoDescription,onPrimaryPhoto,arrayIndex}) => {
                         <a href={photo} className="a-text">
                           <div className="trail-photo">
                             <img
-                              className="photo-thumbnails"
+                              className="show-photo-thumbnails"
                               src={photo}
                               alt="trail"
                             />
