@@ -45,10 +45,10 @@ let ShowTrailDetailPage = ({ loginScreenState, setLoginScreenState, registration
 
   const handleRating = async (rate) => {
     let newNumberOfRatings = await trailData.numberOfTrailRatings + 1
-    let newTrailRating = await ((trailData.trailRating * trailData.numberOfTrailRatings + ((rate / 20)-1)) / newNumberOfRatings)
+    let newTrailRating = ((await (trailData.trailRating) * await (trailData.numberOfTrailRatings) + ((rate / 20)-1)) / newNumberOfRatings)
     console.log(newTrailRating, (rate/20))
 
-    let newRatedByArray = await [...trailData.ratedBy, userInfo.userId]
+    let newRatedByArray =  [...(await trailData.ratedBy), userInfo.userId]
     console.log(newRatedByArray)
     let response
 
