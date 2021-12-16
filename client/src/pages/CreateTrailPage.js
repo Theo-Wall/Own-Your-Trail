@@ -132,7 +132,7 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
           </div>
 
           <div className="trail-location">
-            <label htmlFor="location">Trail Map or Location:</label>
+            <label htmlFor="location">Trail Head Location:</label>
             <input
               value={trailLocation}
               onChange={(event) => onInput(event, setTrailLocation)}
