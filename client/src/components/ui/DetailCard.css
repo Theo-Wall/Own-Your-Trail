@@ -8,5 +8,6 @@
     padding: 0; 
     z-index: 200;
     width: 310px;
+    overflow: hidden;
     /* max-height: 400px; */
   }

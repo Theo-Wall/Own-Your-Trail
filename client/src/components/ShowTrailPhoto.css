@@ -4,7 +4,7 @@
     grid-template: 
     "card-photo" auto
     "card-description" auto
-    / 10.3em;
+    / auto;
 
 }
 
@@ -33,7 +33,7 @@
 
 .card-text {
     margin: 4px;
-    
+    max-height: 30px;
     overflow: scroll;
 }
 
