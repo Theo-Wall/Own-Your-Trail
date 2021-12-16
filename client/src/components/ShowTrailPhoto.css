@@ -5,6 +5,7 @@
     "card-photo" auto
     "card-description" auto
     / auto;
+    
 
 }
 
@@ -35,6 +36,8 @@
     margin: 4px;
     max-height: 30px;
     overflow: scroll;
+    max-width: 250px;
+    min-width: none;
 }
 
 .prime-photo-text {
@@ -44,5 +47,9 @@
 .a-text {
     text-decoration: none;
     color: black;
+    /* font-size: 0.9em; */
+    
+    
+    
 }
 
