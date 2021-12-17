@@ -56,8 +56,9 @@ const CreateTrailPage = ({ loginScreenState, setLoginScreenState, registrationSc
       });
 
     // organizing the data from the cloudinary response, allows for photos/descriptions to be saved one after another
-    // console.log(imageUrl)
-    // console.log(imageUrl.data[0].url)
+    
+    console.log(imageUrl)
+    console.log(imageUrl.data[0].url)
 
     imageUrl.data[0].description = photoDescription;
 
