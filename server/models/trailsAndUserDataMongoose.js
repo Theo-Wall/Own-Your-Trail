@@ -32,7 +32,7 @@ async function createTrail(trailData) {
 async function createUser(userData) { //write catch block for errors
     let newUser = new UserData(userData)
     let createdUser = await newUser.save()
-    createdUser.userId=createdUser.id
+    createdUser.userId=await createdUser.id
     await createdUser.save()
     return (createdUser)
 }
@@ -55,9 +55,10 @@ async function findUserByEmail(email) {
 }
 
 async function update(id, updatedTrail) {
-    return Trail.findByIdAndUpdate(id, updatedTrail, {
+    let returnedData = await Trail.findByIdAndUpdate(id, updatedTrail, {
         returnDocument: 'after',
     })
+    return returnedData
 }
 
 async function listTrails() {
